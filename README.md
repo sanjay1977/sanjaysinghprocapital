@@ -1,2 +1,26 @@
-# sanjaysinghprocapital
- Pro Capital by Sanjay Singh is a disciplined trading and design brand. This repo hosts visual loops, BTC insights, and a red-on-white GitHub Pages site rooted in clarity, restraint, and emotional discipline. Presence over performance. Signal over noise.  Let me know if you'd like a version with more technical keywords or a softer emotional tone.
+ # Pro Capital by Sanjay Singh
+
+*Clarity. Discipline. Minimalism.*
+
+Pro Capital is a quietly powerful brand rooted in disciplined BTC trading and geometric visual design. This repository hosts the foundation of our public presence—crafted with restraint, conviction, and emotional intelligence.
+
+---
+
+## 🧠 Philosophy
+
+We trade with structure, not noise.  
+We design with silence, not clutter.  
+We share with presence, not performance.
+
+Each loop, caption, and insight reflects six years of silent study—now distilled into signal.
+
+---
+
+## 🔁 Loop Archive Preview
+
+Coming soon:  
+A curated vault of visual loops from the *Alignment, **Anchor, and **Language of Discipline* series.
+
+Minimalist red-on-white branding.  
+Philosophical captions.  
+Scroll-stopping presence…
