@@ -22,3 +22,55 @@ body {
   100% { transform: scaleY(1); opacity: 0.6; }
 }
 </style>
+<!-- Block 2: Dashboard Teaser -->
+<style>
+  .dashboard-teaser {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .grid-item h2 {
+    color: #d10000; /* Pro Capital red */
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .grid-item p {
+    color: #555;
+    font-size: 1rem;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .grid-item:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+</style>
+
+<section class="dashboard-teaser">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h2>Alignment</h2>
+      <p>Where instinct meets structure.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Loop Archive</h2>
+      <p>Philosophy in motion.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Hosting</h2>
+      <p>Minimalism, hosted.</p>
+    </div>
+  </div>
+</section>
