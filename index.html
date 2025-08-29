@@ -1,80 +1,14 @@
- <div class="candle"></div>
+<!-- Pro Capital Homepage -->
 
 <style>
-body {
-  background: #FAFAFA;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.candle {
-  width: 6px;
-  height: 30px;
-  background: #007BFF; /* Neutral blue */
-  animation: breathe 2s infinite ease-in-out;
-}
-
-@keyframes breathe {
-  0% { transform: scaleY(1); opacity: 0.6; }
-  50% { transform: scaleY(1.2); opacity: 1; }
-  100% { transform: scaleY(1); opacity: 0.6; }
-}
-</style>
-<!-- Block 2: Dashboard Teaser -->
-<style>
-  .dashboard-teaser {
-    background-color: #ffffff;
-    padding: 80px 20px;
-    text-align: center;
+  /* Breathing Animation */
+  @keyframes breathe {
+    0% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.02); }
+    100% { opacity: 0.8; transform: scale(1); }
   }
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 40px;
-    max-width: 960px;
-    margin: 0 auto;
-  }
-
-  .grid-item h2 {
-    color: #d10000; /* Pro Capital red */
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-
-  .grid-item p {
-    color: #555;
-    font-size: 1rem;
-    margin: 0;
-    font-style: italic;
-  }
-
-  .grid-item:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
-  }
-</style>
-
-<section class="dashboard-teaser">
-  <div class="grid-container">
-    <div class="grid-item">
-      <h2>Alignment</h2>
-      <p>Where instinct meets structure.</p>
-    </div>
-    <div class="grid-item">
-      <h2>Loop Archive</h2>
-      <p>Philosophy in motion.</p>
-    </div>
-    <div class="grid-item">
-      <h2>Hosting</h2>
-      <p>Minimalism, hosted.</p>
-    </div>
-  </div>
-</section><!-- Block 1: Homepage Intro -->
-<style>
+  /* Branding Signature */
   .branding-signature {
     text-align: center;
     margin-top: 40px;
@@ -95,17 +29,66 @@ body {
     animation: breathe 4s ease-in-out infinite;
   }
 
-  @keyframes breathe {
-    0% { opacity: 0.8; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.02); }
-    100% { opacity: 0.8; transform: scale(1); }
+  /* Dashboard Grid */
+  .dashboard-teaser {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .grid-item {
+    text-align: center;
+  }
+
+  .grid-item h2 {
+    color: #d10000;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .grid-item p {
+    color: #555;
+    font-size: 1rem;
+    margin: 0;
+    font-style: italic;
+  }
+
+  .grid-item:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+
+  /* Mobile Padding */
+  @media (max-width: 600px) {
+    section, footer {
+      padding: 40px 10px;
+    }
   }
 </style>
 
+<!-- Top Fill: Hero Presence -->
+<section style="background-color:#fff; padding:60px 20px; text-align:center;">
+  <h2 style="color:#d10000; font-size:1.8rem; font-weight:600;">Stillness is the Setup</h2>
+  <p style="color:#555; font-size:1rem; font-style:italic; max-width:680px; margin:20px auto;">
+    Pro Capital begins in silence.<br>
+    Every block, every breath—aligned with intent.
+  </p>
+</section>
+
+<!-- Block 1: Homepage Intro -->
 <section style="background-color:#ffffff; padding:80px 20px; text-align:center;">
   <h1 style="color:#d10000; font-size:2rem; font-weight:600;">Pro Capital</h1>
   <p style="color:#555; font-size:1.1rem; max-width:720px; margin:20px auto; font-style:italic;">
-    Trading is not performance. It’s presence.  
+    Trading is not performance. It’s presence.<br>
     Structure, silence, and memory—aligned.
   </p>
 
@@ -114,3 +97,42 @@ body {
     <p class="brand-tagline">Presence over performance. Discipline over display.</p>
   </div>
 </section>
+
+<!-- Block 2: Dashboard Teaser -->
+<section class="dashboard-teaser">
+  <div class="grid-container">
+    <div class="grid-item">
+      <h2>Alignment</h2>
+      <p>Where content meets structure.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Loop Archive</h2>
+      <p>Philosophy in motion.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Hosting</h2>
+      <p>Milestones, hosted.</p>
+    </div>
+    <div class="grid-item">
+      <h2>Pro Capital</h2>
+      <p>Trusting is not performing. It's about how it's structured and aligned.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom Fill: Footer Presence -->
+<footer style="background-color:#fff; text-align:center; padding:60px 20px;">
+  <p style="color:#d10000; font-size:1rem; font-weight:500;">
+    Sanjay Singh · Pro Capital
+  </p>
+  <p style="color:#777; font-size:0.85rem; font-style:italic;">
+    Built in silence. Shared with discipline.
+  </p>
+</footer  
+  
+     
+       
+     
+     
+ 
+ 
