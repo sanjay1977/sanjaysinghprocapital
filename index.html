@@ -1,179 +1,238 @@
- <!DOCTYPE html>                                                                                                              Contacts: Working links for Email, X, and LinkedIn in the top-left nav  
-- Structure: Single self-contained file; modular pc-* classes; semantic sections with accessible labels  
-- Dashboard: Tight lead, three essentials with bold keys; no emojis, no clutter  
-- Loop Archive: Three sample entries with quiet, disciplined tone; expandable list pattern  
-- Hosting: Compact teaser with badges; static-first, HTTPS, uptime target, CDN  
-- About: Manifesto-style copy aligned to presence and discipline  
-- Footer: Minimal legal line; no duplicate contact block to avoid redundancy
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pro Capital</title>
-  <meta name="description" content="Pro Capital — Presence. Discipline. Clarity." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay Singh Pro Capital</title>
   <style>
-    :root{
-      --pc-red:#d00;
-      --pc-text:#222;
-      --pc-muted:#555;
-      --pc-line:#eee;
-      --pc-bg:#fff;
-      --pc-max:720px;
-      --pc-gap:22px;
+    :root {
+      --pc-red: #cc0000;
+      --pc-ink: #111;
+      --pc-bg: #fff;
+      --pc-border: #e9e9e9;
     }
 
-    /* Base */
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--pc-bg);color:var(--pc-text)}
-    body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.55;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: var(--pc-bg);
+      color: var(--pc-ink);
     }
-    a{color:var(--pc-red);text-decoration:none}
-    a:hover{text-decoration:underline}
-    a:focus{outline:2px solid var(--pc-red);outline-offset:2px}
-
-    /* Layout */
-    .pc-wrap{max-width:var(--pc-max);margin:0 auto;padding:26px}
-    .pc-section{border-top:1px solid var(--pc-line);padding-top:calc(var(--pc-gap) + 2px);margin-top:calc(var(--pc-gap) + 4px)}
 
     /* Header */
-    .pc-header{display:grid;gap:10px}
-    .pc-contacts{display:flex;gap:14px;align-items:center}
-    .pc-link{font-size:.94rem;letter-spacing:.1px}
-    .pc-brand{margin-top:2px}
-    .pc-title{margin:0;font-size:2.4rem;font-weight:800;letter-spacing:.2px;color:var(--pc-red)}
-    .pc-tagline{margin:6px 0 0;color:var(--pc-muted);font-size:1.06rem}
-
-    /* Headings */
-    .pc-h2{margin:0 0 10px;font-size:1.45rem;font-weight:800;color:#222;letter-spacing:.1px}
-
-    /* Text */
-    .pc-lead{margin:0 0 14px;color:var(--pc-muted)}
-    .pc-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-    .pc-key{font-weight:700;color:#222;margin-right:6px}
-
-    /* Loop Archive */
-    .pc-loop{display:grid;gap:12px}
-    .pc-loop-item{
-      display:grid;gap:4px;
-      padding:10px 0;border-top:1px dashed var(--pc-line)
+    .pc-header {
+      position: sticky;
+      top: 0;
+      background: var(--pc-bg);
+      border-bottom: 1px solid var(--pc-border);
+      z-index: 1000;
     }
-    .pc-loop-item:first-child{border-top:none;padding-top:0}
-    .pc-loop-meta{font-size:.9rem;color:var(--pc-muted)}
-    .pc-loop-title{font-weight:700}
-    .pc-loop-note{color:var(--pc-muted)}
 
-    /* Hosting teaser */
-    .pc-card{
-      border:1px solid var(--pc-line);
-      border-radius:8px;
-      padding:14px 14px 12px;
+    .pc-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
     }
-    .pc-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
-    .pc-badge{
-      border:1px solid var(--pc-line);
-      border-radius:999px;
-      padding:4px 10px;
-      font-size:.88rem;
-      color:#333;
-      background:#fff;
+
+    .pc-left {
+      display: flex;
+      gap: 16px;
+    }
+
+    .pc-link {
+      color: var(--pc-red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Menu */
+    .pc-menu-toggle {
+      display: none;
+    }
+
+    .pc-menu-button {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--pc-border);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .pc-menu-icon {
+      width: 18px;
+      height: 2px;
+      background: var(--pc-ink);
+      position: relative;
+    }
+
+    .pc-menu-icon::before,
+    .pc-menu-icon::after {
+      content: "";
+      position: absolute;
+      width: 18px;
+      height: 2px;
+      background: var(--pc-ink);
+    }
+
+    .pc-menu-icon::before {
+      top: -6px;
+    }
+
+    .pc-menu-icon::after {
+      top: 6px;
+    }
+
+    .pc-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--pc-bg);
+      border-top: 1px solid var(--pc-border);
+    }
+
+    .pc-menu-item {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--pc-border);
+      color: var(--pc-ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .pc-menu-toggle:checked ~ .pc-menu-button {
+      border-color: var(--pc-ink);
+    }
+
+    .pc-menu-toggle:checked ~ .pc-menu {
+      display: flex;
+    }
+
+    @media (min-width: 768px) {
+      .pc-menu {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        border: 0;
+      }
+
+      .pc-menu-button {
+        display: none;
+      }
+    }
+
+    /* Sections */
+    .pc-intro {
+      margin: 20px 16px 8px;
+      font-size: 0.975rem;
+      max-width: 64ch;
+    }
+
+    .pc-section {
+      padding: 24px 16px;
+      border-bottom: 1px solid var(--pc-border);
+    }
+
+    .pc-title {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .pc-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 6px;
+    }
+
+    .pc-desc {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .pc-loop {
+      margin: 12px 0;
+      padding-left: 8px;
+      border-left: 2px solid var(--pc-red);
     }
 
     /* Footer */
-    .pc-footer{font-size:.92rem;color:var(--pc-muted);padding:18px 0 6px}
-
-    /* Responsive */
-    @media (max-width:480px){
-      .pc-title{font-size:2rem}
-      .pc-h2{font-size:1.3rem}
+    .pc-footer {
+      padding: 16px;
+      text-align: center;
+      font-size: 0.875rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <main class="pc-wrap">
-    <!-- Header -->
-    <header class="pc-header" aria-label="Pro Capital header">
-      <nav class="pc-contacts" aria-label="Contact">
-        <a class="pc-link" href="mailto:sanjayprocapital@gmail.com">Email</a>
-        <a class="pc-link" href="https://x.com/sanjau7709" target="_blank" rel="noopener">X</a>
-        <a class="pc-link" href="https://linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener">LinkedIn</a>
-      </nav>
-      <div class="pc-brand">
-        <h1 class="pc-title">Pro Capital</h1>
-        <p class="pc-tagline">Presence. Discipline. Clarity.</p>
+
+  <!-- Header -->
+  <header class="pc-header">
+    <nav class="pc-topbar">
+      <div class="pc-left">
+        <a class="pc-link" href="mailto:sanjay1977@gmail.com">Email</a>
+        <a class="pc-link" href="https://x.com/sanjay1977" rel="me">X</a>
+        <a class="pc-link" href="https://linkedin.com/in/sanjay1977" rel="me">LinkedIn</a>
       </div>
-    </header>
 
-    <!-- Dashboard -->
-    <section id="dashboard" class="pc-section" aria-labelledby="dashboard-title">
-      <h2 id="dashboard-title" class="pc-h2">Dashboard</h2>
-      <p class="pc-lead">
-        A disciplined overview of Pro Capital’s market rhythm. Built for clarity, not display. Minimal structure. Professional presence.
-      </p>
-      <ul class="pc-list">
-        <li><span class="pc-key">Market Focus:</span>Equity, discipline, long‑term clarity</li>
-        <li><span class="pc-key">Brand Identity:</span>Red‑on‑white, bold headlines, restrained captions</li>
-        <li><span class="pc-key">Navigation:</span>Modular blocks, no duplication, clean flow</li>
-      </ul>
-    </section>
+      <input type="checkbox" id="pc-menu-toggle" class="pc-menu-toggle">
+      <label for="pc-menu-toggle" class="pc-menu-button" aria-label="Menu">
+        <span class="pc-menu-icon"></span>
+      </label>
 
-    <!-- Loop Archive -->
-    <section id="loop-archive" class="pc-section" aria-labelledby="loop-title">
-      <h2 id="loop-title" class="pc-h2">Loop Archive</h2>
-      <p class="pc-lead">A quiet cadence of notes. Presence over performance.</p>
-      <div class="pc-loop" role="list">
-        <article class="pc-loop-item" role="listitem">
-          <div class="pc-loop-meta">Week 35 • 2025‑08‑30</div>
-          <div class="pc-loop-title">Discipline holds when noise rises</div>
-          <div class="pc-loop-note">Trim opinions. Keep the plan. Presence is the edge.</div>
-        </article>
-        <article class="pc-loop-item" role="listitem">
-          <div class="pc-loop-meta">Week 34</div>
-          <div class="pc-loop-title">Clarity over complexity</div>
-          <div class="pc-loop-note">Reduce inputs. Extend horizons. Let time do the work.</div>
-        </article>
-        <article class="pc-loop-item" role="listitem">
-          <div class="pc-loop-meta">Week 33</div>
-          <div class="pc-loop-title">Rhythm before result</div>
-          <div class="pc-loop-note">Ritual beats urgency. Quiet beats speed.</div>
-        </article>
+      <div class="pc-menu">
+        <a class="pc-menu-item" href="#loop-1">Loop 1</a>
+        <a class="pc-menu-item" href="#loop-2">Loop 2</a>
+        <a class="pc-menu-item" href="#loop-3">Loop 3</a>
+        <a class="pc-menu-item" href="#dashboard">Dashboard</a>
+        <a class="pc-menu-item" href="#hosting">Hosting</a>
+        <a class="pc-menu-item" href="#about">About</a>
       </div>
-    </section>
+    </nav>
+  </header>
 
-    <!-- Hosting Teaser -->
-    <section id="hosting" class="pc-section" aria-labelledby="hosting-title">
-      <h2 id="hosting-title" class="pc-h2">Hosting</h2>
-      <div class="pc-card">
-        <p class="pc-lead">Simple stack. Fast delivery. No distractions.</p>
-        <div class="pc-badges" aria-label="Hosting details">
-          <span class="pc-badge">Static-first</span>
-          <span class="pc-badge">HTTPS</span>
-          <span class="pc-badge">99.9% target</span>
-          <span class="pc-badge">CDN</span>
-        </div>
-      </div>
-    </section>
+  <!-- Intro -->
+  <p class="pc-intro">
+    Presence over performance. Discipline over display. Built for clarity.
+  </p>
 
-    <!-- About -->
-    <section id="about" class="pc-section" aria-labelledby="about-title">
-      <h2 id="about-title" class="pc-h2">About</h2>
-      <p class="pc-lead">
-        Pro Capital is built on restraint: presence over performance, discipline over display. Minimalism is not style—it’s method.
-      </p>
-      <ul class="pc-list">
-        <li><span class="pc-key">Approach:</span>Decisions reduced to essentials. Bias toward clarity.</li>
-        <li><span class="pc-key">Practice:</span>Consistent process, long view, measurable improvement.</li>
-        <li><span class="pc-key">Output:</span>Clean structures that age well.</li>
-      </ul>
-    </section>
+  <!-- Dashboard -->
+  <section class="pc-section" id="dashboard">
+    <h1 class="pc-title">Pro Capital</h1>
+    <p class="pc-desc">A disciplined overview of Pro Capital’s market rhythm. Built for clarity, not display. Minimal structure.</p>
+  </section>
 
-    <!-- Footer -->
-    <footer class="pc-footer pc-section" aria-label="Footer">
-      <div>© Pro Capital. All rights reserved.</div>
-    </footer>
-  </main>
+  <!-- Loop Archive -->
+  <section class="pc-section" id="loop">
+    <h2 class="pc-subtitle">Loop Archive</h2>
+
+    <div class="pc-loop" id="loop-1">
+      <strong>Loop 1:</strong> Description of first loop entry.
+    </div>
+    <div class="pc-loop" id="loop-2">
+      <strong>Loop 2:</strong> Description of second loop entry.
+    </div>
+    <div class="pc-loop" id="loop-3">
+      <strong>Loop 3:</strong> Description of third loop entry.
+    </div>
+  </section>
+
+  <!-- Hosting -->
+  <section class="pc-section" id="hosting">
+    <h2 class="pc-subtitle">Hosting</h2>
+    <p class="pc-desc">Compact teaser with badge, strict uptime target, CDN-backed delivery.</p>
+  </section>
+
+  <!-- About -->
+  <section class="pc-section" id="about">
+    <h2 class="pc-subtitle">About</h2>
+    <p class="pc-desc">This project reflects a minimalist manifesto—presence, not performance. Every block is intentional.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="pc-footer">
+    <p class="pc-legal">© 2025 Sanjay Singh Pro Capital. All rights reserved.</p>
+  </footer>
+
 </body>
-</html> 
+</html>
