@@ -1,28 +1,121 @@
-                                                                                                             <!-- Main Container -->
-<div style="font-family:sans-serif; max-width:720px; margin:auto; padding:2em; color:#333;">
+ <!-- Pro Capital — Header + Dashboard (from scratch) -->
+<div class="pc-wrap">
+  <header class="pc-header" aria-label="Pro Capital header">
+    <nav class="pc-contacts" aria-label="Contact links">
+      <a href="mailto:sanjayprocapital@gmail.com" class="pc-link">Email</a>
+      <a href="https://x.com/sanjau7709" target="_blank" rel="noopener" class="pc-link">X</a>
+      <a href="https://linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener" class="pc-link">LinkedIn</a>
+    </nav>
 
-  <!-- Header -->
-  <header style="text-align:left; margin-bottom:2em;">
-    <h1 style="color:#d00; font-size:2.4em; margin:0;">Pro Capital</h1>
-    <p style="font-size:1.1em; margin:0.2em 0 1em;">Presence. Discipline. Clarity.</p>
-    <div style="font-size:0.9em;">
-      <a href="mailto:sanjaypressujain@gmail.com" style="margin-right:1em; color:#d00; text-decoration:none;">Email</a>
-      <a href="https://linkedin.com/in/sanjay1977" target="_blank" style="color:#d00; text-decoration:none;">LinkedIn</a>
+    <div class="pc-brand">
+      <h1 class="pc-title">Pro Capital</h1>
+      <p class="pc-tagline">Presence. Discipline. Clarity.</p>
     </div>
   </header>
 
-  <!-- Dashboard Block -->
-  <section style="border-top:1px solid #eee; padding-top:2em;">
-    <h2 style="font-size:1.6em; color:#222; margin-bottom:0.5em;">Dashboard</h2>
-    <p style="font-size:1em; color:#555; line-height:1.6;">
-      A disciplined overview of Pro Capital’s market presence.  
-      Built for clarity, not clutter—this dashboard reflects our commitment to professional rhythm and minimalist design.
+  <section id="dashboard" class="pc-section" aria-labelledby="dashboard-title">
+    <h2 id="dashboard-title" class="pc-h2">Dashboard</h2>
+    <p class="pc-lead">
+      A disciplined overview of Pro Capital’s market rhythm. Built for clarity, not display.
+      Minimal structure. Professional presence.
     </p>
-    <ul style="list-style:none; padding:0; margin-top:1em;">
-      <li style="margin-bottom:0.5em;">📈 Market Focus: Equity, discipline, long-term clarity</li>
-      <li style="margin-bottom:0.5em;">🧱 Brand Identity: Red-on-white, bold headlines, restrained captions</li>
-      <li style="margin-bottom:0.5em;">🧭 Navigation: Modular blocks, no duplication, clean flow</li>
+
+    <ul class="pc-list">
+      <li>
+        <span class="pc-key">Market Focus:</span>
+        Equity, discipline, long‑term clarity
+      </li>
+      <li>
+        <span class="pc-key">Brand Identity:</span>
+        Red‑on‑white, bold headlines, restrained captions
+      </li>
+      <li>
+        <span class="pc-key">Navigation:</span>
+        Modular blocks, no duplication, clean flow
+      </li>
     </ul>
   </section>
-
 </div>
+
+<style>
+  :root {
+    --pc-red: #d00;
+    --pc-text: #222;
+    --pc-muted: #555;
+    --pc-line: #eee;
+    --pc-max: 720px;
+    --pc-gap: 20px;
+  }
+
+  .pc-wrap {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color: var(--pc-text);
+    background: #fff;
+    max-width: var(--pc-max);
+    margin: 0 auto;
+    padding: 24px;
+    line-height: 1.5;
+  }
+
+  /* Header */
+  .pc-header { display: grid; gap: 10px; }
+  .pc-contacts { display: flex; gap: 14px; align-items: center; }
+  .pc-link {
+    color: var(--pc-red);
+    text-decoration: none;
+    font-size: 0.92rem;
+    letter-spacing: 0.1px;
+  }
+  .pc-link:hover { text-decoration: underline; }
+
+  .pc-brand { margin-top: 4px; }
+  .pc-title {
+    color: var(--pc-red);
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  .pc-tagline {
+    margin: 4px 0 0;
+    font-size: 1.05rem;
+    color: var(--pc-muted);
+  }
+
+  /* Section */
+  .pc-section {
+    border-top: 1px solid var(--pc-line);
+    padding-top: calc(var(--pc-gap) + 4px);
+    margin-top: calc(var(--pc-gap) + 6px);
+  }
+  .pc-h2 {
+    font-size: 1.45rem;
+    margin: 0 0 8px;
+    color: #222;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+  }
+  .pc-lead {
+    margin: 0 0 12px;
+    color: var(--pc-muted);
+    font-size: 1rem;
+  }
+
+  .pc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 8px;
+  }
+  .pc-key {
+    font-weight: 700;
+    color: #222;
+    margin-right: 6px;
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .pc-title { font-size: 2rem; }
+    .pc-h2 { font-size: 1.3rem; }
+  }
+</style>
