@@ -2,221 +2,149 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanjay Singh Pro Capital</title>
-  <meta name="description" content="Sanjay Singh Pro Capital — minimalist presence, disciplined analysis, professional clarity." />
   <style>
     :root {
-      --brand: #ff0000;
-      --ink: #000000;
-      --paper: #ffffff;
-      --muted: #8a8a8a;
-      --radius: 6px;
-      --space: 16px;
-      --space-lg: 24px;
-      --maxw: 960px;
+      --brand: #C40000;
+      --bg: #FFFFFF;
+      --text: #000000;
+      --pad: 16px;
+      --gap: 24px;
+      --radius: 999px;
     }
 
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--ink);
-      background: var(--paper);
-      line-height: 1.4;
+      margin: 0;
+      font-family: sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
-    a { color: var(--brand); text-decoration: none; }
-    a:focus-visible, button:focus-visible, summary:focus-visible {
-      outline: 2px solid var(--brand);
-      outline-offset: 2px;
-      border-radius: 4px;
-    }
-    h1, h2 { margin: 0 0 8px 0; font-weight: 700; }
-    p { margin: 0; }
-    section { padding: var(--space-lg) var(--space); border-top: 1px solid #eee; }
-    .wrap { max-width: var(--maxw); margin: 0 auto; }
 
-    /* Header */
     header {
-      position: sticky; top: 0; z-index: 10;
-      background: var(--brand); color: #fff;
-      padding: 12px var(--space);
-      border-bottom: 1px solid #e1e1e1;
-    }
-    .header-inner {
-      max-width: var(--maxw);
-      margin: 0 auto;
+      position: relative;
+      padding: var(--pad);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
+      align-items: center;
     }
-    .cluster {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .icons a {
-      color: #fff; font-size: 1.25rem; line-height: 1;
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 28px; height: 28px; border-radius: 4px;
-    }
-    .brand { font-size: 1.4rem; font-weight: 800; letter-spacing: 0.2px; }
 
-    /* Menu */
-    details.menu { position: relative; }
-    summary.menu-button {
-      list-style: none;
-      cursor: pointer;
-      user-select: none;
-      touch-action: manipulation;
-      border: 2px solid #fff;
-      color: #fff;
-      background: transparent;
-      padding: 6px 12px;
-      border-radius: 4px;
-      font-weight: 600;
+    /* Contact icons block */
+    .contact-icons {
+      display: flex;
+      gap: 10px;
     }
-    summary.menu-button::-webkit-details-marker { display: none; }
-    .menu-panel {
-      position: absolute; right: 0; top: calc(100% + 8px);
-      background: #fff; color: var(--ink);
-      border: 1px solid var(--brand); border-radius: var(--radius);
-      min-width: 200px; padding: 8px;
-    }
-    .menu-panel a {
-      display: block; padding: 10px 12px; border-radius: 4px; color: var(--ink);
-    }
-    .menu-panel a:hover { background: #f8f8f8; }
-    details.menu[open] > summary.menu-button { background: rgba(255,255,255,0.1); }
 
-    /* Dashboard */
-    .cards {
-      display: grid; gap: 12px;
-      grid-template-columns: 1fr;
-    }
-    .card {
+    .contact-icons .icon {
+      width: 32px;
+      height: 32px;
+      display: inline-grid;
+      place-items: center;
       border: 1px solid var(--brand);
       border-radius: var(--radius);
-      padding: var(--space);
+      background: var(--bg);
+      color: var(--brand);
+      text-decoration: none;
+      transition: background 120ms ease;
     }
-    .card h3 { margin: 0 0 6px 0; font-size: 1rem; font-weight: 700; }
-    .muted { color: var(--muted); }
 
-    /* Archive */
-    .list { display: grid; gap: 8px; }
-    .item { padding: 10px 12px; border: 1px solid #eee; border-radius: var(--radius); }
-    .item a { color: var(--ink); }
-    .item a:hover { color: var(--brand); }
+    .contact-icons .icon:hover {
+      background: var(--brand);
+      color: #fff;
+    }
 
-    /* Hosting */
-    .banner {
-      border: 1px dashed var(--brand);
+    .contact-icons .icon svg {
+      width: 70%;
+      height: 70%;
+    }
+
+    /* Menu button */
+    .menu-button {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--brand);
       border-radius: var(--radius);
-      padding: var(--space);
+      background: var(--bg);
+      color: var(--brand);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
     }
 
-    /* Footer */
-    footer {
-      padding: var(--space-lg) var(--space);
+    .menu-button:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    .menu-button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Section styling */
+    section {
+      padding: var(--pad);
       border-top: 1px solid #eee;
-      color: var(--muted);
     }
-    .foot-row {
-      max-width: var(--maxw); margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; flex-wrap: wrap;
-    }
-    .foot-icons a { color: var(--brand); font-size: 1.2rem; }
 
-    /* Responsive */
-    @media (min-width: 700px) {
-      .brand { font-size: 1.6rem; }
-      .cards { grid-template-columns: repeat(3, 1fr); }
+    footer {
+      padding: var(--pad);
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header with contact icons and menu -->
   <header>
-    <div class="header-inner">
-      <div class="cluster">
-        <nav class="icons" aria-label="Contact">
-          <a href="mailto:sanjayprocapital@gmail.com" title="Email" aria-label="Email">&#128231;</a>
-          <a href="https://twitter.com/SanjayPro5" target="_blank" rel="noopener" title="X" aria-label="X">&#129413;</a>
-        </nav>
-        <div class="brand">Sanjay Singh Pro Capital</div>
-      </div>
+    <nav class="contact-icons" aria-label="Contact links">
+      <!-- Gmail -->
+      <a class="icon" href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </a>
+      <!-- X -->
+      <a class="icon" href="https://x.com/SanjayPro5" target="_blank" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </a>
+      <!-- LinkedIn -->
+      <a class="icon" href="https://www.linkedin.com/in/USERNAME" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><circle cx="7" cy="9" r="1.2" fill="currentColor"/><rect x="6" y="11" width="2.2" height="6.5" rx="0.6" fill="currentColor"/><path d="M11 11.5c1 0 1.8.6 2.1 1.3v-1.1h2.2v5.8h-2.2v-3.3c0-.9-.6-1.4-1.3-1.4-.8 0-1.3.6-1.3 1.4v3.3H8.3v-6h2.1v.4c.3-.2.9-.4 1.6-.4z" fill="currentColor"/></svg>
+      </a>
+    </nav>
 
-      <details class="menu">
-        <summary class="menu-button">Menu</summary>
-        <nav class="menu-panel" aria-label="Site">
-          <a href="#dashboard">Dashboard</a>
-          <a href="#archive">Loop Archive</a>
-          <a href="#hosting">Hosting</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </details>
-    </div>
+    <!-- Menu button -->
+    <button class="menu-button" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
   </header>
 
-  <main>
+  <!-- Main sections -->
+  <section id="dashboard">
+    <h2>Dashboard</h2>
+    <p>Placeholder for your modular dashboard block.</p>
+  </section>
 
-    <!-- Dashboard -->
-    <section id="dashboard">
-      <div class="wrap">
-        <h2>Dashboard</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Focus</h3>
-            <p class="muted">Presence over performance. Daily discipline, zero noise.</p>
-          </div>
-          <div class="card">
-            <h3>Signals</h3>
-            <p class="muted">Clean reads only. No clutter, no guesswork.</p>
-          </div>
-          <div class="card">
-            <h3>Status</h3>
-            <p class="muted">Building quietly. Iterating with intent.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section id="loop-archive">
+    <h2>Loop Archive</h2>
+    <p>Placeholder for your archive block.</p>
+  </section>
 
-    <!-- Loop Archive -->
-    <section id="archive">
-      <div class="wrap">
-        <h2>Loop Archive</h2>
-        <div class="list">
-          <div class="item"><a href="#archive">Entry 01 — Baseline established, code reset, verified links.</a></div>
-          <div class="item"><a href="#archive">Entry 02 — Header refined, icons-only presence.</a></div>
-          <div class="item"><a href="#archive">Entry 03 — Sections scaffolded for clarity.</a></div>
-        </div>
-      </div>
-    </section>
+  <section id="hosting-teaser">
+    <h2>Hosting Teaser</h2>
+    <p>Placeholder for hosting teaser block.</p>
+  </section>
 
-    <!-- Hosting teaser -->
-    <section id="hosting">
-      <div class="wrap">
-        <h2>Hosting</h2>
-        <div class="banner">
-          <p>Reliable. Minimal. Fast. The stack reflects the stance.</p>
-        </div>
-      </div>
-    </section>
+  <section id="about">
+    <h2>About</h2>
+    <p>Placeholder for your About block.</p>
+  </section>
 
-    <!-- About -->
-    <section id="about">
-      <div class="wrap">
-        <h2>About</h2>
-        <p class="muted">Minimalist presence. Disciplined analysis. Professional clarity. One candle, long code.</p>
-      </div>
-    </section>
+  <footer>
+    &copy; 2025 Sanjay Singh Pro Capital — Minimal Presence. Professional Clarity.
+  </footer>
 
-    <!-- Contact -->
-    <section id="contact">
-      <div class="wrap">
-        <h2>Contact</h2>
-        <p>Email for professional inquiries:</p>
-        <p><a href="mailto:sanjayprocapital@gmail.com">sanjayprocapital@gmail.com</a></
+</body>
+</html>
