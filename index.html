@@ -1,121 +1,173 @@
- <!-- Pro Capital — Header + Dashboard (from scratch) -->
-<div class="pc-wrap">
-  <header class="pc-header" aria-label="Pro Capital header">
-    <nav class="pc-contacts" aria-label="Contact links">
-      <a href="mailto:sanjayprocapital@gmail.com" class="pc-link">Email</a>
-      <a href="https://x.com/sanjau7709" target="_blank" rel="noopener" class="pc-link">X</a>
-      <a href="https://linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener" class="pc-link">LinkedIn</a>
-    </nav>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pro Capital</title>
+  <meta name="description" content="Pro Capital — Presence. Discipline. Clarity." />
+  <style>
+    :root{
+      --pc-red:#d00;
+      --pc-text:#222;
+      --pc-muted:#555;
+      --pc-line:#eee;
+      --pc-bg:#fff;
+      --pc-max:720px;
+      --pc-gap:22px;
+    }
 
-    <div class="pc-brand">
-      <h1 class="pc-title">Pro Capital</h1>
-      <p class="pc-tagline">Presence. Discipline. Clarity.</p>
-    </div>
-  </header>
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--pc-bg);color:var(--pc-text)}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--pc-red);text-decoration:none}
+    a:hover{text-decoration:underline}
+    a:focus{outline:2px solid var(--pc-red);outline-offset:2px}
 
-  <section id="dashboard" class="pc-section" aria-labelledby="dashboard-title">
-    <h2 id="dashboard-title" class="pc-h2">Dashboard</h2>
-    <p class="pc-lead">
-      A disciplined overview of Pro Capital’s market rhythm. Built for clarity, not display.
-      Minimal structure. Professional presence.
-    </p>
+    /* Layout */
+    .pc-wrap{max-width:var(--pc-max);margin:0 auto;padding:26px}
+    .pc-section{border-top:1px solid var(--pc-line);padding-top:calc(var(--pc-gap) + 2px);margin-top:calc(var(--pc-gap) + 4px)}
 
-    <ul class="pc-list">
-      <li>
-        <span class="pc-key">Market Focus:</span>
-        Equity, discipline, long‑term clarity
-      </li>
-      <li>
-        <span class="pc-key">Brand Identity:</span>
-        Red‑on‑white, bold headlines, restrained captions
-      </li>
-      <li>
-        <span class="pc-key">Navigation:</span>
-        Modular blocks, no duplication, clean flow
-      </li>
-    </ul>
-  </section>
-</div>
+    /* Header */
+    .pc-header{display:grid;gap:10px}
+    .pc-contacts{display:flex;gap:14px;align-items:center}
+    .pc-link{font-size:.94rem;letter-spacing:.1px}
+    .pc-brand{margin-top:2px}
+    .pc-title{margin:0;font-size:2.4rem;font-weight:800;letter-spacing:.2px;color:var(--pc-red)}
+    .pc-tagline{margin:6px 0 0;color:var(--pc-muted);font-size:1.06rem}
 
-<style>
-  :root {
-    --pc-red: #d00;
-    --pc-text: #222;
-    --pc-muted: #555;
-    --pc-line: #eee;
-    --pc-max: 720px;
-    --pc-gap: 20px;
-  }
+    /* Headings */
+    .pc-h2{margin:0 0 10px;font-size:1.45rem;font-weight:800;color:#222;letter-spacing:.1px}
 
-  .pc-wrap {
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color: var(--pc-text);
-    background: #fff;
-    max-width: var(--pc-max);
-    margin: 0 auto;
-    padding: 24px;
-    line-height: 1.5;
-  }
+    /* Text */
+    .pc-lead{margin:0 0 14px;color:var(--pc-muted)}
+    .pc-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+    .pc-key{font-weight:700;color:#222;margin-right:6px}
 
-  /* Header */
-  .pc-header { display: grid; gap: 10px; }
-  .pc-contacts { display: flex; gap: 14px; align-items: center; }
-  .pc-link {
-    color: var(--pc-red);
-    text-decoration: none;
-    font-size: 0.92rem;
-    letter-spacing: 0.1px;
-  }
-  .pc-link:hover { text-decoration: underline; }
+    /* Loop Archive */
+    .pc-loop{display:grid;gap:12px}
+    .pc-loop-item{
+      display:grid;gap:4px;
+      padding:10px 0;border-top:1px dashed var(--pc-line)
+    }
+    .pc-loop-item:first-child{border-top:none;padding-top:0}
+    .pc-loop-meta{font-size:.9rem;color:var(--pc-muted)}
+    .pc-loop-title{font-weight:700}
+    .pc-loop-note{color:var(--pc-muted)}
 
-  .pc-brand { margin-top: 4px; }
-  .pc-title {
-    color: var(--pc-red);
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin: 0;
-  }
-  .pc-tagline {
-    margin: 4px 0 0;
-    font-size: 1.05rem;
-    color: var(--pc-muted);
-  }
+    /* Hosting teaser */
+    .pc-card{
+      border:1px solid var(--pc-line);
+      border-radius:8px;
+      padding:14px 14px 12px;
+    }
+    .pc-badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+    .pc-badge{
+      border:1px solid var(--pc-line);
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:.88rem;
+      color:#333;
+      background:#fff;
+    }
 
-  /* Section */
-  .pc-section {
-    border-top: 1px solid var(--pc-line);
-    padding-top: calc(var(--pc-gap) + 4px);
-    margin-top: calc(var(--pc-gap) + 6px);
-  }
-  .pc-h2 {
-    font-size: 1.45rem;
-    margin: 0 0 8px;
-    color: #222;
-    font-weight: 700;
-    letter-spacing: 0.1px;
-  }
-  .pc-lead {
-    margin: 0 0 12px;
-    color: var(--pc-muted);
-    font-size: 1rem;
-  }
+    /* Footer */
+    .pc-footer{font-size:.92rem;color:var(--pc-muted);padding:18px 0 6px}
 
-  .pc-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 8px;
-  }
-  .pc-key {
-    font-weight: 700;
-    color: #222;
-    margin-right: 6px;
-  }
+    /* Responsive */
+    @media (max-width:480px){
+      .pc-title{font-size:2rem}
+      .pc-h2{font-size:1.3rem}
+    }
+  </style>
+</head>
+<body>
+  <main class="pc-wrap">
+    <!-- Header -->
+    <header class="pc-header" aria-label="Pro Capital header">
+      <nav class="pc-contacts" aria-label="Contact">
+        <a class="pc-link" href="mailto:sanjayprocapital@gmail.com">Email</a>
+        <a class="pc-link" href="https://x.com/sanjau7709" target="_blank" rel="noopener">X</a>
+        <a class="pc-link" href="https://linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+      <div class="pc-brand">
+        <h1 class="pc-title">Pro Capital</h1>
+        <p class="pc-tagline">Presence. Discipline. Clarity.</p>
+      </div>
+    </header>
 
-  /* Responsive */
-  @media (max-width: 480px) {
-    .pc-title { font-size: 2rem; }
-    .pc-h2 { font-size: 1.3rem; }
-  }
-</style>
+    <!-- Dashboard -->
+    <section id="dashboard" class="pc-section" aria-labelledby="dashboard-title">
+      <h2 id="dashboard-title" class="pc-h2">Dashboard</h2>
+      <p class="pc-lead">
+        A disciplined overview of Pro Capital’s market rhythm. Built for clarity, not display. Minimal structure. Professional presence.
+      </p>
+      <ul class="pc-list">
+        <li><span class="pc-key">Market Focus:</span>Equity, discipline, long‑term clarity</li>
+        <li><span class="pc-key">Brand Identity:</span>Red‑on‑white, bold headlines, restrained captions</li>
+        <li><span class="pc-key">Navigation:</span>Modular blocks, no duplication, clean flow</li>
+      </ul>
+    </section>
+
+    <!-- Loop Archive -->
+    <section id="loop-archive" class="pc-section" aria-labelledby="loop-title">
+      <h2 id="loop-title" class="pc-h2">Loop Archive</h2>
+      <p class="pc-lead">A quiet cadence of notes. Presence over performance.</p>
+      <div class="pc-loop" role="list">
+        <article class="pc-loop-item" role="listitem">
+          <div class="pc-loop-meta">Week 35 • 2025‑08‑30</div>
+          <div class="pc-loop-title">Discipline holds when noise rises</div>
+          <div class="pc-loop-note">Trim opinions. Keep the plan. Presence is the edge.</div>
+        </article>
+        <article class="pc-loop-item" role="listitem">
+          <div class="pc-loop-meta">Week 34</div>
+          <div class="pc-loop-title">Clarity over complexity</div>
+          <div class="pc-loop-note">Reduce inputs. Extend horizons. Let time do the work.</div>
+        </article>
+        <article class="pc-loop-item" role="listitem">
+          <div class="pc-loop-meta">Week 33</div>
+          <div class="pc-loop-title">Rhythm before result</div>
+          <div class="pc-loop-note">Ritual beats urgency. Quiet beats speed.</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Hosting Teaser -->
+    <section id="hosting" class="pc-section" aria-labelledby="hosting-title">
+      <h2 id="hosting-title" class="pc-h2">Hosting</h2>
+      <div class="pc-card">
+        <p class="pc-lead">Simple stack. Fast delivery. No distractions.</p>
+        <div class="pc-badges" aria-label="Hosting details">
+          <span class="pc-badge">Static-first</span>
+          <span class="pc-badge">HTTPS</span>
+          <span class="pc-badge">99.9% target</span>
+          <span class="pc-badge">CDN</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="pc-section" aria-labelledby="about-title">
+      <h2 id="about-title" class="pc-h2">About</h2>
+      <p class="pc-lead">
+        Pro Capital is built on restraint: presence over performance, discipline over display. Minimalism is not style—it’s method.
+      </p>
+      <ul class="pc-list">
+        <li><span class="pc-key">Approach:</span>Decisions reduced to essentials. Bias toward clarity.</li>
+        <li><span class="pc-key">Practice:</span>Consistent process, long view, measurable improvement.</li>
+        <li><span class="pc-key">Output:</span>Clean structures that age well.</li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pc-footer pc-section" aria-label="Footer">
+      <div>© Pro Capital. All rights reserved.</div>
+    </footer>
+  </main>
+</body>
+</html> 
