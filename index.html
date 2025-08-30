@@ -5,234 +5,61 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanjay Singh Pro Capital</title>
   <style>
-    :root {
-      --pc-red: #cc0000;
-      --pc-ink: #111;
-      --pc-bg: #fff;
-      --pc-border: #e9e9e9;
-    }
-
     body {
-      font-family: sans-serif;
       margin: 0;
-      background: var(--pc-bg);
-      color: var(--pc-ink);
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #000000;
     }
 
-    /* Header */
-    .pc-header {
-      position: sticky;
-      top: 0;
-      background: var(--pc-bg);
-      border-bottom: 1px solid var(--pc-border);
-      z-index: 1000;
-    }
-
-    .pc-topbar {
+    header {
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 16px;
     }
 
-    .pc-left {
-      display: flex;
-      gap: 16px;
+    .brand {
+      font-size: 2em;
+      font-weight: bold;
     }
 
-    .pc-link {
-      color: var(--pc-red);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    /* Menu */
-    .pc-menu-toggle {
-      display: none;
-    }
-
-    .pc-menu-button {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--pc-border);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .menu-button {
+      background: none;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      padding: 8px 12px;
+      font-size: 1em;
       cursor: pointer;
+      border-radius: 4px;
     }
 
-    .pc-menu-icon {
-      width: 18px;
-      height: 2px;
-      background: var(--pc-ink);
-      position: relative;
+    .contact {
+      padding: 20px;
+      text-align: left;
+      font-size: 1em;
+      border-top: 1px solid #ddd;
     }
 
-    .pc-menu-icon::before,
-    .pc-menu-icon::after {
-      content: "";
-      position: absolute;
-      width: 18px;
-      height: 2px;
-      background: var(--pc-ink);
-    }
-
-    .pc-menu-icon::before {
-      top: -6px;
-    }
-
-    .pc-menu-icon::after {
-      top: 6px;
-    }
-
-    .pc-menu {
-      display: none;
-      flex-direction: column;
-      background: var(--pc-bg);
-      border-top: 1px solid var(--pc-border);
-    }
-
-    .pc-menu-item {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--pc-border);
-      color: var(--pc-ink);
+    .contact a {
+      color: #ff0000;
       text-decoration: none;
-      font-weight: 600;
-    }
-
-    .pc-menu-toggle:checked ~ .pc-menu-button {
-      border-color: var(--pc-ink);
-    }
-
-    .pc-menu-toggle:checked ~ .pc-menu {
-      display: flex;
-    }
-
-    @media (min-width: 768px) {
-      .pc-menu {
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        border: 0;
-      }
-
-      .pc-menu-button {
-        display: none;
-      }
-    }
-
-    /* Sections */
-    .pc-intro {
-      margin: 20px 16px 8px;
-      font-size: 0.975rem;
-      max-width: 64ch;
-    }
-
-    .pc-section {
-      padding: 24px 16px;
-      border-bottom: 1px solid var(--pc-border);
-    }
-
-    .pc-title {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-    }
-
-    .pc-subtitle {
-      font-size: 1.25rem;
-      margin-bottom: 6px;
-    }
-
-    .pc-desc {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    .pc-loop {
-      margin: 12px 0;
-      padding-left: 8px;
-      border-left: 2px solid var(--pc-red);
-    }
-
-    /* Footer */
-    .pc-footer {
-      padding: 16px;
-      text-align: center;
-      font-size: 0.875rem;
-      color: #666;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="pc-header">
-    <nav class="pc-topbar">
-      <div class="pc-left">
-        <a class="pc-link" href="mailto:sanjay1977@gmail.com">Email</a>
-        <a class="pc-link" href="https://x.com/sanjay1977" rel="me">X</a>
-        <a class="pc-link" href="https://linkedin.com/in/sanjay1977" rel="me">LinkedIn</a>
-      </div>
-
-      <input type="checkbox" id="pc-menu-toggle" class="pc-menu-toggle">
-      <label for="pc-menu-toggle" class="pc-menu-button" aria-label="Menu">
-        <span class="pc-menu-icon"></span>
-      </label>
-
-      <div class="pc-menu">
-        <a class="pc-menu-item" href="#loop-1">Loop 1</a>
-        <a class="pc-menu-item" href="#loop-2">Loop 2</a>
-        <a class="pc-menu-item" href="#loop-3">Loop 3</a>
-        <a class="pc-menu-item" href="#dashboard">Dashboard</a>
-        <a class="pc-menu-item" href="#hosting">Hosting</a>
-        <a class="pc-menu-item" href="#about">About</a>
-      </div>
-    </nav>
+  <header>
+    <div class="brand">Sanjay Singh Pro Capital</div>
+    <button class="menu-button">Menu</button>
   </header>
 
-  <!-- Intro -->
-  <p class="pc-intro">
-    Presence over performance. Discipline over display. Built for clarity.
-  </p>
-
-  <!-- Dashboard -->
-  <section class="pc-section" id="dashboard">
-    <h1 class="pc-title">Pro Capital</h1>
-    <p class="pc-desc">A disciplined overview of Pro Capital’s market rhythm. Built for clarity, not display. Minimal structure.</p>
-  </section>
-
-  <!-- Loop Archive -->
-  <section class="pc-section" id="loop">
-    <h2 class="pc-subtitle">Loop Archive</h2>
-
-    <div class="pc-loop" id="loop-1">
-      <strong>Loop 1:</strong> Description of first loop entry.
-    </div>
-    <div class="pc-loop" id="loop-2">
-      <strong>Loop 2:</strong> Description of second loop entry.
-    </div>
-    <div class="pc-loop" id="loop-3">
-      <strong>Loop 3:</strong> Description of third loop entry.
-    </div>
-  </section>
-
-  <!-- Hosting -->
-  <section class="pc-section" id="hosting">
-    <h2 class="pc-subtitle">Hosting</h2>
-    <p class="pc-desc">Compact teaser with badge, strict uptime target, CDN-backed delivery.</p>
-  </section>
-
-  <!-- About -->
-  <section class="pc-section" id="about">
-    <h2 class="pc-subtitle">About</h2>
-    <p class="pc-desc">This project reflects a minimalist manifesto—presence, not performance. Every block is intentional.</p>
-  </section>
-
-  <!-- Footer -->
-  <footer class="pc-footer">
-    <p class="pc-legal">© 2025 Sanjay Singh Pro Capital. All rights reserved.</p>
-  </footer>
+  <div class="contact">
+    📧 Email: <a href="mailto:sanjayprocapital@gmail.com">sanjayprocapital@gmail.com</a>
+  </div>
 
 </body>
 </html>
