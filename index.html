@@ -1,150 +1,486 @@
- <!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sanjay Singh Pro Capital</title>
+  <meta name="description" content="Sanjay Singh Pro Capital — disciplined presence, minimalist design, professional clarity." />
   <style>
-    :root {
-      --brand: #C40000;
-      --bg: #FFFFFF;
-      --text: #000000;
-      --pad: 16px;
-      --gap: 24px;
-      --radius: 999px;
+    :root{
+      --bg:#ffffff;
+      --fg:#0c0c0c;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --accent:#0ea5e9;
+      --buy:#16a34a;
+      --sell:#dc2626;
+      --hold:#f59e0b;
+      --chip:#111827;
+      --chip-fg:#e5e7eb;
+      --card:#f8fafc;
     }
-
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: var(--bg);
-      color: var(--text);
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:14px/1.5 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+    .wrap{max-width:1024px;margin:0 auto;padding:16px}
+    header{
+      position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)
     }
-
-    header {
-      position: relative;
-      padding: var(--pad);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .row{display:flex;align-items:center;gap:12px}
+    .space{display:flex;justify-content:space-between;align-items:center;gap:12px}
+    .brand{
+      display:flex;align-items:baseline;gap:10px;white-space:nowrap
     }
-
-    /* Contact icons block */
-    .contact-icons {
-      display: flex;
-      gap: 10px;
+    .brand h1{font-size:16px;margin:0;font-weight:700;letter-spacing:.2px}
+    .brand .marks{font-size:12px;color:var(--muted)}
+    .icons{display:flex;gap:10px;align-items:center}
+    .icon-btn{
+      width:36px;height:36px;border:1px solid var(--line);border-radius:9px;display:inline-grid;place-items:center;background:var(--bg)
     }
-
-    .contact-icons .icon {
-      width: 32px;
-      height: 32px;
-      display: inline-grid;
-      place-items: center;
-      border: 1px solid var(--brand);
-      border-radius: var(--radius);
-      background: var(--bg);
-      color: var(--brand);
-      text-decoration: none;
-      transition: background 120ms ease;
+    .icon-btn:hover{border-color:var(--accent)}
+    .icon{display:block;width:18px;height:18px}
+    .menu-btn{
+      width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:var(--bg);display:grid;place-items:center
     }
-
-    .contact-icons .icon:hover {
-      background: var(--brand);
-      color: #fff;
+    .menu-btn:hover{border-color:var(--accent)}
+    .hamburger{width:18px;height:12px;position:relative}
+    .hamburger::before,.hamburger::after,.hamburger span{
+      content:"";position:absolute;left:0;right:0;height:2px;background:var(--fg);border-radius:2px
     }
-
-    .contact-icons .icon svg {
-      width: 70%;
-      height: 70%;
+    .hamburger::before{top:0}
+    .hamburger span{top:5px}
+    .hamburger::after{bottom:0}
+    nav{display:none;padding:10px 0;border-bottom:1px dashed var(--line)}
+    nav.open{display:block}
+    nav a{
+      display:inline-block;margin-right:14px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff
     }
-
-    /* Menu button */
-    .menu-button {
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--brand);
-      border-radius: var(--radius);
-      background: var(--bg);
-      color: var(--brand);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
+    nav a:hover{border-color:var(--accent)}
+    main{padding:24px 0}
+    section{padding:18px 0;border-bottom:1px dashed var(--line)}
+    section:last-child{border-bottom:none}
+    h2{font-size:14px;margin:0 0 10px 0;text-transform:uppercase;letter-spacing:.8px;color:#111827}
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px
     }
-
-    .menu-button:hover {
-      background: var(--brand);
-      color: #fff;
+    .grid{
+      display:grid;gap:14px
     }
-
-    .menu-button svg {
-      width: 24px;
-      height: 24px;
+    @media(min-width:860px){
+      .grid-2{grid-template-columns:1.2fr .8fr}
     }
-
-    /* Section styling */
-    section {
-      padding: var(--pad);
-      border-top: 1px solid #eee;
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      background:var(--chip);color:var(--chip-fg);border-radius:999px;padding:6px 10px;font-size:12px
     }
-
-    footer {
-      padding: var(--pad);
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
-      border-top: 1px solid #eee;
+    .muted{color:var(--muted)}
+    /* Clock badge */
+    .clock{
+      font-variant-numeric:tabular-nums;
+      display:inline-flex;align-items:center;gap:8px;background:#0f172a;color:#e2e8f0;border-radius:10px;padding:8px 10px
     }
+    .dot{width:6px;height:6px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px #22c55e}
+    /* Signal card */
+    .signal{
+      display:flex;flex-direction:column;gap:10px
+    }
+    .signal .row{justify-content:space-between}
+    .badge{
+      border-radius:8px;padding:4px 8px;font-weight:700;font-size:12px;letter-spacing:.4px
+    }
+    .buy{background:#ecfdf5;color:var(--buy);border:1px solid #bbf7d0}
+    .sell{background:#fef2f2;color:var(--sell);border:1px solid #fecaca}
+    .hold{background:#fffbeb;color:var(--hold);border:1px solid #fde68a}
+    .price{font:600 22px/1 ui-sans-serif,system-ui}
+    .mini{
+      display:flex;gap:10px;align-items:center;color:var(--muted);font-size:12px
+    }
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .pill{
+      padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:12px
+    }
+    .pill:hover{border-color:var(--accent)}
+    .status-dot{width:8px;height:8px;border-radius:50%}
+    /* TradingView wrapper */
+    .tv-wrap{height:420px;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+    /* Footer */
+    footer{padding:30px 0;border-top:1px solid var(--line);margin-top:24px}
+    .foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .copyright{color:var(--muted);font-size:12px}
   </style>
 </head>
 <body>
-
-  <!-- Header with contact icons and menu -->
   <header>
-    <nav class="contact-icons" aria-label="Contact links">
-      <!-- Gmail -->
-      <a class="icon" href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
-        <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 7l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-      </a>
-      <!-- X -->
-      <a class="icon" href="https://x.com/SanjayPro5" target="_blank" aria-label="X">
-        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-      </a>
-      <!-- LinkedIn -->
-      <a class="icon" href="https://www.linkedin.com/in/USERNAME" target="_blank" aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24"><circle cx="7" cy="9" r="1.2" fill="currentColor"/><rect x="6" y="11" width="2.2" height="6.5" rx="0.6" fill="currentColor"/><path d="M11 11.5c1 0 1.8.6 2.1 1.3v-1.1h2.2v5.8h-2.2v-3.3c0-.9-.6-1.4-1.3-1.4-.8 0-1.3.6-1.3 1.4v3.3H8.3v-6h2.1v.4c.3-.2.9-.4 1.6-.4z" fill="currentColor"/></svg>
-      </a>
-    </nav>
-
-    <!-- Menu button -->
-    <button class="menu-button" aria-label="Menu">
-      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2"/></svg>
-    </button>
+    <div class="wrap">
+      <div class="space">
+        <div class="brand">
+          <h1>Sanjay Singh Pro Capital</h1>
+          <span class="marks">BTC • Discipline • Clarity</span>
+        </div>
+        <div class="row">
+          <!-- Icon-only verified contacts -->
+          <div class="icons" aria-label="Verified contacts">
+            <a class="icon-btn" href="mailto:sanjayprocapital@gmail.com" title="Email" aria-label="Email">
+              <!-- Mail icon -->
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z"/>
+                <path d="M22 7l-9.6 6.4a2 2 0 0 1-2.8 0L0 7" transform="translate(2 0)"/>
+              </svg>
+            </a>
+            <a class="icon-btn" href="https://x.com/sanjau7709" title="X" aria-label="X profile" target="_blank" rel="noopener">
+              <!-- X icon -->
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.58 3.5h-3.1l-4.2 5.46L7.86 3.5H3.21l7.02 8.1-7.35 8.9h3.1l4.57-5.53 5.7 5.53h4.65l-7.82-8.6 7.5-8.4z"/>
+              </svg>
+            </a>
+            <a class="icon-btn" href="https://www.linkedin.com/in/sanjay-singh-8581b7379" title="LinkedIn" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+              <!-- LinkedIn icon -->
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.98h4v11H3v-11zM9 8.98h3.83v1.5h.05c.53-.95 1.84-1.95 3.79-1.95 4.05 0 4.8 2.67 4.8 6.14v5.31h-4v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48v4.78h-4v-11z"/>
+              </svg>
+            </a>
+          </div>
+          <!-- Visible menu button -->
+          <button id="menuBtn" class="menu-btn" aria-label="Toggle menu">
+            <div class="hamburger"><span></span></div>
+          </button>
+        </div>
+      </div>
+      <nav id="menu">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#loop-archive">Loop Archive</a>
+        <a href="#hosting">Hosting</a>
+        <a href="#about">About</a>
+        <a href="#footer">Footer</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Main sections -->
-  <section id="dashboard">
-    <h2>Dashboard</h2>
-    <p>Placeholder for your modular dashboard block.</p>
-  </section>
+  <main class="wrap">
+    <!-- Dashboard -->
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <div class="grid grid-2">
+        <!-- Left: Chart -->
+        <div class="card">
+          <div class="row" style="justify-content:space-between;align-items:center;margin-bottom:8px">
+            <div class="chips">
+              <span class="chip">BTC Chart</span>
+              <span class="chip">BITSTAMP:BTCUSD</span>
+              <span class="chip">TradingView</span>
+            </div>
+            <div class="clock" aria-live="polite">
+              <span class="dot" aria-hidden="true"></span>
+              <span><strong>IST</strong> <span id="clockIST">—:—:—</span></span>
+            </div>
+          </div>
+          <div class="tv-wrap" id="tv-container">
+            <!-- TradingView Advanced Chart -->
+            <div class="tradingview-widget-container" style="height:100%;width:100%">
+              <div id="tradingview_btc" style="height:100%;width:100%"></div>
+              <script defer type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js">
+              {
+                "autosize": true,
+                "symbol": "BITSTAMP:BTCUSD",
+                "interval": "60",
+                "timezone": "Etc/UTC",
+                "theme": "light",
+                "style": "1",
+                "locale": "en",
+                "enable_publishing": false,
+                "allow_symbol_change": false,
+                "calendar": false,
+                "hide_top_toolbar": false,
+                "hide_legend": false,
+                "hide_side_toolbar": false,
+                "withdateranges": true,
+                "details": false,
+                "hotlist": false,
+                "studies": [
+                  "STD;Moving Average",
+                  "STD;Moving Average"
+                ]
+              }
+              </script>
+            </div>
+          </div>
+        </div>
 
-  <section id="loop-archive">
-    <h2>Loop Archive</h2>
-    <p>Placeholder for your archive block.</p>
-  </section>
+        <!-- Right: Dynamic Buy/Sell -->
+        <div class="card signal" id="signalCard">
+          <div class="row">
+            <div class="chips">
+              <span class="chip">Buy/Sell</span>
+              <span class="chip">1m auto • local</span>
+            </div>
+            <span id="signalBadge" class="badge hold">HOLD</span>
+          </div>
 
-  <section id="hosting-teaser">
-    <h2>Hosting Teaser</h2>
-    <p>Placeholder for hosting teaser block.</p>
-  </section>
+          <div class="row" style="align-items:flex-end">
+            <div>
+              <div class="muted" style="margin-bottom:4px">BTC price (USD)</div>
+              <div class="price" id="priceText">—</div>
+            </div>
+            <div class="mini">
+              <span class="status-dot" id="netDot" style="background:#9ca3af" aria-hidden="true"></span>
+              <span id="sourceText">offline</span>
+            </div>
+          </div>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>Placeholder for your About block.</p>
-  </section>
+          <div class="mini">
+            <span>Short SMA 5</span> • <span>Long SMA 20</span>
+            <span id="smaNote" class="muted">waiting for data…</span>
+          </div>
 
-  <footer>
-    &copy; 2025 Sanjay Singh Pro Capital — Minimal Presence. Professional Clarity.
+          <div class="actions">
+            <button class="pill" id="refreshBtn" aria-label="Refresh now">Refresh</button>
+            <button class="pill" id="manualBuy">Set BUY</button>
+            <button class="pill" id="manualSell">Set SELL</button>
+            <button class="pill" id="manualHold">Set HOLD</button>
+            <button class="pill" id="clearData" title="Clear stored price history">Clear history</button>
+          </div>
+
+          <div class="mini">
+            <span class="muted">Last update:</span>
+            <span id="lastUpdate">—</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loop Archive -->
+    <section id="loop-archive">
+      <h2>Loop Archive</h2>
+      <div class="card">
+        <div class="muted">No entries yet. When it’s time, each loop appears here as a clean, dated line.</div>
+      </div>
+    </section>
+
+    <!-- Hosting teaser -->
+    <section id="hosting">
+      <h2>Hosting</h2>
+      <div class="card">
+        <div class="muted">Stable, minimal, and fast. The stack stays invisible so the work can speak for itself.</div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>
+          I build with restraint. Presence over performance, discipline over display. Every block here exists for a reason, and nothing stays that isn’t earning its place.
+        </p>
+        <div class="chips" style="margin-top:8px">
+          <span class="chip">Varanasi</span>
+          <span class="chip">Discipline</span>
+          <span class="chip">Clarity</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="wrap foot">
+      <div class="icons" aria-label="Verified contacts">
+        <a class="icon-btn" href="mailto:sanjayprocapital@gmail.com" title="Email" aria-label="Email">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1z"/>
+            <path d="M22 7l-9.6 6.4a2 2 0 0 1-2.8 0L0 7" transform="translate(2 0)"/>
+          </svg>
+        </a>
+        <a class="icon-btn" href="https://x.com/sanjau7709" title="X" aria-label="X profile" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.58 3.5h-3.1l-4.2 5.46L7.86 3.5H3.21l7.02 8.1-7.35 8.9h3.1l4.57-5.53 5.7 5.53h4.65l-7.82-8.6 7.5-8.4z"/>
+          </svg>
+        </a>
+        <a class="icon-btn" href="https://www.linkedin.com/in/sanjay-singh-8581b7379" title="LinkedIn" aria-label="LinkedIn profile" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.98h4v11H3v-11zM9 8.98h3.83v1.5h.05c.53-.95 1.84-1.95 3.79-1.95 4.05 0 4.8 2.67 4.8 6.14v5.31h-4v-4.7c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48v4.78h-4v-11z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="copyright">© <span id="year"></span> Sanjay Singh Pro Capital</div>
+    </div>
   </footer>
 
+  <script>
+    // Visible menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+    menuBtn.addEventListener('click', ()=> menu.classList.toggle('open'));
+
+    // IST Clock (permanent, independent of viewer timezone)
+    const clockIST = document.getElementById('clockIST');
+    function tickIST(){
+      const now = new Date();
+      const fmt = new Intl.DateTimeFormat('en-IN',{
+        timeZone:'Asia/Kolkata',
+        hour:'2-digit', minute:'2-digit', second:'2-digit',
+        hour12:false
+      });
+      clockIST.textContent = fmt.format(now);
+    }
+    setInterval(tickIST,1000); tickIST();
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ------------------------------
+    // Dynamic Buy/Sell (local + network, graceful fallback)
+    // ------------------------------
+    const priceEl = document.getElementById('priceText');
+    const sourceEl = document.getElementById('sourceText');
+    const lastUpdateEl = document.getElementById('lastUpdate');
+    const smaNoteEl = document.getElementById('smaNote');
+    const signalBadge = document.getElementById('signalBadge');
+    const netDot = document.getElementById('netDot');
+
+    const refreshBtn = document.getElementById('refreshBtn');
+    const manualBuy = document.getElementById('manualBuy');
+    const manualSell = document.getElementById('manualSell');
+    const manualHold = document.getElementById('manualHold');
+    const clearData = document.getElementById('clearData');
+
+    const STORE_KEY = 'ssp_btc_prices';
+    const MAX_POINTS = 240; // up to ~4 hours if 1 per minute
+
+    function loadSeries(){
+      try{
+        const raw = localStorage.getItem(STORE_KEY);
+        if(!raw) return [];
+        const arr = JSON.parse(raw);
+        return Array.isArray(arr) ? arr.filter(p => typeof p.t === 'number' && typeof p.v === 'number') : [];
+      }catch{ return []; }
+    }
+    function saveSeries(series){
+      try{
+        localStorage.setItem(STORE_KEY, JSON.stringify(series.slice(-MAX_POINTS)));
+      }catch{}
+    }
+    function addPoint(price){
+      const series = loadSeries();
+      series.push({t: Date.now(), v: price});
+      saveSeries(series);
+      return series;
+    }
+    function sma(values, n){
+      if(values.length < n) return null;
+      const slice = values.slice(-n);
+      const sum = slice.reduce((a,b)=>a+b,0);
+      return sum / n;
+    }
+    function computeSignal(series){
+      const vals = series.map(p=>p.v);
+      const s5 = sma(vals,5);
+      const s20 = sma(vals,20);
+      if(s5===null || s20===null) return {label:'HOLD', cls:'hold', note:'waiting for data…'};
+      if(s5 > s20) return {label:'BUY', cls:'buy', note:SMA5 ${s5.toFixed(2)} > SMA20 ${s20.toFixed(2)}};
+      if(s5 < s20) return {label:'SELL', cls:'sell', note:SMA5 ${s5.toFixed(2)} < SMA20 ${s20.toFixed(2)}};
+      return {label:'HOLD', cls:'hold', note:SMA5 ≈ SMA20 ${s20.toFixed(2)}};
+    }
+    function setSignal(label, note){
+      signalBadge.textContent = label;
+      signalBadge.className = badge ${label.toLowerCase()};
+      if(note) smaNoteEl.textContent = note;
+    }
+    function setNetStatus(ok, source){
+      netDot.style.background = ok ? '#22c55e' : '#9ca3af';
+      sourceEl.textContent = source || (ok ? 'online' : 'offline');
+    }
+    function setPrice(p){
+      priceEl.textContent = Number.isFinite(p) ? p.toLocaleString('en-US',{maximumFractionDigits:2}) : '—';
+    }
+    function setLastUpdate(ts){
+      if(!ts){ lastUpdateEl.textContent = '—'; return; }
+      const d = new Date(ts);
+      const s = new Intl.DateTimeFormat('en-IN', {
+        timeZone: 'Asia/Kolkata',
+        hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false,
+        year:'numeric', month:'2-digit', day:'2-digit'
+      }).format(d);
+      lastUpdateEl.textContent = s + ' IST';
+    }
+
+    async function fetchWithTimeout(url, timeoutMs=5000){
+      const ctrl = new AbortController();
+      const id = setTimeout(()=>ctrl.abort(), timeoutMs);
+      try{
+        const res = await fetch(url, {signal: ctrl.signal});
+        if(!res.ok) throw new Error('HTTP '+res.status);
+        const data = await res.json();
+        return data;
+      } finally {
+        clearTimeout(id);
+      }
+    }
+
+    async function getPrice(){
+      // Try Coinbase first, then Binance. Graceful fallbacks.
+      try{
+        const c = await fetchWithTimeout('https://api.coinbase.com/v2/prices/BTC-USD/spot', 5000);
+        const price = parseFloat(c?.data?.amount);
+        if(Number.isFinite(price)) return {price, source:'Coinbase'};
+      }catch(_){}
+      try{
+        const b = await fetchWithTimeout('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT', 5000);
+        const price = parseFloat(b?.price);
+        if(Number.isFinite(price)) return {price, source:'Binance'};
+      }catch(_){}
+      throw new Error('No price');
+    }
+
+    function updateUIFromSeries(series){
+      const signal = computeSignal(series);
+      setSignal(signal.label, signal.note);
+      const last = series[series.length-1];
+      setPrice(last ? last.v : NaN);
+      setLastUpdate(last ? last.t : null);
+      if(signal.note && signal.note.includes('waiting')) {
+        // keep it muted
+      }
+    }
+
+    async function refresh(auto=false){
+      try{
+        const {price, source} = await getPrice();
+        setNetStatus(true, source);
+        const series = addPoint(price);
+        updateUIFromSeries(series);
+      }catch{
+        setNetStatus(false, 'offline');
+        // Still compute from existing series if available
+        const series = loadSeries();
+        updateUIFromSeries(series);
+        if(!auto && !series.length){
+          setSignal('HOLD', 'manual mode available');
+        }
+      }
+    }
+
+    // Manual overrides
+    manualBuy.addEventListener('click', ()=> setSignal('BUY', 'manual override'));
+    manualSell.addEventListener('click', ()=> setSignal('SELL', 'manual override'));
+    manualHold.addEventListener('click', ()=> setSignal('HOLD', 'manual override'));
+
+    clearData.addEventListener('click', ()=>{
+      localStorage.removeItem(STORE_KEY);
+      setPrice(NaN);
+      setLastUpdate(null);
+      setSignal('HOLD','waiting for data…');
+    });
+
+    refreshBtn.addEventListener('click', ()=> refresh(false));
+
+    // Initial load
+    (function init(){
+      const series = loadSeries();
+      if(series.length){ updateUIFromSeries(series); }
+      refresh(true);
+      // Auto-refresh every minute
+      setInterval(()=>refresh(true), 60_000);
+    })();
+  </script>
 </body>
-</html>
+</html> 
