@@ -1,107 +1,43 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Sanjay Singh Pro Capital</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #111;
-      color: #eee;
-    }
-    header {
-      padding: 20px;
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      border-bottom: 1px solid #333;
-    }
-    section {
-      padding: 20px;
-      border-bottom: 1px solid #333;
-    }
-    .button-row button {
-      margin: 5px;
-      padding: 10px 20px;
-      background-color: #222;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    .icon-links img {
-      width: 32px;
-      margin: 0 10px;
-      vertical-align: middle;
-    }
-    #ist-clock {
-      font-family: monospace;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body>
+ <!-- Top Banner -->
+<section id="banner" style="text-align:center; font-weight:bold; font-size:1.8em; padding:1em 0;">
+  SANJAY SINGH | PRO | CAPITAL
+</section>
 
-<header>
-  Sanjay Singh Pro Capital<br>
-  <small>Discipline • Clarity • Legacy</small>
-</header>
+<!-- Verified Contact Block (Icon-only) -->
+<section id="contact-block" style="display:flex; justify-content:center; gap:2em; padding:1em 0;">
+  <a href="mailto:sanjaysinghprocapital@gmail.com" target="_blank"><img src="gmail-icon.svg" alt="Gmail" /></a>
+  <a href="https://x.com/sanjaysinghpro" target="_blank"><img src="x-icon.svg" alt="X" /></a>
+  <a href="https://linkedin.com/in/sanjaysinghprocapital" target="_blank"><img src="linkedin-icon.svg" alt="LinkedIn" /></a>
+</section>
 
-<section>
-  <h2>Dashboard</h2>
-  <div class="button-row">
-    <button>BTC Chart</button>
-    <button>Buy</button>
-    <button>Sell</button>
-    <button>Hold</button>
+<!-- About Section -->
+<section id="about" style="padding:1em; text-align:center;">
+  <h2>Introduction or About</h2>
+  <p>Minimalist design. Disciplined presence. Professional clarity.</p>
+</section>
+
+<!-- Design Section -->
+<section id="design" style="display:flex; justify-content:space-between; padding:2em;">
+  <!-- Left Column -->
+  <div style="width:45%;">
+    <h3>Functional Modules</h3>
+    <ul>
+      <li>Swing app</li>
+      <li>Hospital module</li>
+      <li>In column layout</li>
+    </ul>
   </div>
-  <div id="tradingview_btc" style="height:400px;"></div>
-</section>
-
-<section>
-  <h2>Live IST Clock</h2>
-  <div id="ist-clock"></div>
-</section>
-
-<section>
-  <h2>Loop Archive</h2>
-  <p>Archive is ready. Add disciplined notes as you go.<br>
-  Modular • Minimal • Verified</p>
-</section>
-
-<section>
-  <h2>Hosting</h2>
-  <p>Private hosting and collaboration — by invitation.<br>
-  Verify via icons only.</p>
-  <div class="icon-links">
-    <a href="mailto:sanjayprocapital@gmail.com"><img src="gmail-icon.png" alt="Gmail"></a>
-    <a href="https://x.com/sanjau7709"><img src="x-icon.png" alt="X"></a>
-    <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+  <!-- Right Column -->
+  <div style="width:45%;">
+    <h3>Expressive Zones</h3>
+    <ul>
+      <li>A small box for key actions</li>
+      <li>BIG chunk for main content</li>
+    </ul>
   </div>
 </section>
 
-<script src="https://s3.tradingview.com/tv.js"></script>
-<script>
-  new TradingView.widget({
-    "width": "100%",
-    "height": 400,
-    "symbol": "BITSTAMP:BTCUSD",
-    "interval": "1",
-    "timezone": "Asia/Kolkata",
-    "theme": "dark",
-    "style": "1",
-    "locale": "en",
-    "container_id": "tradingview_btc"
-  });
-
-  function updateClock() {
-    const now = new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" });
-    document.getElementById("ist-clock").textContent = IST: ${now};
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
-</script>
-
-</body>
-</html>
+<!-- Timeline Separator -->
+<section id="separator" style="border-top:1px solid #ccc; margin-top:2em; padding-top:1em; text-align:center;">
+  Modular timeline or separator
+</section>
