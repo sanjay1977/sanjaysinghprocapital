@@ -4,167 +4,183 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanjay Singh Pro Capital</title>
+  <meta name="description" content="Sanjay Singh Pro Capital — minimalist design, disciplined presence, professional clarity." />
   <style>
-    body {
-      font-family: sans-serif;
-      background: #fff;
-      color: #000;
-      margin: 0;
-      padding: 20px;
+    :root {
+      --text:#000;
+      --muted:#666;
+      --bg:#fff;
+      --panel:#f5f5f5;
+      --accent:#004d40;
     }
-    .header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .header-icons {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 10px;
-    }
-    .header-icons img {
-      width: 30px;
-      height: 30px;
-    }
-    h1 {
-      font-size: 28px;
-      margin: 0;
-    }
-    h2 {
-      font-size: 18px;
-      margin: 5px 0 20px;
-      font-weight: normal;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-    .section {
-      padding: 10px;
-      max-width: 600px;
-    }
-    .section h3 {
-      font-size: 16px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-    }
-    .section p {
-      line-height: 1.6;
-      margin-bottom: 16px;
-    }
-    .contact-icons {
-      display: flex;
-      gap: 15px;
-    }
-    .contact-icons a img {
-      width: 24px;
-      height: 24px;
-    }
-    .time {
-      font-size: 32px;
-      font-weight: bold;
-    }
-    .chart {
-      background: #f5f5f5;
-      padding: 10px;
-      border-radius: 6px;
-    }
-    .buy-sell {
-      text-align: center;
-      margin-top: 20px;
-    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .wrap { padding:20px; max-width:1100px; margin:0 auto; }
+
+    /* Header */
+    .header { text-align:center; margin-bottom:28px; }
+    .crypto-marks { display:flex; justify-content:center; align-items:center; gap:36px; margin-bottom:10px; }
+    .crypto-icon { width:30px; height:30px; display:inline-block; }
+    h1 { margin:0; font-size:28px; letter-spacing:0.5px; }
+    h2 { margin:6px 0 0; font-weight:500; font-size:16px; letter-spacing:2px; }
+
+    /* Grid */
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:36px; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+
+    .section h3 { font-size:14px; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 10px; color:var(--muted); }
+    .section p { line-height:1.6; margin:0 0 14px; max-width:600px; }
+
+    /* Contact icons (icon-only, verified Gmail) */
+    .contact-icons { display:flex; gap:16px; align-items:center; }
+    .contact-icons a { display:inline-flex; width:24px; height:24px; color:inherit; text-decoration:none; }
+    .contact-icons a:hover { opacity:0.8; }
+
+    /* Time block */
+    .time { font-size:30px; font-weight:700; }
+    .time-label { color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-size:12px; margin-bottom:6px; }
+
+    /* Chart block */
+    .chart-panel { background:var(--panel); border-radius:6px; padding:10px; }
+    .chart-meta { font-size:14px; color:#111; margin-bottom:8px; }
+    .chart-meta small { color:var(--muted); }
+
+    /* Buy/Sell block */
+    .buy-sell { text-align:center; margin:24px 0 10px; }
     .buy-sell button {
-      background: #004d40;
-      color: #fff;
-      border: none;
-      padding: 12px 24px;
-      font-size: 16px;
-      border-radius: 6px;
-      cursor: default;
+      background:var(--accent); color:#fff; border:none; border-radius:6px;
+      padding:12px 22px; font-size:16px; cursor:default;
     }
+
+    /* Footer spacer (prevents any accidental overlap) */
+    .spacer { height:20px; }
   </style>
 </head>
 <body>
-
-  <div class="header">
-    <div class="header-icons">
-      <img src="bitcoin-icon.png" alt="Bitcoin" />
-      <img src="ethereum-icon.png" alt="Ethereum" />
+  <div class="wrap">
+    <!-- Banner -->
+    <div class="header">
+      <div class="crypto-marks" aria-hidden="true">
+        <!-- Bitcoin inline SVG -->
+        <svg class="crypto-icon" viewBox="0 0 24 24" role="img" aria-label="Bitcoin">
+          <circle cx="12" cy="12" r="11" fill="#F7931A"></circle>
+          <text x="12" y="16" text-anchor="middle" font-size="12" font-family="Arial" fill="#fff" font-weight="700">B</text>
+        </svg>
+        <!-- Ethereum inline SVG -->
+        <svg class="crypto-icon" viewBox="0 0 256 417" role="img" aria-label="Ethereum">
+          <polygon fill="#627EEA" points="127.9,0 124.3,12.4 124.3,279.1 127.9,282.7 255.8,208.5"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,0 0,208.5 127.9,282.7 127.9,150.7"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,305.5 125.8,307.9 125.8,414.4 127.9,416.5 255.9,231.5"></polygon>
+          <polygon fill="#627EEA" points="127.9,416.5 127.9,305.5 0,231.5"></polygon>
+        </svg>
+      </div>
+      <h1>SANJAY SINGH</h1>
+      <h2>PRO CAPITAL</h2>
     </div>
-    <h1>SANJAY SINGH</h1>
-    <h2>PRO CAPITAL</h2>
-  </div>
 
-  <div class="grid">
-    <div class="section">
-      <h3>About</h3>
-      <p>
-        I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined presence, and professional clarity.
-      </p>
-      <p>
-        I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.
-      </p>
-    </div>
+    <!-- Main grid -->
+    <div class="grid">
+      <!-- Left column -->
+      <div class="section">
+        <h3>About</h3>
+        <p>I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined presence, and professional clarity.</p>
+        <p>I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.</p>
 
-    <div class="section">
-      <h3>Contact</h3>
-      <div class="contact-icons">
-        <a href="mailto:sanjayprocapital@gmail.com" target="_blank">
-          <img src="gmail-icon.png" alt="Email" />
-        </a>
-        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank">
-          <img src="linkedin-icon.png" alt="LinkedIn" />
-        </a>
-        <a href="https://twitter.com/YOUR-X-ID" target="_blank">
-          <img src="x-icon.png" alt="X" />
-        </a>
+        <div class="time-block" style="margin-top:18px;">
+          <div class="time-label">India Standard Time</div>
+          <div id="istClock" class="time">--:--:--</div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="section">
+        <h3>Contact</h3>
+        <div class="contact-icons">
+          <!-- Verified Gmail only (no placeholders) -->
+          <a href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="24" height="24" role="img" aria-hidden="true">
+              <path fill="#D44638" d="M12 12.713L0 4.5V19a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4.5l-12 8.213z"></path>
+              <path fill="#F1F1F1" d="M24 4.5V5l-12 8-12-8v-.5A2 2 0 0 1 2 3h20a2 2 0 0 1 2 1.5z"></path>
+            </svg>
+          </a>
+          <!-- Add your LinkedIn/X only when you share verified handles -->
+          <!-- <a href="https://www.linkedin.com/in/YOUR_HANDLE" aria-label="LinkedIn">...</a> -->
+          <!-- <a href="https://twitter.com/YOUR_HANDLE" aria-label="X">...</a> -->
+        </div>
+
+        <div class="chart-panel" style="margin-top:22px;">
+          <h3 style="margin:0 0 8px;">BTCUSD</h3>
+          <div class="chart-meta">
+            <div><small>Range:</small> 50,000 – 60,000</div>
+            <div><small>GAS:</small> 36.57</div>
+          </div>
+          <!-- TradingView Candlestick Chart -->
+          <div id="tv_chart_container" style="height:320px;"></div>
+        </div>
       </div>
     </div>
 
-    <div class="section">
-      <h3>India Standard Time</h3>
-      <div class="time" id="istClock">--:--:--</div>
+    <!-- Buy/Sell -->
+    <div class="buy-sell">
+      <button id="buySellButton">Buy Signal Active — BTC above 55,000</button>
     </div>
 
-    <div class="section chart">
-      <h3>BTCUSD</h3>
-      <p>Price: $54,066.53<br>Range: 50,000 – 60,000<br>GAS: 36.57</p>
-      <img src="btc-chart.png" alt="BTC Chart" style="width:100%; height:auto;" />
-    </div>
+    <div class="spacer"></div>
   </div>
 
-  <div class="buy-sell">
-    <button id="buySellButton">Loading signal...</button>
-  </div>
-
+  <!-- TradingView script -->
+  <script src="https://s3.tradingview.com/tv.js"></script>
   <script>
-    // IST Clock
+    // IST clock (true timezone, no manual math)
     function updateClock() {
-      const now = new Date();
-      const istOffset = 5.5 * 60 * 60 * 1000;
-      const istTime = new Date(now.getTime() + istOffset);
-      const timeString = istTime.toTimeString().split(' ')[0];
-      document.getElementById('istClock').textContent = timeString;
+      const t = new Date().toLocaleTimeString('en-GB', { hour12:false, timeZone:'Asia/Kolkata' });
+      document.getElementById('istClock').textContent = t;
     }
-    setInterval(updateClock, 1000);
     updateClock();
+    setInterval(updateClock, 1000);
 
-    // Google Sheet Buy/Sell Signal
+    // TradingView candlestick chart (no UI clutter)
+    if (window.TradingView) {
+      new TradingView.widget({
+        container_id: "tv_chart_container",
+        autosize: true,
+        symbol: "BTCUSD",
+        interval: "60",
+        timezone: "Asia/Kolkata",
+        theme: "light",
+        style: "1",
+        locale: "en",
+        hide_top_toolbar: true,
+        hide_legend: true,
+        allow_symbol_change: false,
+        save_image: false,
+        studies: []
+      });
+    }
+
+    // Google Sheet-controlled Buy/Sell signal (owned by sanjau7709@gmail.com)
+    // IMPORTANT: paste your published CSV link below (File → Share → Publish to web → CSV)
+    const SHEET_CSV = ""; // e.g., "https://docs.google.com/spreadsheets/d/e/XXXX/pub?output=csv"
+
     async function updateBuySellSignal() {
+      const btn = document.getElementById('buySellButton');
+      if (!SHEET_CSV) { return; } // keep static text until you add your link
       try {
-        const response = await fetch('https://docs.google.com/spreadsheets/d/e/YOUR_SHEET_ID/pub?output=csv');
-        const text = await response.text();
-        const signal = text.split('\n')[0]; // Reads cell A1
-        document.getElementById('buySellButton').textContent = signal;
-      } catch (error) {
-        document.getElementById('buySellButton').textContent = 'Signal unavailable';
+        const res = await fetch(SHEET_CSV + "&_=" + Date.now()); // cache-bust
+        const text = await res.text();
+        const firstCell = text.split(/\r?\n/)[0] || "";
+        if (firstCell.trim()) btn.textContent = firstCell.trim();
+      } catch (e) {
+        // stay quiet; keep last known/initial text
       }
     }
-
     updateBuySellSignal();
+    // optional: refresh every 2 minutes
+    setInterval(updateBuySellSignal, 120000);
   </script>
 
+  <!-- No extra HTML after this line. If you previously saw a green code panel,
+       it came from pasting code fences or duplicate <!DOCTYPE> inside content.
+       Replace the entire file with this one. -->
 </body>
 </html>
