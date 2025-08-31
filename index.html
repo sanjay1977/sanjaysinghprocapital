@@ -110,7 +110,20 @@
     .copyright{color:var(--muted);font-size:12px}
   </style>
 </head>
-<body>
+<!-- Your other HTML content -->
+
+<script>
+  function updateIST() {
+    const now = new Date();
+    const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit' };
+    const istTime = now.toLocaleTimeString('en-IN', options);
+    document.getElementById('ist-time').textContent = istTime;
+  }
+  setInterval(updateIST, 60000);
+  updateIST();
+</script>
+
+</body><body>
   <header>
     <div class="wrap">
       <div class="space">
