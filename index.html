@@ -1,137 +1,222 @@
- <!-- 🪙 Top-of-Page Crypto Icons -->
-<div style="display:flex;justify-content:center;gap:20px;padding-top:16px;padding-bottom:8px;">
-  <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" style="width:32px;height:32px;">
-  <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH" style="width:32px;height:32px;">
-  <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.png" alt="LTC" style="width:32px;height:32px;">
-</div>
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay Singh Pro Capital</title>
+  <meta name="description" content="Sanjay Singh Pro Capital — minimalist design, disciplined presence, professional clarity." />
+  <.spacer { height:20px; }
 
-<!-- 🔴 Pulsing Red Dot -->
-<div class="corner-pulse" aria-hidden="true"></div>
-
-<style>
-  @keyframes pulse {
-    0%   { transform: scale(1); opacity: 1; }
-    50%  { transform: scale(1.4); opacity: 0.4; }
-    100% { transform: scale(1); opacity: 1; }
-  }
-
-  .corner-pulse {
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    width: 12px;
-    height: 12px;
-    background: red;
-    border-radius: 50%;
-    animation: pulse 1.2s ease-in-out infinite;
-    z-index: 9999;
-    pointer-events: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .corner-pulse { animation: none; }
-  }
-</style>
-
-<!-- 🔗 About Block with Verified Icons -->
-<div style="display:flex;align-items:center;gap:12px;padding:24px;">
-  <h2 style="margin:0;">About</h2>
-  <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:20px;height:20px;">
-  </a>
-  <a href="https://x.com/sanjau7709" target="_blank" rel="noopener noreferrer">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X" style="width:20px;height:20px;">
-  </a>
-</div>
-
-<!-- 🧾 First-Person About Description -->
-<section style="line-height:1.6;font-family:sans-serif;padding:0 24px;">
-  <p>
-    I’m Sanjay Singh, founder of Sanjay Singh Pro Capital—a legacy brand built on minimalist design, disciplined presence, and professional clarity. I don’t chase trends. I build slowly, intentionally, and with full respect for every detail that reflects my name.
-  </p>
-  <p>
-    My layouts are modular. My signals are real. Every block I publish is a reflection of my philosophy: presence over performance, discipline over display. I don’t use placeholders. I don’t expose contact details. I let the structure speak for itself.
-  </p>
-  <p>
-    If you see a pulsing red dot, an IST clock, or a Buy/Sell block wired to my backend—know that it’s not decoration. It’s rhythm. It’s legacy. It’s me.
-  </p>
-</section>
-
-<!-- 🕒 IST Clock -->
-<div style="display:flex;justify-content:flex-end;padding:8px 24px;">
-  <span id="ist-clock" style="font-weight:bold;font-family:sans-serif;">--:--</span>
-</div>
-
-<script>
-  function updateISTClock() {
-    const now = new Date();
-    const istOffset = 5.5 * 60;
-    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-    const istTime = new Date(utc + (istOffset * 60000));
-    const hours = istTime.getHours().toString().padStart(2, '0');
-    const minutes = istTime.getMinutes().toString().padStart(2, '0');
-    document.getElementById('ist-clock').textContent = ${hours}:${minutes};
-  }
-  updateISTClock();
-  setInterval(updateISTClock, 60000);
-</script>
-
-<!-- 📊 BTC Chart -->
-<div style="display:flex;justify-content:flex-end;padding:16px 24px;">
-  <div style="width:300px;height:300px;border:1px solid #ccc;border-radius:8px;overflow:hidden;">
-    <iframe src="https://www.tradingview.com/embed-widget/ticker-tape/?symbols=BTCUSD" 
-            width="100%" height="100%" frameborder="0" style="border:none;"></iframe>
-  </div>
-</div>
-
-<!-- 📈 Buy/Sell Signal Block -->
-<div style="display:flex;justify-content:flex-end;padding:8px 24px;">
-  <div id="signal-block" style="width:300px;padding:12px;border:1px solid #ccc;border-radius:6px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;">
-      <span id="btc-signal" style="font-weight:bold;font-size:1.1em;">Loading signal...</span>
-      <span id="last-updated" style="font-size:0.9em;color:#666;"></span>
-    </div>
-  </div>
-</div>
-
-<script>
-  async function fetchSignal() {
-    try {
-      const res = await fetch('https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec');
-      const { signal, updated } = await res.json();
-      document.getElementById('btc-signal').textContent = BTC Signal: ${signal};
-      document.getElementById('last-updated').textContent = Updated: ${updated};
-    } catch (err) {
-      document.getElementById('btc-signal').textContent = 'Error loading signal';
-      document.getElementById('last-updated').textContent = '';
+    /* Pulsing red dot (top-left corner, heartbeat style) */
+    .pulse-dot {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      width: 10px;
+      height: 10px;
+      background: #D32F2F;
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.6);
+      animation: pulse 1.6s ease-out infinite;
+      z-index: 1000;
+      pointer-events: none;
     }
-  }
-  fetchSignal();
-  setInterval(fetchSignal, 60000);
-</script>
 
-<!-- 📬 Contact Block -->
-<div style="display:flex;flex-direction:column;gap:8px;padding:24px;font-family:sans-serif;max-width:600px;margin:auto;">
-  <h2 style="margin:0;">Contact</h2>
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.6); transform: scale(1); }
+      50%  { box-shadow: 0 0 0 10px rgba(211, 47, 47, 0); transform: scale(1.1); }
+      100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); transform: scale(1); }
+    }
 
-  <div style="display:flex;align-items:center;gap:8px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="width:20px;height:20px;">
-    <a href="mailto:sanjayprocapital@gmail.com" style="text-decoration:none;color:#000;font-weight:bold;">
-      sanjayprocapital@gmail.com
-    </a>
+    @media (prefers-reduced-motion: reduce) {
+      .pulse-dot { animation: none; box-shadow: none; }
+    }
+</style>style>
+    :root {
+      --text:#000;
+      --muted:#666;
+      --bg:#fff;
+      --panel:#f5f5f5;
+      --accent:#004d40;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .wrap { padding:20px; max-width:1100px; margin:0 auto; }
+
+    /* Header */
+    .header { text-align:center; margin-bottom:28px; }
+    .crypto-marks { display:flex; justify-content:center; align-items:center; gap:36px; margin-bottom:10px; }
+    .crypto-icon { width:30px; height:30px; display:inline-block; }
+    h1 { margin:0; font-size:28px; letter-spacing:0.5px; }
+    h2 { margin:6px 0 0; font-weight:500; font-size:16px; letter-spacing:2px; }
+
+    /* Grid */
+    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:36px; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+
+    .section h3 { font-size:14px; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 10px; color:var(--muted); }
+    .section p { line-height:1.6; margin:0 0 14px; max-width:600px; }
+
+    /* Contact icons (icon-only, verified Gmail) */
+    .contact-icons { display:flex; gap:16px; align-items:center; }
+    .contact-icons a { display:inline-flex; width:24px; height:24px; color:inherit; text-decoration:none; }
+    .contact-icons a:hover { opacity:0.8; }
+
+    /* Time block */
+    .time { font-size:30px; font-weight:700; }
+    .time-label { color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-size:12px; margin-bottom:6px; }
+
+    /* Chart block */
+    .chart-panel { background:var(--panel); border-radius:6px; padding:10px; }
+    .chart-meta { font-size:14px; color:#111; margin-bottom:8px; }
+    .chart-meta small { color:var(--muted); }
+
+    /* Buy/Sell block */
+    .buy-sell { text-align:center; margin:24px 0 10px; }
+    .buy-sell button {
+      background:var(--accent); color:#fff; border:none; border-radius:6px;
+      padding:12px 22px; font-size:16px; cursor:default;
+    }
+
+    /* Footer spacer (prevents any accidental overlap) */
+    .spacer { height:20px; }
+  </style>
+</head>
+<body><span class="pulse-dot" aria-hidden="true"></span>
+  <div class="wrap">
+    <!-- Banner -->
+    <div class="header">
+      <div class="crypto-marks" aria-hidden="true">
+        <!-- Bitcoin inline SVG -->
+        <svg class="crypto-icon" viewBox="0 0 24 24" role="img" aria-label="Bitcoin">
+          <circle cx="12" cy="12" r="11" fill="#F7931A"></circle>
+          <text x="12" y="16" text-anchor="middle" font-size="12" font-family="Arial" fill="#fff" font-weight="700">B</text>
+        </svg>
+        <!-- Ethereum inline SVG -->
+        <svg class="crypto-icon" viewBox="0 0 256 417" role="img" aria-label="Ethereum">
+          <polygon fill="#627EEA" points="127.9,0 124.3,12.4 124.3,279.1 127.9,282.7 255.8,208.5"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,0 0,208.5 127.9,282.7 127.9,150.7"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,305.5 125.8,307.9 125.8,414.4 127.9,416.5 255.9,231.5"></polygon>
+          <polygon fill="#627EEA" points="127.9,416.5 127.9,305.5 0,231.5"></polygon>
+        </svg>
+      </div>
+      <h1>SANJAY SINGH</h1>
+      <h2>PRO CAPITAL</h2>
+    </div>
+
+    <!-- Main grid -->
+    <div class="grid">
+      <!-- Left column -->
+      <div class="section">
+        <h3 style="display: flex; align-items: center; gap: 12px;">
+          About
+          <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" aria-label="LinkedIn" style="display: inline-flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2">
+              <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.6v2.2h.05c.5-1 1.75-2.2 3.6-2.2 3.85 0 4.55 2.5 4.55 5.8V24h-4v-8.2c0-2-.05-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.4V24h-4V8z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/sanjau7709?t=6qoHpBsV_yuxF1OAWXOqyw&s=09" target="_blank" aria-label="X" style="display: inline-flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#000000">
+              <path d="M17.53 3H21L14.47 10.59L22.53 21H16.47L11.47 14.41L5.47 21H2L9.03 13.03L1.47 3H7.47L12.03 9.19L17.53 3Z"/>
+            </svg>
+          </a>
+        </h3>
+        <p>I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined presence, and professional clarity.</p>
+        <p>I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.</p>
+
+        <div class="time-block" style="margin-top:18px;">
+          <div class="time-label">India Standard Time</div>
+          <div id="istClock" class="time">--:--:--</div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="section">
+        <h3>Contact</h3>
+        <div class="contact-icons">
+          <!-- Verified Gmail only (no placeholders) -->
+          <a href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="24" height="24" role="img" aria-hidden="true">
+              <path fill="#D44638" d="M12 12.713L0 4.5V19a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4.5l-12 8.213z"></path>
+              <path fill="#F1F1F1" d="M24 4.5V5l-12 8-12-8v-.5A2 2 0 0 1 2 3h20a2 2 0 0 1 2 1.5z"></path>
+            </svg>
+          </a>
+          <!-- Add LinkedIn/X in Contact only if you want duplicates; About already shows verified profiles -->
+        </div>
+
+        <div class="chart-panel" style="margin-top:22px;">
+          <h3 style="margin:0 0 8px;">BTCUSD</h3>
+          <div class="chart-meta">
+            <div><small>Range:</small> 50,000 – 60,000</div>
+            <div><small>GAS:</small> 36.57</div>
+          </div>
+          <!-- TradingView Candlestick Chart -->
+          <div id="tv_chart_container" style="height:320px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buy/Sell -->
+    <div class="buy-sell">
+      <button id="buySellButton">Buy Signal Active — BTC above 55,000</button>
+    </div>
+
+    <div class="spacer"></div>
   </div>
 
-  <div style="display:flex;align-items:center;gap:8px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:20px;height:20px;">
-    <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#000;font-weight:bold;">
-      linkedin.com/in/sanjay-singh-8581b7379
-    </a>
-  </div>
+  <!-- TradingView script -->
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script>
+    // IST clock (true timezone, no manual math)
+    function updateClock() {
+      const t = new Date().toLocaleTimeString('en-GB', { hour12:false, timeZone:'Asia/Kolkata' });
+      document.getElementById('istClock').textContent = t;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
 
-  <div style="display:flex;align-items:center;gap:8px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X" style="width:20px;height:20px;">
-    <a href="https://x.com/sanjau7709" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#000;font-weight:bold;">
-      x.com/sanjau7709
-    </a>
-  </div>
-</div>
+    // TradingView candlestick chart (no UI clutter)
+    if (window.TradingView) {
+      new TradingView.widget({
+        container_id: "tv_chart_container",
+        autosize: true,
+        symbol: "BTCUSD",
+        interval: "60",
+        timezone: "Asia/Kolkata",
+        theme: "light",
+        style: "1",
+        locale: "en",
+        hide_top_toolbar: true,
+        hide_legend: true,
+        allow_symbol_change: false,
+        save_image: false,
+        studies: []
+      });
+    }
+
+    // Google Sheet-controlled Buy/Sell signal (owned by sanjau7709@gmail.com)
+    // IMPORTANT: paste your published CSV link below (File → Share → Publish to web → CSV)
+    const SHEET_CSV = ""; // e.g., "https://docs.google.com/spreadsheets/d/e/XXXX/pub?output=csv"
+
+    async function updateBuySellSignal() {
+      const btn = document.getElementById('buySellButton');
+      if (!SHEET_CSV) { return; } // keep static text until you add your link
+      try {
+        const res = await fetch(SHEET_CSV + "&_=" + Date.now()); // cache-bust
+        const text = await res.text();
+        const firstCell = text.split(/\r?\n/)[0] || "";
+        if (firstCell.trim()) btn.textContent = firstCell.trim();
+      } catch (e) {
+        // stay quiet; keep last known/initial text
+      }
+    }
+    updateBuySellSignal();
+    // optional: refresh every 2 minutes
+    setInterval(updateBuySellSignal, 120000);
+  </script>
+
+  <!-- No extra HTML after this line. If you previously saw a green code panel,
+       it came from pasting code fences or duplicate <!DOCTYPE> inside content.
+       Replace the entire file with this one. -->
+</body>
+</html>
