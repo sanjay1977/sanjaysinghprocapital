@@ -1,52 +1,31 @@
- <!-- Wrapper for modular clarity -->
-<div style="display:flex;flex-direction:column;gap:24px;font-family:sans-serif;max-width:600px;margin:auto;padding:24px;">
-
-  <!-- 🔗 About Block with Verified Icons -->
-  <div style="display:flex;align-items:center;gap:12px;">
-    <h2 style="margin:0;">About</h2>
-    <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:20px;height:20px;">
-    </a>
-    <a href="https://x.com/sanjau7709" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X" style="width:20px;height:20px;">
-    </a>
-  </div>
-
-  <!-- 🕒 IST Clock (clean, no inline dot) -->
-  <div style="display:flex;align-items:center;gap:8px;">
-    <span id="ist-clock" style="font-weight:bold;">--:--</span>
-  </div>
-
-  <!-- 📈 Buy/Sell Signal Block -->
-  <div id="signal-block" style="display:flex;align-items:center;justify-content:space-between;padding:12px;border:1px solid #ccc;border-radius:6px;">
-    <span id="btc-signal" style="font-weight:bold;font-size:1.1em;">Loading signal...</span>
-    <span id="last-updated" style="font-size:0.9em;color:#666;"></span>
-  </div>
-
+ <!-- 🪙 Top-of-Page Crypto Icons -->
+<div style="display:flex;justify-content:center;gap:20px;padding-top:16px;padding-bottom:8px;">
+  <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC" style="width:32px;height:32px;">
+  <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="ETH" style="width:32px;height:32px;">
+  <img src="https://cryptologos.cc/logos/litecoin-ltc-logo.png" alt="LTC" style="width:32px;height:32px;">
 </div>
 
-<!-- 🔴 Fixed pulsing red dot at top-left corner -->
+<!-- 🔴 Pulsing Red Dot -->
 <div class="corner-pulse" aria-hidden="true"></div>
 
-<!-- Styles and Scripts -->
 <style>
   @keyframes pulse {
-    0% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.35; transform: scale(0.9); }
-    100% { opacity: 1; transform: scale(1); }
+    0%   { transform: scale(1); opacity: 1; }
+    50%  { transform: scale(1.4); opacity: 0.4; }
+    100% { transform: scale(1); opacity: 1; }
   }
 
   .corner-pulse {
     position: fixed;
     top: 12px;
     left: 12px;
-    width: 8px;
-    height: 8px;
+    width: 12px;
+    height: 12px;
     background: red;
     border-radius: 50%;
-    animation: pulse 1s infinite;
+    animation: pulse 1.2s ease-in-out infinite;
     z-index: 9999;
-    pointer-events: none; /* never blocks clicks */
+    pointer-events: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -54,11 +33,39 @@
   }
 </style>
 
+<!-- 🔗 About Block with Verified Icons -->
+<div style="display:flex;align-items:center;gap:12px;padding:24px;">
+  <h2 style="margin:0;">About</h2>
+  <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener noreferrer">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:20px;height:20px;">
+  </a>
+  <a href="https://x.com/sanjau7709" target="_blank" rel="noopener noreferrer">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X" style="width:20px;height:20px;">
+  </a>
+</div>
+
+<!-- 🧾 First-Person About Description -->
+<section style="line-height:1.6;font-family:sans-serif;padding:0 24px;">
+  <p>
+    I’m Sanjay Singh, founder of Sanjay Singh Pro Capital—a legacy brand built on minimalist design, disciplined presence, and professional clarity. I don’t chase trends. I build slowly, intentionally, and with full respect for every detail that reflects my name.
+  </p>
+  <p>
+    My layouts are modular. My signals are real. Every block I publish is a reflection of my philosophy: presence over performance, discipline over display. I don’t use placeholders. I don’t expose contact details. I let the structure speak for itself.
+  </p>
+  <p>
+    If you see a pulsing red dot, an IST clock, or a Buy/Sell block wired to my backend—know that it’s not decoration. It’s rhythm. It’s legacy. It’s me.
+  </p>
+</section>
+
+<!-- 🕒 IST Clock -->
+<div style="display:flex;justify-content:flex-end;padding:8px 24px;">
+  <span id="ist-clock" style="font-weight:bold;font-family:sans-serif;">--:--</span>
+</div>
+
 <script>
-  // IST Clock Logic
   function updateISTClock() {
     const now = new Date();
-    const istOffset = 5.5 * 60; // minutes
+    const istOffset = 5.5 * 60;
     const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
     const istTime = new Date(utc + (istOffset * 60000));
     const hours = istTime.getHours().toString().padStart(2, '0');
@@ -67,8 +74,27 @@
   }
   updateISTClock();
   setInterval(updateISTClock, 60000);
+</script>
 
-  // Buy/Sell Signal Fetch Logic
+<!-- 📊 BTC Chart -->
+<div style="display:flex;justify-content:flex-end;padding:16px 24px;">
+  <div style="width:300px;height:300px;border:1px solid #ccc;border-radius:8px;overflow:hidden;">
+    <iframe src="https://www.tradingview.com/embed-widget/ticker-tape/?symbols=BTCUSD" 
+            width="100%" height="100%" frameborder="0" style="border:none;"></iframe>
+  </div>
+</div>
+
+<!-- 📈 Buy/Sell Signal Block -->
+<div style="display:flex;justify-content:flex-end;padding:8px 24px;">
+  <div id="signal-block" style="width:300px;padding:12px;border:1px solid #ccc;border-radius:6px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <span id="btc-signal" style="font-weight:bold;font-size:1.1em;">Loading signal...</span>
+      <span id="last-updated" style="font-size:0.9em;color:#666;"></span>
+    </div>
+  </div>
+</div>
+
+<script>
   async function fetchSignal() {
     try {
       const res = await fetch('https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec');
@@ -83,3 +109,29 @@
   fetchSignal();
   setInterval(fetchSignal, 60000);
 </script>
+
+<!-- 📬 Contact Block -->
+<div style="display:flex;flex-direction:column;gap:8px;padding:24px;font-family:sans-serif;max-width:600px;margin:auto;">
+  <h2 style="margin:0;">Contact</h2>
+
+  <div style="display:flex;align-items:center;gap:8px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="width:20px;height:20px;">
+    <a href="mailto:sanjayprocapital@gmail.com" style="text-decoration:none;color:#000;font-weight:bold;">
+      sanjayprocapital@gmail.com
+    </a>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:8px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:20px;height:20px;">
+    <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#000;font-weight:bold;">
+      linkedin.com/in/sanjay-singh-8581b7379
+    </a>
+  </div>
+
+  <div style="display:flex;align-items:center;gap:8px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X" style="width:20px;height:20px;">
+    <a href="https://x.com/sanjau7709" target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:#000;font-weight:bold;">
+      x.com/sanjau7709
+    </a>
+  </div>
+</div>
