@@ -1,264 +1,143 @@
-  <!DOCTYPE html>
-<html lang="en" data-theme="light">
+ <!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanjay Singh Pro Capital</title>
   <style>
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #111111;
-      --card-bg: #f4f4f4;
-    }
-
-    [data-theme="dark"] {
-      --bg-color: #0f0f0f;
-      --text-color: #e0e0e0;
-      --card-bg: #1a1a1a;
-    }
-
     body {
       margin: 0;
-      font-family: sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
     }
-
-    .banner {
-      position: relative;
-      text-align: center;
-      padding: 48px 16px 24px;
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
     }
-
-    .pulse-dot {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      width: 8px;
-      height: 8px;
-      background: #ff2b2b;
-      border-radius: 50%;
-      box-shadow:
-        0 0 6px rgba(255, 43, 43, 0.8),
-        0 0 12px rgba(255, 43, 43, 0.6),
-        0 0 20px rgba(255, 43, 43, 0.4);
-      animation: pulse 2.2s ease-in-out infinite;
+    .section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background-color: #1a1a1a;
+      border-radius: 8px;
     }
-
-    @keyframes pulse {
-      0% {
-        box-shadow:
-          0 0 6px rgba(255, 43, 43, 0.8),
-          0 0 12px rgba(255, 43, 43, 0.6),
-          0 0 20px rgba(255, 43, 43, 0.4),
-          0 0 0 0 rgba(255, 43, 43, 0.3);
-      }
-      70% {
-        box-shadow:
-          0 0 6px rgba(255, 43, 43, 0.6),
-          0 0 12px rgba(255, 43, 43, 0.4),
-          0 0 20px rgba(255, 43, 43, 0.2),
-          0 0 0 14px rgba(255, 43, 43, 0);
-      }
-      100% {
-        box-shadow:
-          0 0 6px rgba(255, 43, 43, 0.8),
-          0 0 12px rgba(255, 43, 43, 0.6),
-          0 0 20px rgba(255, 43, 43, 0.4),
-          0 0 0 0 rgba(255, 43, 43, 0);
-      }
+    h1, h2, h3 {
+      color: #00ffc6;
+      margin-bottom: 10px;
     }
-
-    .crypto-icons {
+    .about-icons {
       display: flex;
-      justify-content: center;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-top: 10px;
     }
-
-    .crypto-icons img {
-      width: 28px;
-      height: 28px;
-    }
-
-    h1 {
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin: 0;
-    }
-
-    #theme-toggle {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: transparent;
-      border: none;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-color);
-      cursor: pointer;
-      padding: 6px 12px;
-      border-radius: 4px;
-    }
-
-    #theme-toggle:hover {
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      padding: 32px;
-    }
-
-    @media (max-width: 768px) {
-      .layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-    }
-
-    .about-heading {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .about-heading h2 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-
-    .about-description p {
-      font-size: 16px;
-      line-height: 1.6;
-      font-weight: 500;
-      margin-bottom: 24px;
-    }
-
-    .contact-block {
-      margin-bottom: 12px;
-    }
-
-    .contact-icon {
+    .about-icons a img {
       width: 24px;
       height: 24px;
+      transition: opacity 0.3s;
     }
-
-    .ist-clock-block {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 16px;
-      font-weight: 500;
+    .about-icons a:hover img {
+      opacity: 0.7;
     }
-
-    .btc-chart-block,
-    .buy-sell-block {
-      width: 100%;
-      max-width: 400px;
-      background-color: var(--card-bg);
-      border: 1px solid #222;
+    .clock {
+      font-size: 2em;
+      text-align: center;
+      padding: 20px;
+      background-color: #262626;
       border-radius: 8px;
-      box-shadow: 0 0 12px rgba(0,0,0,0.25);
-      margin-bottom: 24px;
+      position: relative;
     }
-
-    .btc-chart-block {
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
+    .red-dot {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 12px;
+      height: 12px;
+      background-color: red;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
     }
-
-    .buy-sell-block {
-      padding: 16px;
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.5); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 1; }
     }
-
-    .signal-header {
-      font-weight: 600;
-      font-size: 16px;
-      margin-bottom: 12px;
+    .buy-sell {
+      display: flex;
+      gap: 20px;
     }
-
-    #signal-feed {
-      font-size: 14px;
+    .buy-sell div {
+      flex: 1;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .crypto-logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 64px;
+      height: 64px;
     }
   </style>
 </head>
 <body>
-  <div class="banner">
-    <div class="pulse-dot" aria-hidden="true"></div>
-    <button id="theme-toggle">🌙 Dark Mode</button>
-    <div class="crypto-icons">
-      <img src="/icons/bitcoin.svg" alt="Bitcoin" />
-      <img src="/icons/ethereum.svg" alt="Ethereum" />
-      <img src="/icons/ripple.svg" alt="Ripple" />
+  <div class="container">
+    <!-- Intro Block -->
+    <div class="section">
+      <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC Logo" class="crypto-logo" />
+      <h1>Everything is aligned, glowing, and ready to deploy.</h1>
+      <p>Here is the full, final code dropped cleanly into the Page. We’ll lock it together, block by block.</p>
     </div>
-    <h1>Sanjay Singh Pro Capital</h1>
-  </div>
 
-  <div class="layout">
-    <!-- Left Column -->
-    <div>
-      <div class="about-heading">
-        <h2>ABOUT</h2>
-        <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank">
-          <img src="/icons/linkedin.svg" alt="LinkedIn" class="icon" />
+    <!-- About Block -->
+    <div class="section">
+      <h2>About Sanjay Singh</h2>
+      <p>Founder of Sanjay Singh Pro Capital—built on minimalist design, disciplined presence, and professional clarity.</p>
+      <div class="about-icons">
+        <a href="https://www.linkedin.com/in/sanjaysingh" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
         </a>
-        <a href="https://x.com/sanjau7709" target="_blank">
-          <img src="/icons/x.svg" alt="X" class="icon" />
+        <a href="https://x.com/sanjaysingh" target="_blank">
+          <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="X" />
         </a>
-      </div>
-
-      <div class="about-description">
-        <p>
-          I’m Sanjay Singh, founder of Sanjay Singh Pro Capital—a legacy brand defined by minimalist design, disciplined presence, and professional clarity.<br><br>
-          I trade crypto with patience, structure, and conviction. I don’t chase momentum. I wait for clarity. Every position is intentional. Every pause is deliberate.<br><br>
-          This brand isn’t a performance—it’s presence. Built slowly. Refined precisely. Protected at every layer.
-        </p>
-      </div>
-
-      <div class="contact-block">
-        <a href="mailto:sanjayprocapital@gmail.com">
-          <img src="/icons/gmail.svg" alt="Contact" class="contact-icon" />
-        </a>
-      </div>
-
-      <div class="ist-clock-block">
-        <span class="clock-icon">🕒</span>
-        <span id="ist-time">--:-- | IST</span>
       </div>
     </div>
 
-    <!-- Right Column -->
-    <div>
-      <div class="btc-chart-block">
-        <iframe
-          src="https://www.tradingview.com/embed-widget/ticker-tape/?symbols=BTCUSD"
-          width="100%"
-          height="100%"
-          frameborder="0"
-          allowtransparency="true"
-          scrolling="no"
-        ></iframe>
-      </div>
+    <!-- BTC Chart Block -->
+    <div class="section">
+      <h2>Live BTC Chart</h2>
+      <iframe src="https://www.tradingview.com/chart/?symbol=BTCUSD" frameborder="0" style="width:100%; height:400px;"></iframe>
+    </div>
 
-      <div class="buy-sell-block">
-        <div class="signal-header">BTC Signals</div>
-        <div id="signal-feed">Loading...</div>
+    <!-- IST Clock Block -->
+    <div class="section clock" id="clock">
+      <div class="red-dot"></div>
+      IST Time: --
+    </div>
+
+    <!-- Buy/Sell Logic Block -->
+    <div class="section buy-sell">
+      <div>
+        <h3>Buy Signal</h3>
+        <p>Triggered when BTC drops below support and RSI < 30.</p>
+      </div>
+      <div>
+        <h3>Sell Signal</h3>
+        <p>Triggered when BTC hits resistance and RSI > 70.</p>
       </div>
     </div>
   </div>
 
   <script>
-    // IST Clock
-    function updateISTClock() {
+    function updateClock() {
       const now = new Date();
-      const istOffset = 5.5 * 60;
-      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
-      const istTime = new Date(utc + istOffset * 60000);
-      const hours = istTime.getHours().toString().padStart(2, '0');
-      const minutes = istTime.getMinutes().toString().padStart(2, '0[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Hadisam23/Petek/tree/70e0068ba62ae27c6709acbb3c3c2708e3a05d74/removeMembers.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+      const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
+      document.getElementById('clock').innerHTML = '<div class="red-dot"></div>IST Time: ' + timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
