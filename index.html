@@ -1,143 +1,85 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sanjay Singh Pro Capital</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0d0d;
-      color: #e0e0e0;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    .section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background-color: #1a1a1a;
-      border-radius: 8px;
-    }
-    h1, h2, h3 {
-      color: #00ffc6;
-      margin-bottom: 10px;
-    }
-    .about-icons {
-      display: flex;
-      gap: 12px;
-      margin-top: 10px;
-    }
-    .about-icons a img {
-      width: 24px;
-      height: 24px;
-      transition: opacity 0.3s;
-    }
-    .about-icons a:hover img {
-      opacity: 0.7;
-    }
-    .clock {
-      font-size: 2em;
-      text-align: center;
-      padding: 20px;
-      background-color: #262626;
-      border-radius: 8px;
-      position: relative;
-    }
-    .red-dot {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 12px;
-      height: 12px;
-      background-color: red;
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.5); opacity: 0.5; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .buy-sell {
-      display: flex;
-      gap: 20px;
-    }
-    .buy-sell div {
-      flex: 1;
-      background-color: #333;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-    }
-    .crypto-logo {
-      display: block;
-      margin: 0 auto 20px;
-      width: 64px;
-      height: 64px;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <!-- Intro Block -->
-    <div class="section">
-      <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="BTC Logo" class="crypto-logo" />
-      <h1>Everything is aligned, glowing, and ready to deploy.</h1>
-      <p>Here is the full, final code dropped cleanly into the Page. We’ll lock it together, block by block.</p>
-    </div>
+ <!-- Wrapper for modular clarity -->
+<div style="display:flex;flex-direction:column;gap:24px;font-family:sans-serif;max-width:600px;margin:auto;padding:24px;">
 
-    <!-- About Block -->
-    <div class="section">
-      <h2>About Sanjay Singh</h2>
-      <p>Founder of Sanjay Singh Pro Capital—built on minimalist design, disciplined presence, and professional clarity.</p>
-      <div class="about-icons">
-        <a href="https://www.linkedin.com/in/sanjaysingh" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" />
-        </a>
-        <a href="https://x.com/sanjaysingh" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/3670/3670151.png" alt="X" />
-        </a>
-      </div>
-    </div>
-
-    <!-- BTC Chart Block -->
-    <div class="section">
-      <h2>Live BTC Chart</h2>
-      <iframe src="https://www.tradingview.com/chart/?symbol=BTCUSD" frameborder="0" style="width:100%; height:400px;"></iframe>
-    </div>
-
-    <!-- IST Clock Block -->
-    <div class="section clock" id="clock">
-      <div class="red-dot"></div>
-      IST Time: --
-    </div>
-
-    <!-- Buy/Sell Logic Block -->
-    <div class="section buy-sell">
-      <div>
-        <h3>Buy Signal</h3>
-        <p>Triggered when BTC drops below support and RSI < 30.</p>
-      </div>
-      <div>
-        <h3>Sell Signal</h3>
-        <p>Triggered when BTC hits resistance and RSI > 70.</p>
-      </div>
-    </div>
+  <!-- 🔗 About Block with Verified Icons -->
+  <div style="display:flex;align-items:center;gap:12px;">
+    <h2 style="margin:0;">About</h2>
+    <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:20px;height:20px;">
+    </a>
+    <a href="https://x.com/sanjau7709" target="_blank" rel="noopener noreferrer">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X" style="width:20px;height:20px;">
+    </a>
   </div>
 
-  <script>
-    function updateClock() {
-      const now = new Date();
-      const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-      const timeString = new Intl.DateTimeFormat('en-US', options).format(now);
-      document.getElementById('clock').innerHTML = '<div class="red-dot"></div>IST Time: ' + timeString;
+  <!-- 🕒 IST Clock (clean, no inline dot) -->
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span id="ist-clock" style="font-weight:bold;">--:--</span>
+  </div>
+
+  <!-- 📈 Buy/Sell Signal Block -->
+  <div id="signal-block" style="display:flex;align-items:center;justify-content:space-between;padding:12px;border:1px solid #ccc;border-radius:6px;">
+    <span id="btc-signal" style="font-weight:bold;font-size:1.1em;">Loading signal...</span>
+    <span id="last-updated" style="font-size:0.9em;color:#666;"></span>
+  </div>
+
+</div>
+
+<!-- 🔴 Fixed pulsing red dot at top-left corner -->
+<div class="corner-pulse" aria-hidden="true"></div>
+
+<!-- Styles and Scripts -->
+<style>
+  @keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .corner-pulse {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: 8px;
+    height: 8px;
+    background: red;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+    z-index: 9999;
+    pointer-events: none; /* never blocks clicks */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .corner-pulse { animation: none; }
+  }
+</style>
+
+<script>
+  // IST Clock Logic
+  function updateISTClock() {
+    const now = new Date();
+    const istOffset = 5.5 * 60; // minutes
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const istTime = new Date(utc + (istOffset * 60000));
+    const hours = istTime.getHours().toString().padStart(2, '0');
+    const minutes = istTime.getMinutes().toString().padStart(2, '0');
+    document.getElementById('ist-clock').textContent = ${hours}:${minutes};
+  }
+  updateISTClock();
+  setInterval(updateISTClock, 60000);
+
+  // Buy/Sell Signal Fetch Logic
+  async function fetchSignal() {
+    try {
+      const res = await fetch('https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_ID/exec');
+      const { signal, updated } = await res.json();
+      document.getElementById('btc-signal').textContent = BTC Signal: ${signal};
+      document.getElementById('last-updated').textContent = Updated: ${updated};
+    } catch (err) {
+      document.getElementById('btc-signal').textContent = 'Error loading signal';
+      document.getElementById('last-updated').textContent = '';
     }
-    setInterval(updateClock, 1000);
-    updateClock();
-  </script>
-</body>
-</html>
+  }
+  fetchSignal();
+  setInterval(fetchSignal, 60000);
+</script>
