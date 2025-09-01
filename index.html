@@ -1,128 +1,264 @@
- <!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanjay Singh Pro Capital</title>
   <style>
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #111111;
+      --card-bg: #f4f4f4;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #0f0f0f;
+      --text-color: #e0e0e0;
+      --card-bg: #1a1a1a;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
-      color: #111;
-      margin: 40px;
-      line-height: 1.6;
+      margin: 0;
+      font-family: sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
     }
 
-    .header {
+    .banner {
+      position: relative;
       text-align: center;
-      font-weight: bold;
-      font-size: 28px;
-      letter-spacing: 1px;
+      padding: 48px 16px 24px;
     }
 
-    .subheader {
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .about {
-      max-width: 600px;
-      margin: 0 auto 40px;
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .clock {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      margin-bottom: 30px;
-    }
-
-    .dot {
-      height: 10px;
-      width: 10px;
-      background-color: red;
+    .pulse-dot {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 8px;
+      height: 8px;
+      background: #ff2b2b;
       border-radius: 50%;
-      margin-left: 10px;
-      animation: pulse 1.5s infinite;
+      box-shadow:
+        0 0 6px rgba(255, 43, 43, 0.8),
+        0 0 12px rgba(255, 43, 43, 0.6),
+        0 0 20px rgba(255, 43, 43, 0.4);
+      animation: pulse 2.2s ease-in-out infinite;
     }
 
     @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.5); opacity: 0.6; }
-      100% { transform: scale(1); opacity: 1; }
+      0% {
+        box-shadow:
+          0 0 6px rgba(255, 43, 43, 0.8),
+          0 0 12px rgba(255, 43, 43, 0.6),
+          0 0 20px rgba(255, 43, 43, 0.4),
+          0 0 0 0 rgba(255, 43, 43, 0.3);
+      }
+      70% {
+        box-shadow:
+          0 0 6px rgba(255, 43, 43, 0.6),
+          0 0 12px rgba(255, 43, 43, 0.4),
+          0 0 20px rgba(255, 43, 43, 0.2),
+          0 0 0 14px rgba(255, 43, 43, 0);
+      }
+      100% {
+        box-shadow:
+          0 0 6px rgba(255, 43, 43, 0.8),
+          0 0 12px rgba(255, 43, 43, 0.6),
+          0 0 20px rgba(255, 43, 43, 0.4),
+          0 0 0 0 rgba(255, 43, 43, 0);
+      }
     }
 
-    .btc {
-      text-align: center;
-      font-size: 16px;
-      margin-bottom: 30px;
-    }
-
-    .contact {
+    .crypto-icons {
       display: flex;
-      align-items: center;
       justify-content: center;
       gap: 12px;
-      font-size: 18px;
-      font-weight: bold;
+      margin-bottom: 16px;
     }
 
-    .contact a img {
-      width: 20px;
-      height: 20px;
+    .crypto-icons img {
+      width: 28px;
+      height: 28px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    #theme-toggle {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+
+    #theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      padding: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .about-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .about-heading h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .about-description p {
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+
+    .contact-block {
+      margin-bottom: 12px;
+    }
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .ist-clock-block {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .btc-chart-block,
+    .buy-sell-block {
+      width: 100%;
+      max-width: 400px;
+      background-color: var(--card-bg);
+      border: 1px solid #222;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.25);
+      margin-bottom: 24px;
+    }
+
+    .btc-chart-block {
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+    }
+
+    .buy-sell-block {
+      padding: 16px;
+    }
+
+    .signal-header {
+      font-weight: 600;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    #signal-feed {
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-
-  <div class="header">SANJAY SINGH</div>
-  <div class="subheader">PRO CAPITAL</div>
-
-  <div class="about">
-    I am Sanjay Singh, founder of Sanjay Singh Pro Capital—a legacy brand built on minimalist design, disciplined presence, and professional clarity.<br><br>
-    I trade crypto with patience, structure, and conviction. I do not chase momentum. I wait for clarity.<br><br>
-    Every position I take is intentional. Every pause is deliberate.<br><br>
-    This brand is not a performance—it is presence. Built slowly. Refined precisely. Protected at every layer.
+  <div class="banner">
+    <div class="pulse-dot" aria-hidden="true"></div>
+    <button id="theme-toggle">🌙 Dark Mode</button>
+    <div class="crypto-icons">
+      <img src="/icons/bitcoin.svg" alt="Bitcoin" />
+      <img src="/icons/ethereum.svg" alt="Ethereum" />
+      <img src="/icons/ripple.svg" alt="Ripple" />
+    </div>
+    <h1>Sanjay Singh Pro Capital</h1>
   </div>
 
-  <div class="clock">
-    INDIA STANDARD TIME: <span id="ist-time"></span>
-    <span class="dot"></span>
-  </div>
+  <div class="layout">
+    <!-- Left Column -->
+    <div>
+      <div class="about-heading">
+        <h2>ABOUT</h2>
+        <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank">
+          <img src="/icons/linkedin.svg" alt="LinkedIn" class="icon" />
+        </a>
+        <a href="https://x.com/sanjau7709" target="_blank">
+          <img src="/icons/x.svg" alt="X" class="icon" />
+        </a>
+      </div>
 
-  <div class="btc">
-    BTCUSD<br>
-    Range: 50,300 – 80,000
-  </div>
+      <div class="about-description">
+        <p>
+          I’m Sanjay Singh, founder of Sanjay Singh Pro Capital—a legacy brand defined by minimalist design, disciplined presence, and professional clarity.<br><br>
+          I trade crypto with patience, structure, and conviction. I don’t chase momentum. I wait for clarity. Every position is intentional. Every pause is deliberate.<br><br>
+          This brand isn’t a performance—it’s presence. Built slowly. Refined precisely. Protected at every layer.
+        </p>
+      </div>
 
-  <div class="contact">
-    CONTACT
-    <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-    </a>
-    <a href="https://x.com/sanjau7709" target="_blank" rel="noopener">
-      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="X">
-    </a>
+      <div class="contact-block">
+        <a href="mailto:sanjayprocapital@gmail.com">
+          <img src="/icons/gmail.svg" alt="Contact" class="contact-icon" />
+        </a>
+      </div>
+
+      <div class="ist-clock-block">
+        <span class="clock-icon">🕒</span>
+        <span id="ist-time">--:-- | IST</span>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div>
+      <div class="btc-chart-block">
+        <iframe
+          src="https://www.tradingview.com/embed-widget/ticker-tape/?symbols=BTCUSD"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          allowtransparency="true"
+          scrolling="no"
+        ></iframe>
+      </div>
+
+      <div class="buy-sell-block">
+        <div class="signal-header">BTC Signals</div>
+        <div id="signal-feed">Loading...</div>
+      </div>
+    </div>
   </div>
 
   <script>
-    function updateIST() {
+    // IST Clock
+    function updateISTClock() {
       const now = new Date();
       const istOffset = 5.5 * 60;
-      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-      const istTime = new Date(utc + (istOffset * 60000));
-      const hours = String(istTime.getHours()).padStart(2, '0');
-      const minutes = String(istTime.getMinutes()).padStart(2, '0');
-      const seconds = String(istTime.getSeconds()).padStart(2, '0');
-      document.getElementById('ist-time').textContent = ${hours}:${minutes}:${seconds};
-    }
-
-    setInterval(updateIST, 1000);
-    updateIST();
-  </script>
-
-</body>
-</html>
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const istTime = new Date(utc + istOffset * 60000);
+      const hours = istTime.getHours().toString().padStart(2, '0');
+      const minutes = istTime.getMinutes().toString().padStart(2, '0[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Hadisam23/Petek/tree/70e0068ba62ae27c6709acbb3c3c2708e3a05d74/removeMembers.php?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
