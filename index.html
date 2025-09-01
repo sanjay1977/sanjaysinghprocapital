@@ -36,13 +36,9 @@
     .contact-icons a { display:inline-flex; width:24px; height:24px; color:inherit; text-decoration:none; }
     .contact-icons a:hover { opacity:0.8; }
 
-    /* Time blocks */
-    .time, .local-time { font-size:30px; font-weight:700; }
-    .time-label, .local-time-label {
-      color:var(--muted); text-transform:uppercase;
-      letter-spacing:1px; font-size:12px; margin-bottom:6px;
-    }
-    .local-time-block { margin-top:12px; }
+    /* Time block */
+    .time { font-size:30px; font-weight:700; }
+    .time-label { color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-size:12px; margin-bottom:6px; }
 
     /* Chart block */
     .chart-panel { background:var(--panel); border-radius:6px; padding:10px; }
@@ -56,67 +52,104 @@
       padding:12px 22px; font-size:16px; cursor:default;
     }
 
-    /* Red Dot Pulse */
-    .red-dot {
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      width: 10px;
-      height: 10px;
-      background-color: red;
-      border-radius: 50%;
-      box-shadow: 0 0 6px rgba(255,0,0,0.6);
-      animation: pulse 1.8s infinite;
-      z-index: 999;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.4); opacity: 0.6; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
+    /* Footer spacer */
     .spacer { height:20px; }
+
+    /* 🔴 Pulsing red dot animation */
+    @keyframes pulse {
+      0% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.6); }
+      100% { opacity: 0.2; transform: scale(1); }
+    }
   </style>
 </head>
 <body>
+
+  <!-- 🔴 Top-left pulsing dot -->
+  <div style="
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: red;
+    animation: pulse 1.5s infinite;
+    z-index: 9999;
+  "></div>
+
   <div class="wrap">
-    <div class="red-dot" aria-hidden="true"></div>
-
     <!-- Banner -->
-    <!-- [Your existing header and grid content remains unchanged] -->
-
-    <!-- Time Block -->
-    <div class="time-block" style="margin-top:18px;">
-      <div class="time-label">India Standard Time</div>
-      <div id="istClock" class="time">--:--:--</div>
+    <div class="header">
+      <div class="crypto-marks" aria-hidden="true">
+        <!-- Bitcoin SVG -->
+        <svg class="crypto-icon" viewBox="0 0 24 24" role="img" aria-label="Bitcoin">
+          <circle cx="12" cy="12" r="11" fill="#F7931A"></circle>
+          <text x="12" y="16" text-anchor="middle" font-size="12" font-family="Arial" fill="#fff" font-weight="700">B</text>
+        </svg>
+        <!-- Ethereum SVG -->
+        <svg class="crypto-icon" viewBox="0 0 256 417" role="img" aria-label="Ethereum">
+          <polygon fill="#627EEA" points="127.9,0 124.3,12.4 124.3,279.1 127.9,282.7 255.8,208.5"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,0 0,208.5 127.9,282.7 127.9,150.7"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,305.5 125.8,307.9 125.8,414.4 127.9,416.5 255.9,231.5"></polygon>
+          <polygon fill="#627EEA" points="127.9,416.5 127.9,305.5 0,231.5"></polygon>
+        </svg>
+      </div>
+      <h1>SANJAY SINGH</h1>
+      <h2>PRO CAPITAL</h2>
     </div>
 
-    <!-- Local Time Block -->
-    <div class="local-time-block">
-      <div class="local-time-label">Local Time</div>
-      <div id="localClock" class="local-time">--:--:--</div>
+    <!-- Main grid -->
+    <div class="grid">
+      <!-- Left column -->
+      <div class="section">
+        <h3 style="display: flex; align-items: center; gap: 12px;">About</h3>
+        <p>I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined presence, and professional clarity.</p>
+        <p>I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.</p>
+
+        <div class="time-block" style="margin-top:18px;">
+          <div class="time-label">India Standard Time</div>
+          <div id="istClock" class="time">--:--:--</div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="section">
+        <h3>Contact</h3>
+        <div class="contact-icons">
+          <a href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="24" height="24" role="img" aria-hidden="true">
+              <path fill="#D44638" d="M12 12.713L0 4.5V19a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4.5l-12 8.213z"></path>
+              <path fill="#F1F1F1" d="M24 4.5V5l-12 8-12-8v-.5A2 2 0 0 1 2 3h20a2 2 0 0 1 2 1.5z"></path>
+            </svg>
+          </a>
+        </div>
+
+        <div class="chart-panel" style="margin-top:22px;">
+          <h3 style="margin:0 0 8px;">BTCUSD</h3>
+          <div class="chart-meta">
+            <div><small>Range:</small> 50,000 – 60,000</div>
+            <div><small>GAS:</small> 36.57</div>
+          </div>
+          <div id="tv_chart_container" style="height:320px;"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- [Your existing chart, contact, and Buy/Sell blocks remain unchanged] -->
+    <!-- Buy/Sell -->
+    <div class="buy-sell">
+      <button id="buySellButton">Buy Signal Active — BTC above 55,000</button>
+    </div>
+
+    <div class="spacer"></div>
   </div>
 
   <!-- Scripts -->
+  <script src="https://s3.tradingview.com/tv.js"></script>
   <script>
     // IST clock
     function updateClock() {
       const t = new Date().toLocaleTimeString('en-GB', { hour12:false, timeZone:'Asia/Kolkata' });
       document.getElementById('istClock').textContent = t;
     }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    // Local clock
-    function updateLocalClock() {
-      const t = new Date().toLocaleTimeString('en-GB', { hour12:false });
-      document.getElementById('localClock').textContent = t;
-    }
-    updateLocalClock();
-    setInterval(updateLocalClock, 1000);
-  </script>
-</body>
-</html>  
+    update[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Ronnie434/30-days-of-React/tree/22142106cb46f717a1259f84227cc90ed7fe50cc/02_Day_Introduction_to_React%2F02_introduction_to_react.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
