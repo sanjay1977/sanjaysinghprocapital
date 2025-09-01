@@ -4,152 +4,151 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sanjay Singh Pro Capital</title>
-  <meta name="description" content="Sanjay Singh Pro Capital — minimalist design, disciplined presence, professional clarity." />
   <style>
-    :root {
-      --text:#000;
-      --muted:#666;
-      --bg:#fff;
-      --panel:#f5f5f5;
-      --accent:#004d40;
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #000;
+      padding: 20px;
     }
-    * { box-sizing: border-box; }
-    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-    .wrap { padding:20px; max-width:1100px; margin:0 auto; }
-
-    /* Header */
-    .header { text-align:center; margin-bottom:28px; }
-    .crypto-marks { display:flex; justify-content:center; align-items:center; gap:36px; margin-bottom:10px; }
-    .crypto-icon { width:30px; height:30px; display:inline-block; }
-    h1 { margin:0; font-size:28px; letter-spacing:0.5px; }
-    h2 { margin:6px 0 0; font-weight:500; font-size:16px; letter-spacing:2px; }
-
-    /* Grid */
-    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:36px; }
-    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
-
-    .section h3 { font-size:14px; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 10px; color:var(--muted); }
-    .section p { line-height:1.6; margin:0 0 14px; max-width:600px; }
-
-    /* Contact icons */
-    .contact-icons { display:flex; gap:16px; align-items:center; }
-    .contact-icons a { display:inline-flex; width:24px; height:24px; color:inherit; text-decoration:none; }
-    .contact-icons a:hover { opacity:0.8; }
-
-    /* Time block */
-    .time { font-size:30px; font-weight:700; }
-    .time-label { color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-size:12px; margin-bottom:6px; }
-
-    /* Chart block */
-    .chart-panel { background:var(--panel); border-radius:6px; padding:10px; }
-    .chart-meta { font-size:14px; color:#111; margin-bottom:8px; }
-    .chart-meta small { color:var(--muted); }
-
-    /* Buy/Sell block */
-    .buy-sell { text-align:center; margin:24px 0 10px; }
-    .buy-sell button {
-      background:var(--accent); color:#fff; border:none; border-radius:6px;
-      padding:12px 22px; font-size:16px; cursor:default;
+    .container {
+      max-width: 600px;
+      margin: auto;
     }
-
-    /* Footer spacer */
-    .spacer { height:20px; }
-
-    /* 🔴 Pulsing red dot animation */
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+      position: fixed;
+      top: 12px;
+      left: 12px;
+    }
     @keyframes pulse {
-      0% { opacity: 0.2; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.6); }
-      100% { opacity: 0.2; transform: scale(1); }
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+    .header {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .header h1 {
+      font-size: 28px;
+      margin: 0;
+    }
+    .header h2 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: normal;
+    }
+    .about {
+      margin-top: 30px;
+      line-height: 1.6;
+    }
+    .about-title {
+      font-weight: bold;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .about-title a img {
+      width: 16px;
+      vertical-align: middle;
+    }
+    .clock, .btc {
+      margin-top: 20px;
+    }
+    .clock-time {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .btc-chart {
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to right, #e0ffe0, #b0ffb0);
+      position: relative;
+      margin-top: 10px;
+    }
+    .btc-line {
+      position: absolute;
+      left: 10%;
+      top: 50%;
+      width: 80%;
+      height: 2px;
+      background-color: green;
+    }
+    .contact {
+      margin-top: 30px;
+      font-size: 14px;
+    }
+    .hidden-email {
+      display: none;
     }
   </style>
 </head>
 <body>
+  <div class="pulse-dot"></div>
 
-  <!-- 🔴 Top-left pulsing dot -->
-  <div style="
-    position: fixed;
-    top: 12px;
-    left: 12px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: red;
-    animation: pulse 1.5s infinite;
-    z-index: 9999;
-  "></div>
-
-  <div class="wrap">
-    <!-- Banner -->
+  <div class="container">
     <div class="header">
-      <div class="crypto-marks" aria-hidden="true">
-        <!-- Bitcoin SVG -->
-        <svg class="crypto-icon" viewBox="0 0 24 24" role="img" aria-label="Bitcoin">
-          <circle cx="12" cy="12" r="11" fill="#F7931A"></circle>
-          <text x="12" y="16" text-anchor="middle" font-size="12" font-family="Arial" fill="#fff" font-weight="700">B</text>
-        </svg>
-        <!-- Ethereum SVG -->
-        <svg class="crypto-icon" viewBox="0 0 256 417" role="img" aria-label="Ethereum">
-          <polygon fill="#627EEA" points="127.9,0 124.3,12.4 124.3,279.1 127.9,282.7 255.8,208.5"></polygon>
-          <polygon fill="#627EEA" opacity="0.6" points="127.9,0 0,208.5 127.9,282.7 127.9,150.7"></polygon>
-          <polygon fill="#627EEA" opacity="0.6" points="127.9,305.5 125.8,307.9 125.8,414.4 127.9,416.5 255.9,231.5"></polygon>
-          <polygon fill="#627EEA" points="127.9,416.5 127.9,305.5 0,231.5"></polygon>
-        </svg>
-      </div>
       <h1>SANJAY SINGH</h1>
       <h2>PRO CAPITAL</h2>
     </div>
 
-    <!-- Main grid -->
-    <div class="grid">
-      <!-- Left column -->
-      <div class="section">
-        <h3 style="display: flex; align-items: center; gap: 12px;">About</h3>
-        <p>I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined presence, and professional clarity.</p>
-        <p>I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.</p>
-
-        <div class="time-block" style="margin-top:18px;">
-          <div class="time-label">India Standard Time</div>
-          <div id="istClock" class="time">--:--:--</div>
-        </div>
+    <div class="about">
+      <div class="about-title">
+        ABOUT
+        <a href="https://x.com/sanjau7709?t=Oq6iLvDCmD0HclSwSCNeiw&s=09" target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/X_logo_2023.svg" alt="X" />
+        </a>
+        <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+           target="_blank" rel="noopener">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" />
+        </a>
       </div>
+      <p>I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined presence, and professional clarity.</p>
+      <p>I trade crypto with patience and conviction guided by timing, structure, and restraint. I don't chase momentum; I wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.</p>
+    </div>
 
-      <!-- Right column -->
-      <div class="section">
-        <h3>Contact</h3>
-        <div class="contact-icons">
-          <a href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" width="24" height="24" role="img" aria-hidden="true">
-              <path fill="#D44638" d="M12 12.713L0 4.5V19a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4.5l-12 8.213z"></path>
-              <path fill="#F1F1F1" d="M24 4.5V5l-12 8-12-8v-.5A2 2 0 0 1 2 3h20a2 2 0 0 1 2 1.5z"></path>
-            </svg>
-          </a>
-        </div>
+    <div class="clock">
+      <div><strong>INDIA STANDARD TIME</strong></div>
+      <div id="ist-clock" class="clock-time">12:20:00</div>
+    </div>
 
-        <div class="chart-panel" style="margin-top:22px;">
-          <h3 style="margin:0 0 8px;">BTCUSD</h3>
-          <div class="chart-meta">
-            <div><small>Range:</small> 50,000 – 60,000</div>
-            <div><small>GAS:</small> 36.57</div>
-          </div>
-          <div id="tv_chart_container" style="height:320px;"></div>
-        </div>
+    <div class="btc">
+      <div><strong>BTCUSD</strong></div>
+      <div>Range: $27,200 – 60,000</div>
+      <div class="btc-chart">
+        <div class="btc-line"></div>
       </div>
     </div>
 
-    <!-- Buy/Sell -->
-    <div class="buy-sell">
-      <button id="buySellButton">Buy Signal Active — BTC above 55,000</button>
+    <div class="contact">
+      <div><strong>CONTACT</strong></div>
+      <form action="mailto:sanjayprocapital@gmail.com" method="post" enctype="text/plain">
+        <button type="submit" style="margin-top:10px;">Send BTC Buy/Sell Request</button>
+      </form>
     </div>
 
-    <div class="spacer"></div>
+    <div class="hidden-email">sanjayprocapital@gmail.com</div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://s3.tradingview.com/tv.js"></script>
   <script>
-    // IST clock
-    function updateClock() {
-      const t = new Date().toLocaleTimeString('en-GB', { hour12:false, timeZone:'Asia/Kolkata' });
-      document.getElementById('istClock').textContent = t;
+    function updateISTClock() {
+      const now = new Date();
+      const istOffset = 5.5 * 60 * 60 * 1000;
+      const istTime = new Date(now.getTime() + istOffset - now.getTimezoneOffset() * 60000);
+      const hours = String(istTime.getUTCHours()).padStart(2, '0');
+      const minutes = String(istTime.getUTCMinutes()).padStart(2, '0');
+      const seconds = String(istTime.getUTCSeconds()).padStart(2, '0');
+      document.getElementById('ist-clock').textContent = ${hours}:${minutes}:${seconds};
     }
-    update[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Ronnie434/30-days-of-React/tree/22142106cb46f717a1259f84227cc90ed7fe50cc/02_Day_Introduction_to_React%2F02_introduction_to_react.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")
+    setInterval(updateISTClock, 1000);
+    updateISTClock();
+  </script>
+</body>
+</html>
