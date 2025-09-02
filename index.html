@@ -6,82 +6,250 @@
   <title>Sanjay Singh Pro Capital</title>
   <meta name="description" content="Sanjay Singh Pro Capital — minimalist design, disciplined presence, professional clarity." />
   <style>
+    /* Light Mode Variables */
     :root {
-      --text:#000;
-      --muted:#666;
-      --bg:#fff;
-      --panel:#f5f5f5;
-      --accent:#004d40;
+      --text: #000;
+      --muted: #666;
+      --bg: #fff;
+      --panel: #f5f5f5;
+      --accent: #004d40;
     }
-    * { box-sizing: border-box; }
-    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-    .wrap { padding:20px; max-width:1100px; margin:0 auto; }
+
+    /* Dark Mode Variables */
+    body.dark-mode {
+      --text: #e0e0e0;
+      --muted: #999;
+      --bg: #1a1a1a;
+      --panel: #2a2a2a;
+      --accent: #00897b; /* Slightly brighter accent for dark mode contrast */
+    }
+
+    /* General Styles */
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
+    }
+    .wrap {
+      padding: 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative; /* For positioning the dark mode toggle */
+    }
 
     /* Header */
-    .header { text-align:center; margin-bottom:28px; }
-    .crypto-marks { display:flex; justify-content:center; align-items:center; gap:36px; margin-bottom:10px; }
-    .crypto-icon { width:30px; height:30px; display:inline-block; }
-    h1 { margin:0; font-size:28px; letter-spacing:0.5px; }
-    h2 { margin:6px 0 0; font-weight:500; font-size:16px; letter-spacing:2px; }
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .crypto-marks {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 36px;
+      margin-bottom: 10px;
+    }
+    .crypto-icon {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 0.5px;
+    }
+    h2 {
+      margin: 6px 0 0;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
 
     /* Grid */
-    .grid { display:grid; grid-template-columns: 1fr 1fr; gap:36px; }
-    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
 
-    .section h3 { font-size:14px; letter-spacing:1.5px; text-transform:uppercase; margin:0 0 10px; color:var(--muted); }
-    .section p { line-height:1.6; margin:0 0 14px; max-width:600px; }
+    .section h3 {
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+    .section p {
+      line-height: 1.6;
+      margin: 0 0 14px;
+      max-width: 600px;
+    }
 
     /* Contact icons (icon-only, verified Gmail) */
-    .contact-icons { display:flex; gap:16px; align-items:center; }
-    .contact-icons a { display:inline-flex; width:24px; height:24px; color:inherit; text-decoration:none; }
-    .contact-icons a:hover { opacity:0.8; }
+    .contact-icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .contact-icons a {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      color: inherit;
+      text-decoration: none;
+    }
+    .contact-icons a:hover {
+      opacity: 0.8;
+    }
+    /* Adjust SVG fill color for dark mode social icons if needed */
+    body.dark-mode .section h3 a svg path {
+      fill: var(--text); /* Make social icons match text color in dark mode */
+    }
+    body.dark-mode .contact-icons a svg path:first-child { /* For Gmail icon background */
+      fill: #bb514c; /* Darker red for dark mode */
+    }
+    body.dark-mode .contact-icons a svg path:last-child { /* For Gmail icon foreground */
+      fill: #e0e0e0; /* Match text color */
+    }
+
 
     /* Time block */
-    .time { font-size:30px; font-weight:700; }
-    .time-label { color:var(--muted); text-transform:uppercase; letter-spacing:1px; font-size:12px; margin-bottom:6px; }
+    .time {
+      font-size: 30px;
+      font-weight: 700;
+    }
+    .time-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
 
     /* Chart block */
-    .chart-panel { background:var(--panel); border-radius:6px; padding:10px; }
-    .chart-meta { font-size:14px; color:#111; margin-bottom:8px; }
-    .chart-meta small { color:var(--muted); }
+    .chart-panel {
+      background: var(--panel);
+      border-radius: 6px;
+      padding: 10px;
+    }
+    .chart-meta {
+      font-size: 14px;
+      color: var(--text); /* Use text color variable */
+      margin-bottom: 8px;
+    }
+    .chart-meta small {
+      color: var(--muted);
+    }
 
     /* Buy/Sell block */
-    .buy-sell { text-align:center; margin:24px 0 10px; }
+    .buy-sell {
+      text-align: center;
+      margin: 24px 0 10px;
+    }
     .buy-sell button {
-      background:var(--accent); color:#fff; border:none; border-radius:6px;
-      padding:12px 22px; font-size:16px; cursor:default;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-size: 16px;
+      cursor: default;
     }
 
     /* Footer spacer (prevents any accidental overlap) */
-    .spacer { height:20px; }
-  </style>
-<style>
-  #pulse-dot {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(255, 0, 0, 0.6);
-    animation: pulse 1.5s infinite;
-    z-index: 999;
-  }
+    .spacer {
+      height: 20px;
+    }
 
-  @keyframes pulse {
-    0%   { transform: scale(1);   opacity: 1; }
-    50%  { transform: scale(1.8); opacity: 0.4; }
-    100% { transform: scale(1);   opacity: 1; }
-  }
-</style></head>
+    /* Pulse dot */
+    #pulse-dot {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      box-shadow: 0 0 4px rgba(255, 0, 0, 0.6);
+      animation: pulse 1.5s infinite;
+      z-index: 999;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.8);
+        opacity: 0.4;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Dark Mode Toggle Button */
+    #darkModeToggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--muted);
+      border-radius: 5px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      z-index: 1000; /* Ensure it's above other content */
+    }
+    #darkModeToggle:hover {
+      background: var(--muted);
+      color: var(--bg);
+    }
+    @media (max-width: 600px) {
+      #darkModeToggle {
+        top: 10px;
+        right: 10px;
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
+
+    /* Blinking Seconds Style */
+    .blinking-seconds {
+      color: red;
+      animation: blink-red 1s step-start infinite;
+    }
+
+    @keyframes blink-red {
+      50% {
+        color: transparent;
+      }
+    }
+  </style>
+</head>
 <body>
-  <body>
   <div id="pulse-dot"></div>
 
   <div class="wrap">
-    <!-- Banner -->
-    <div class="header"><div class="wrap">
+    <!-- Dark Mode Toggle Button -->
+    <button id="darkModeToggle">Toggle Dark Mode</button>
+
     <!-- Banner -->
     <div class="header">
       <div class="crypto-marks" aria-hidden="true">
@@ -122,7 +290,7 @@
         <p>I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined presence, and professional clarity.</p>
         <p>I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.</p>
 
-        <div class="time-block" style="margin-top:18px;">
+        <div class="time-block" style="margin-top: 18px;">
           <div class="time-label">India Standard Time</div>
           <div id="istClock" class="time">--:--:--</div>
         </div>
@@ -142,21 +310,21 @@
           <!-- Add LinkedIn/X in Contact only if you want duplicates; About already shows verified profiles -->
         </div>
 
-        <div class="chart-panel" style="margin-top:22px;">
-          <h3 style="margin:0 0 8px;">BTCUSD</h3>
+        <div class="chart-panel" style="margin-top: 22px;">
+          <h3 style="margin: 0 0 8px;">BTCUSD</h3>
           <div class="chart-meta">
             <div><small>Range:</small> 50,000 – 60,000</div>
             <div><small>GAS:</small> 36.57</div>
           </div>
           <!-- TradingView Candlestick Chart -->
-          <div id="tv_chart_container" style="height:320px;"></div>
+          <div id="tv_chart_container" style="height: 320px;"></div>
         </div>
       </div>
     </div>
 
     <!-- Buy/Sell -->
     <div class="buy-sell">
-      <button id="buySellButton">Buy Signal Active — BTC above HOLD</button>
+      <button id="buySellButton">Buy Signal Active — BTC above 55,000</button>
     </div>
 
     <div class="spacer"></div>
@@ -165,56 +333,97 @@
   <!-- TradingView script -->
   <script src="https://s3.tradingview.com/tv.js"></script>
   <script>
+    // Dark Mode Toggle Logic
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+
+    // Apply saved theme on load
+    if (currentTheme === 'dark') {
+      body.classList.add('dark-mode');
+    }
+
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      let theme = 'light';
+      if (body.classList.contains('dark-mode')) {
+        theme = 'dark';
+      }
+      localStorage.setItem('theme', theme);
+      // Re-initialize TradingView widget to apply new theme
+      initializeTradingViewWidget();
+    });
+
     // IST clock (true timezone, no manual math)
     function updateClock() {
-      const t = new Date().toLocaleTimeString('en-GB', { hour12:false, timeZone:'Asia/Kolkata' });
-      document.getElementById('istClock').textContent = t;
+      const now = new Date();
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Kolkata' };
+      const timeParts = now.toLocaleTimeString('en-GB', options).split(':');
+
+      const hours = timeParts[0];
+      const minutes = timeParts[1];
+      const seconds = <span class="blinking-seconds">${timeParts[2]}</span>;
+
+      document.getElementById('istClock').innerHTML = ${hours}:${minutes}:${seconds};
     }
     updateClock();
     setInterval(updateClock, 1000);
 
     // TradingView candlestick chart (no UI clutter)
-    if (window.TradingView) {
-      new TradingView.widget({
-        container_id: "tv_chart_container",
-        autosize: true,
-        symbol: "BTCUSD",
-        interval: "60",
-        timezone: "Asia/Kolkata",
-        theme: "light",
-        style: "1",
-        locale: "en",
-        hide_top_toolbar: true,
-        hide_legend: true,
-        allow_symbol_change: false,
-        save_image: false,
-        studies: []
-      });
-    }
+    function initializeTradingViewWidget() {
+      if (window.TradingView) {
+        // Clear existing widget if it was initialized
+        const container = document.getElementById("tv_chart_container");
+        if (container) { // Ensure container exists
+            while (container.firstChild) {
+                container.removeChild(container.firstChild);
+            }
+        }
 
-    // Google Sheet-controlled Buy/Sell signal (owned by sanjau7709@gmail.com)
-    // IMPORTANT: paste your published CSV link below (File → Share → Publish to web → CSV)
-    const SHEET_CSV = ""; // e.g., "https://docs.google.com/spreadsheets/d/e/XXXX/pub?output=csv"
+        new TradingView.widget({
+          container_id: "tv_chart_container",
+          autosize: true,
+          symbol: "BTCUSD",
+          interval: "60",
+          timezone: "Asia/Kolkata",
+          theme: body.classList.contains('dark-mode') ? "dark" : "light", /* Set initial theme based on dark mode */
+          style: "1",
+          locale: "en",
+          hide_top_toolbar: true,
+          hide_legend: true,
+          allow_symbol_change: false,
+          save_image: false,
+          studies: []
+        });
+      }
+    }
+    initializeTradingViewWidget(); // Initial call
+
+    // Google Sheet-controlled Buy/Sell signal
+    // The provided URL is an Apps Script web app, which is expected to return the text for the button.
+    const SHEET_CSV = "https://script.google.com/macros/s/AKfycbylx18EP1yHvICA6OYlWHH7eTHl9wn3zaVEncxf_cxtsRS8_Xc35QX98VTMaXzSsYdoBA/exec";
 
     async function updateBuySellSignal() {
       const btn = document.getElementById('buySellButton');
-      if (!SHEET_CSV) { return; } // keep static text until you add your link
+      if (!SHEET_CSV) {
+        return; // No URL provided, keep static text
+      }
       try {
-        const res = await fetch(SHEET_CSV + "&_=" + Date.now()); // cache-bust
+        // For an Apps Script, it's often better not to add a cache-buster unless specifically needed,
+        // as the script itself might handle caching or dynamic responses.
+        const res = await fetch(SHEET_CSV);
         const text = await res.text();
-        const firstCell = text.split(/\r?\n/)[0] || "";
-        if (firstCell.trim()) btn.textContent = firstCell.trim();
+        // Assuming the Apps Script returns the exact string you want for the button.
+        // No need to split by newline if it's just a single string.
+        if (text.trim()) btn.textContent = text.trim();
       } catch (e) {
         // stay quiet; keep last known/initial text
+        console.error("Error fetching Google Apps Script data:", e);
       }
     }
     updateBuySellSignal();
     // optional: refresh every 2 minutes
     setInterval(updateBuySellSignal, 120000);
   </script>
-
-  <!-- No extra HTML after this line. If you previously saw a green code panel,
-       it came from pasting code fences or duplicate <!DOCTYPE> inside content.
-       Replace the entire file with this one. -->
 </body>
 </html> 
