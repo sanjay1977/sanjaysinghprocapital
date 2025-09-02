@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -371,7 +371,8 @@
 
     // TradingView candlestick chart (no UI clutter)
     function initializeTradingViewWidget() {
-      if (window.TradingView) {
+      // Ensure TradingView is loaded before attempting to initialize
+      if (typeof TradingView !== 'undefined') {
         // Clear existing widget if it was initialized
         const container = document.getElementById("tv_chart_container");
         if (container) { // Ensure container exists
@@ -395,9 +396,13 @@
           save_image: false,
           studies: []
         });
+      } else {
+        console.error("TradingView library not loaded.");
       }
     }
-    initializeTradingViewWidget(); // Initial call
+
+    // Wait for TradingView to load before initializing
+    window.addEventListener('load', initializeTradingViewWidget);
 
     // Google Sheet-controlled Buy/Sell signal
     // The provided URL is an Apps Script web app, which is expected to return the text for the button.
@@ -409,16 +414,12 @@
         return; // No URL provided, keep static text
       }
       try {
-        // For an Apps Script, it's often better not to add a cache-buster unless specifically needed,
-        // as the script itself might handle caching or dynamic responses.
         const res = await fetch(SHEET_CSV);
         const text = await res.text();
-        // Assuming the Apps Script returns the exact string you want for the button.
-        // No need to split by newline if it's just a single string.
         if (text.trim()) btn.textContent = text.trim();
       } catch (e) {
-        // stay quiet; keep last known/initial text
         console.error("Error fetching Google Apps Script data:", e);
+        btn.textContent = "Signal Unavailable"; // Fallback message
       }
     }
     updateBuySellSignal();
@@ -426,4 +427,4 @@
     setInterval(updateBuySellSignal, 120000);
   </script>
 </body>
-</html> 
+</html>
