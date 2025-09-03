@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -174,149 +174,39 @@
       50% { transform: scale(1.8); opacity: 0.4; }
       100% { transform: scale(1); opacity: 1; }
     }
-
-    .caption-bank {
-      padding: 60px;
-      border-top: 1px solid #eee;
-    }
-
-    .caption-bank h2 {
-      font-size: 22px;
-      text-align: center;
-      margin-bottom: 40px;
-      font-weight: normal;
-    }
-
-    .caption-block {
-      font-style: italic;
-      font-size: 16px;
-      margin-bottom: 16px;
-      color: #333;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
-    }
-
-    .caption-block:nth-child(2) { animation-delay: 0.2s; }
-    .caption-block:nth-child(3) { animation-delay: 0.4s; }
-    .caption-block:nth-child(4) { animation-delay: 0.6s; }
-    .caption-block:nth-child(5) { animation-delay: 0.8s; }
-    .caption-block:nth-child(6) { animation-delay: 1s; }
-    .caption-block:nth-child(7) { animation-delay: 1.2s; }
-    .caption-block:nth-child(8) { animation-delay: 1.4s; }
-
-    @keyframes fadeIn {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .comment-left {
-      padding: 40px;
-      background-color: #f9f9f9;
-      border-top: 1px solid #ccc;
-    }
-
-    .comment-left h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .comment-left textarea {
-      width: 100%;
-      height: 100px;
-      margin-bottom: 10px;
-      padding: 8px;
-      font-family: sans-serif;
-      resize: none;
-    }
-
-    .comment-left button {
-      padding: 6px 12px;
-      background-color: #eee;
-      border: none;
-      cursor: pointer;
-      font-family: sans-serif;
-    }
-
-    .comment-display {
-      margin-top: 20px;
-    }
-
-    .comment-block {
-      background-color: #fff;
-      border-left: 3px solid #222;
-      padding: 10px;
-      margin-bottom: 10px;
-      font-style: italic;
-      font-size: 14px;
-    }
-
-    #disclaimer {
-      text-align: center;
-      margin-top: 100px;
-      padding: 20px;
-      font-size: 14px;
-      color: #333;
-    }
-
-    #contact-icons {
-      text-align: center;
-      margin: 40px 0;
-    }
-
-    #contact-icons a img {
-      width: 32px;
-      height: 32px;
-      margin: 0 10px;
-      opacity: 0.8;
-    }
-
-    .btc-coin-center {
-      position: fixed;
-      bottom: 50%;
-      left: 50%;
-      transform: translate(-50%, 50%);
-      width: 80px;
-      height: 80px;
-      animation: spin 20s linear infinite;
-      opacity: 0.9;
-      z-index: 100;
-    }
-
-    @keyframes spin {
-      from { transform: translate(-50%, 50%) rotate(0deg); }
-      to { transform: translate(-50%, 50%) rotate(360deg); }
-    }
-
-    .seal-right {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      opacity: 0.95;
-      z-index: 99;
-    }
-
-    .modular-footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 12px;
-      color: #555;
-    }
   </style>
 </head>
 <body>
   <div id="pulse-dot"></div>
-  <!-- Your homepage content goes here (already included above) -->
+  <div class="wrap">
+    <div class="header">
+      <div class="crypto-marks" aria-hidden="true">
+        <!-- Bitcoin SVG -->
+        <svg class="crypto-icon" viewBox="0 0 24 24" role="img" aria-label="Bitcoin">
+          <circle cx="12" cy="12" r="11" fill="#F7931A"></circle>
+          <text x="12" y="16" text-anchor="middle" font-size="12" font-family="Arial" fill="#fff" font-weight="700">B</text>
+        </svg>
+        <!-- Ethereum SVG -->
+        <svg class="crypto-icon" viewBox="0 0 256 417" role="img" aria-label="Ethereum">
+          <polygon fill="#627EEA" points="127.9,0 124.3,12.4 124.3,279.1 127.9,282.7 255.8,208.5"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,0 0,208.5 127.9,282.7 127.9,150.7"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,305.5 125.8,307.9 125.8,414.4 127.9,416.5 255.9,231.5"></polygon>
+          <polygon fill="#627EEA" points="127.9,416.5 127.9,305.5 0,231.5"></polygon>
+        </svg>
+      </div>
+      <h1>SANJAY SINGH</h1>
+      <h2>PRO CAPITAL</h2>
+    </div>
 
-  <!-- Reflections Block -->
-  <section class="caption-bank">
-    <h2>Reflections That Built This</h2>
-    <div class="caption-block">“Presence over performance.”</div>
-    <div class="caption-block">“Discipline is the quietest form of confidence.”</div>
-    <div class="caption-block">“Legacy over noise.”</div>
-    <div class="caption-block">“Built slowly, intentionally.”</div>
-    <div class="caption-block">“Every block placed with purpose.”[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/lzh-yi/Web-Fork-/tree/024b3e55587afdf9f05a677613a75f24e3d1803e/03-CSS%E8%BF%9B%E9%98%B6%2F04-%E5%A6%82%E4%BD%95%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%EF%BC%9F.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")</div
+    <div class="grid">
+      <div class="section">
+        <h3 style="display: flex; align-items: center; gap: 12px;">
+          About
+          <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2">
+              <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.6v2.2h.05c.5-1 1.75-2.2 3.6-2.2 3.85 0 4.55 2.5 4.55 5.8V24h-4v-8.2c0-2-.05-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.4V24h-4V8z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/sanjau7709?t=6qoHpBsV_yuxF1OAWXOqyw&s=09" target="_blank" aria-label="X">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#000000">
+              [43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/Ronnie434/30-days-of-React/tree/22142106cb46f717a1259f84227cc90ed7fe50cc/02_Day_Introduction_to_React%2F02_introduction_to_react.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")<path d="M17.53 3H21L14.47 10.59L22.53 21H16.47L11.47 14.41L5.47 21H2L9.03 13.03L1.47 3H7.47L12.03 9.19L
