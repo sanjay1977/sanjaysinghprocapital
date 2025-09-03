@@ -1,6 +1,5 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,8 +18,7 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       background: var(--bg);
@@ -34,7 +32,6 @@
       margin: 0 auto;
     }
 
-    /* Header */
     .header {
       text-align: center;
       margin-bottom: 28px;
@@ -67,7 +64,6 @@
       letter-spacing: 2px;
     }
 
-    /* Grid */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -94,7 +90,6 @@
       max-width: 600px;
     }
 
-    /* Contact icons (icon-only, verified Gmail) */
     .contact-icons {
       display: flex;
       gap: 16px;
@@ -113,7 +108,6 @@
       opacity: 0.8;
     }
 
-    /* Time block */
     .time {
       font-size: 30px;
       font-weight: 700;
@@ -127,7 +121,6 @@
       margin-bottom: 6px;
     }
 
-    /* Chart block */
     .chart-panel {
       background: var(--panel);
       border-radius: 6px;
@@ -144,7 +137,6 @@
       color: var(--muted);
     }
 
-    /* Buy/Sell block */
     .buy-sell {
       text-align: center;
       margin: 24px 0 10px;
@@ -160,13 +152,10 @@
       cursor: default;
     }
 
-    /* Footer spacer (prevents any accidental overlap) */
     .spacer {
       height: 20px;
     }
-  </style>
 
-  <style>
     #pulse-dot {
       position: absolute;
       top: 12px;
@@ -181,198 +170,13 @@
     }
 
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      50% {
-        transform: scale(1.8);
-        opacity: 0.4;
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div id="pulse-dot"></div>
-
-  <div class="wrap">
-    <!-- Banner -->
-    <div class="header">
-      <div class="crypto-marks" aria-hidden="true">
-        <!-- Bitcoin inline SVG -->
-        <svg class="crypto-icon" viewBox="0 0 24 24" role="img" aria-label="Bitcoin">
-          <circle cx="12" cy="12" r="11" fill="#F7931A"></circle>
-          <text x="12" y="16" text-anchor="middle" font-size="12" font-family="Arial" fill="#fff" font-weight="700">
-            B
-          </text>
-        </svg>
-        <!-- Ethereum inline SVG -->
-        <svg class="crypto-icon" viewBox="0 0 256 417" role="img" aria-label="Ethereum">
-          <polygon fill="#627EEA" points="127.9,0 124.3,12.4 124.3,279.1 127.9,282.7 255.8,208.5"></polygon>
-          <polygon fill="#627EEA" opacity="0.6" points="127.9,0 0,208.5 127.9,282.7 127.9,150.7"></polygon>
-          <polygon fill="#627EEA" opacity="0.6" points="127.9,305.5 125.8,307.9 125.8,414.4 127.9,416.5 255.9,231.5"></polygon>
-          <polygon fill="#627EEA" points="127.9,416.5 127.9,305.5 0,231.5"></polygon>
-        </svg>
-      </div>
-      <h1>SANJAY SINGH</h1>
-      <h2>PRO CAPITAL</h2>
-    </div>
-
-    <!-- Main grid -->
-    <div class="grid">
-      <!-- Left column -->
-      <div class="section">
-        <h3 style="display: flex; align-items: center; gap: 12px;">
-          About
-          <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" aria-label="LinkedIn"
-            style="display: inline-flex;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2">
-              <path
-                d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.6v2.2h.05c.5-1 1.75-2.2 3.6-2.2 3.85 0 4.55 2.5 4.55 5.8V24h-4v-8.2c0-2-.05-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.4V24h-4V8z"
-              />
-            </svg>
-          </a>
-          <a href="https://x.com/sanjau7709?t=6qoHpBsV_yuxF1OAWXOqyw&s=09" target="_blank" aria-label="X"
-            style="display: inline-flex;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#000000">
-              <path
-                d="M17.53 3H21L14.47 10.59L22.53 21H16.47L11.47 14.41L5.47 21H2L9.03 13.03L1.47 3H7.47L12.03 9.19L17.53 3Z"
-              />
-            </svg>
-          </a>
-        </h3>
-        <p>
-          I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined
-          presence, and professional clarity.
-        </p>
-        <p>
-          I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I
-          wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.
-        </p>
-
-        <div class="time-block" style="margin-top: 18px;">
-          <div class="time-label">India Standard Time</div>
-          <div id="istClock" class="time">--:--:--</div>
-        </div>
-      </div>
-
-      <!-- Right column -->
-      <div class="section">
-        <h3>Contact</h3>
-        <div class="contact-icons">
-          <!-- Verified Gmail only (no placeholders) -->
-          <a href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" width="24" height="24" role="img" aria-hidden="true">
-              <path fill="#D44638"
-                d="M12 12.713L0 4.5V19a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4.5l-12 8.213z"></path>
-              <path fill="#F1F1F1"
-                d="M24 4.5V5l-12 8-12-8v-.5A2 2 0 0 1 2 3h20a2 2 0 0 1 2 1.5z"></path>
-            </svg>
-          </a>
-          <!-- Add LinkedIn/X in Contact only if you want duplicates; About already shows verified profiles -->
-        </div>
-
-        <div class="chart-panel" style="margin-top: 22px;">
-          <h3 style="margin: 0 0 8px;">BTCUSD</h3>
-          <div class="chart-meta">
-            <div><small>Range:</small> 50,000 – 60,000</div>
-            <div><small>GAS:</small> 36.57</div>
-          </div>
-          <!-- TradingView Candlestick Chart -->
-          <div id="tv_chart_container" style="height: 320px;"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Buy/Sell -->
-    <div class="buy-sell">
-      <button id="buySellButton">Buy Signal Active — BTC above 55,000</button>
-    </div>
-
-    <div class="spacer"></div>
-  </div>
-
-  <!-- TradingView script -->
-  <script src="https://s3.tradingview.com/tv.js"></script>
-  <script>
-    // IST clock (true timezone, no manual math)
-    function updateClock() {
-      const t = new Date().toLocaleTimeString('en-GB', {
-        hour12: false,
-        timeZone: 'Asia/Kolkata'
-      });
-      document.getElementById('istClock').textContent = t;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    // TradingView candlestick chart (no UI clutter)
-    if (window.TradingView) {
-      new TradingView.widget({
-        container_id: "tv_chart_container",
-        autosize: true,
-        symbol: "BTCUSD",
-        interval: "60",
-        timezone: "Asia/Kolkata",
-        theme: "light",
-        style: "1",
-        locale: "en",
-        hide_top_toolbar: true,
-        hide_legend: true,
-        allow_symbol_change: false,
-        save_image: false,
-        studies: []
-      });
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.8); opacity: 0.4; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
-    // Google Sheet-controlled Buy/Sell signal (owned by sanjau7709@gmail.com)
-    // IMPORTANT: paste your published CSV link below (File → Share → Publish to web → CSV)
-    const SHEET_CSV = ""; // e.g., "https://docs.google.com/spreadsheets/d/e/XXXX/pub?output=csv"
-
-    async function updateBuySellSignal() {
-      const btn = document.getElementById('buySellButton');
-      if (!SHEET_CSV) {
-        return;
-      } // keep static text until you add your link
-      try {
-        const res = await fetch(SHEET_CSV + "&_=" + Date.now()); // cache-bust
-        const text = await res.text();
-        const firstCell = text.split(/\r?\n/)[0] || "";
-        if (firstCell.trim()) btn.textContent = firstCell.trim();
-      } catch (e) {
-        // stay quiet; keep last known/initial text
-      }
-    }
-    updateBuySellSignal();
-    // optional: refresh every 2 minutes
-    setInterval(updateBuySellSignal, 120000);
-  </script>
-
-   <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Reflections & Rights — Sanjay Singh Pro Capital</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: serif;
-      background-color: #fff;
-      color: #111;
-    }
-
-    /* Reflections Block */
     .caption-bank {
       padding: 60px;
-      background-color: #fff;
       border-top: 1px solid #eee;
     }
 
@@ -405,22 +209,13 @@
     .caption-block:nth-child(8) { animation-delay: 1.4s; }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Comment Section */
     .comment-left {
-      position: absolute;
-      top: 100px;
-      left: 40px;
-      width: 320px;
-      padding: 20px;
+      padding: 40px;
       background-color: #f9f9f9;
-      border-right: 2px solid #ccc;
-      z-index: 10;
+      border-top: 1px solid #ccc;
     }
 
     .comment-left h2 {
@@ -458,16 +253,14 @@
       font-size: 14px;
     }
 
-    /* Disclaimer */
     #disclaimer {
       text-align: center;
-      margin-top: 200px;
+      margin-top: 100px;
       padding: 20px;
       font-size: 14px;
       color: #333;
     }
 
-    /* Contact Icons */
     #contact-icons {
       text-align: center;
       margin: 40px 0;
@@ -480,7 +273,6 @@
       opacity: 0.8;
     }
 
-    /* BTC Coin */
     .btc-coin-center {
       position: fixed;
       bottom: 50%;
@@ -498,7 +290,6 @@
       to { transform: translate(-50%, 50%) rotate(360deg); }
     }
 
-    /* Seal */
     .seal-right {
       position: fixed;
       bottom: 20px;
@@ -509,7 +300,6 @@
       z-index: 99;
     }
 
-    /* Footer */
     .modular-footer {
       text-align: center;
       padding: 20px;
@@ -519,84 +309,14 @@
   </style>
 </head>
 <body>
+  <div id="pulse-dot"></div>
+  <!-- Your homepage content goes here (already included above) -->
 
   <!-- Reflections Block -->
-  <section id="reflections-bank" class="caption-bank">
+  <section class="caption-bank">
     <h2>Reflections That Built This</h2>
     <div class="caption-block">“Presence over performance.”</div>
     <div class="caption-block">“Discipline is the quietest form of confidence.”</div>
     <div class="caption-block">“Legacy over noise.”</div>
     <div class="caption-block">“Built slowly, intentionally.”</div>
-    <div class="caption-block">“Every block placed with purpose.”</div>
-    <div class="caption-block">“Signals with intention.”</div>
-    <div class="caption-block">“Access by invitation. Not request.”</div>
-    <div class="caption-block">“This layout feels like silence with structure.”</div>
-  </section>
-
-  <!-- Comment Section -->
-  <section id="comments" class="comment-left">
-    <h2>Leave a Thought</h2>
-    <textarea id="commentInput" placeholder="Your reflection..." required></textarea>
-    <button onclick="submitComment()">Submit</button>
-
-    <div class="comment-display" id="commentDisplay">
-      <div class="comment-block">
-        <p>“Discipline is the quietest form of confidence.”</p>
-      </div>
-      <div class="comment-block">
-        <p>“This layout feels like silence with structure.”</p>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    function submitComment() {
-      const input = document.getElementById('commentInput');
-      const display = document.getElementById('commentDisplay');
-      const text = input.value.trim();
-
-      if (text !== "") {
-        const block = document.createElement('div');
-        block.className = 'comment-block';
-        block.innerHTML = <p>“${text}”</p>;
-        display.prepend(block);
-        input.value = "";
-      }
-    }
-  </script>
-
-  <!-- Disclaimer -->
-  <section id="disclaimer">
-    <p>This site reflects disciplined observation and personal philosophy. It does not constitute financial advice or solicitation.</p>
-  </section>
-
-  <!-- Contact Icons -->
-  <section id="contact-icons">
-    <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
-      <img src="linkedin-icon.svg" alt="LinkedIn">
-    </a>
-    <a href="https://x.com/sanjau7709?t=1ODmhLPN0ouBoljVluLl2A&s=09" target="_blank">
-      <img src="x-icon.svg" alt="X">
-    </a>
-    <a href="mailto:sanjayprocapital@gmail.com">
-      <img src="gmail-icon.svg" alt="Gmail">
-    </a>
-  </section>
-
-  <!-- BTC Coin -->
-  <div class="btc-coin-center">
-    <img src="btc-coin.svg" alt="BTC Coin">
-  </div>
-
-  <!-- Seal -->
-  <div class="seal-right">
-    <img src="seal-red.svg" alt="Sanjay Singh Seal">
-  </div>
-
-  <!-- Footer -->
-  <footer class="modular-footer">
-    <p>© Sanjay Singh Pro Capital. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
+    <div class="caption-block">“Every block placed with purpose.”[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://github.com/lzh-yi/Web-Fork-/tree/024b3e55587afdf9f05a677613a75f24e3d1803e/03-CSS%E8%BF%9B%E9%98%B6%2F04-%E5%A6%82%E4%BD%95%E8%AE%A9%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%EF%BC%9F.md?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054 "1")</div
