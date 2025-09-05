@@ -1,80 +1,61 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loops & Legacy — Sanjay Singh Pro Capital</title>
+  <meta charset="UTF-8">
+  <title>Sanjay Singh Pro Capital</title>
   <style>
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #f5f0e6;
-      color: #111;
+      font-family: sans-serif;
+      background-color: #fdf6e3;
       margin: 0;
-      padding: 0;
-    }
-
-    header {
+      padding: 24px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-    }
-
-    .clock-container {
-      display: flex;
+      flex-direction: column;
       align-items: center;
     }
 
-    #clock {
-      color: #1f51ff; /* Neon blue */
-      font-weight: bold;
-      font-size: 1.2rem;
+    .commit-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px;
+      margin-bottom: 24px;
+      width: 90%;
+      max-width: 400px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.1);
     }
 
-    .red-dot {
-      width: 8px;
-      height: 8px;
-      background-color: red;
-      border-radius: 50%;
-      display: inline-block;
-      margin-left: 6px;
+    .commit-block input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
 
-    .social-icons a {
-      width: 24px;
-      height: 24px;
-      margin-left: 12px;
-      display: inline-block;
-      background-size: cover;
+    .commit-block button {
+      padding: 8px 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
 
-    .linkedin {
-      background-image: url('linkedin-icon.svg');
+    #reflectionStatus {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #444;
     }
 
-    .x {
-      background-image: url('x-icon.svg');
-    }
-
-    .legacy-block {
-      padding: 2rem;
-      text-align: left;
-      line-height: 1.6;
-    }
-
-    .legacy-block h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .btc-coin {
-      width: 60px;
-      height: 60px;
-      margin: 2rem auto;
-      background-image: url('gold-btc.gif');
-      background-size: contain;
-      background-repeat: no-repeat;
-      animation: spin 4s linear infinite;
+    .btc-icon {
+      width: 40px;
+      height: 40px;
+      animation: spin 2s linear infinite;
+      margin: 12px auto;
+      display: block;
     }
 
     @keyframes spin {
@@ -82,129 +63,63 @@
       to { transform: rotate(360deg); }
     }
 
-    .comment-block {
-      padding: 2rem;
-      text-align: left;
-    }
-
-    .comment-block h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-
-    textarea {
-      width: 100%;
-      height: 120px;
-      padding: 1rem;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      resize: none;
-    }
-
-    .submit-icon {
-      background-image: url('paper-plane.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 32px;
-      height: 32px;
-      border: none;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    .disclaimer-block {
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #444;
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem;
-    }
-
-    .contact-icons a {
-      width: 24px;
-      height: 24px;
-      margin-right: 12px;
-      background-size: cover;
-      display: inline-block;
-    }
-
-    .email {
-      background-image: url('email-icon.svg');
-    }
-
-    .seal {
-      width: 60px;
-      height: 60px;
-      background-image: url('sanjay-seal-red.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
+    .clock-display {
+      font-family: monospace;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="clock-container">
-      <span id="clock">12:45</span>
-      <span class="red-dot"></span>
-    </div>
-    <div class="social-icons">
-      <a href="https://linkedin.com/in/sanjay-singh-pro-capital" target="_blank" class="linkedin"></a>
-      <a href="https://x.com/sanjau7709" target="_blank" class="x"></a>
-    </div>
-  </header>
 
-  <section class="legacy-block">
-    <h1>Loops & Legacy</h1>
-    <p>Presence is earned, not performed.<br>
-    Discipline is quiet, but unmistakable.<br>
-    Legacy is built in loops—refined, repeated, never rushed.</p>
+  <!-- Reflections Commit Block -->
+  <div class="commit-block">
+    <input type="text" id="reflectionInput" placeholder="Type your reflection...">
+    <button onclick="submitReflection()">Commit</button>
+    <div id="reflectionStatus"></div>
+  </div>
 
-    <p>This space is not for noise.<br>
-    It’s for those who observe before they act.<br>
-    Who build slowly, speak rarely, and move with clarity.</p>
+  <!-- BTC Coin Spinner -->
+  <img src="btc-coin.svg" class="btc-icon" alt="BTC Coin">
 
-    <p>Every omission is deliberate.<br>
-    Every block is intentional.<br>
-    Every signal is observed—not chased.</p>
+  <!-- IST Clock -->
+  <div id="istClock" class="clock-display"></div>
 
-    <p>This is not a portfolio.<br>
-    It’s a philosophy in motion.<br>
-    A reflection of what remains when the performance fades.</p>
+  <script>
+    // Reflections Submission to Google Sheet
+    function submitReflection() {
+      const input = document.getElementById("reflectionInput").value.trim();
+      if (!input) return;
 
-    <p>If you’re here to follow trends, you’re already late.<br>
-    If you’re here to understand the rhythm, stay.<br>
-    The loops will speak—if you’re disciplined enough to listen.</p>
-  </section>
+      fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
+        method: "POST",
+        body: JSON.stringify({ reflection: input }),
+        headers: { "Content-Type": "application/json" }
+      })
+      .then(res => res.text())
+      .then(msg => {
+        document.getElementById("reflectionStatus").innerText = "✓ Committed";
+        document.getElementById("reflectionInput").value = "";
+      })
+      .catch(err => {
+        document.getElementById("reflectionStatus").innerText = "✗ Failed";
+        console.error(err);
+      });
+    }
 
-  <div class="btc-coin"></div>
+    // IST Clock Function
+    function updateISTClock() {
+      const nowUTC = new Date();
+      const istOffset = 5.5 * 60 * 60 * 1000;
+      const istTime = new Date(nowUTC.getTime() + istOffset);
+      document.getElementById("istClock").innerText =
+        istTime.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    }
+    setInterval(updateISTClock, 1000);
+    updateISTClock();
+  </script>
 
-  <section class="comment-block">
-    <h2>Reflections</h2>
-    <form action="mailto:sanjayprocapital@gmail.com" method="POST" enctype="text/plain">
-      <textarea name="reflection" placeholder="Share your thoughts..."></textarea>
-      <button type="submit" class="submit-icon"></button>
-    </form>
-  </section>
-
-  <section class="disclaimer-block">
-    <h3>Disclaimer</h3>
-    <p>Market data is observational only.<br>
-    No financial advice.<br>
-    All rights reserved © Sanjay Singh</p>
-  </section>
-
-  <footer>
-    <div class="contact-icons">
-      <a href="mailto:sanjayprocapital@gmail.com" class="email"></a>
-      <a href="https://linkedin.com/in/sanjay-singh-pro-capital" target="_blank" class="linkedin"></a>
-      <a href="https://x.com/sanjau7709" target="_blank" class="x"></a>
-    </div>
-    <div class="seal"></div>
-  </footer>
 </body>
 </html>
