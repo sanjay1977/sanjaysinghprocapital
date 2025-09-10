@@ -1,292 +1,187 @@
  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sanjay Singh Pro Capital</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading Philosophy – Sanjay Singh Pro Capital</title>
   <style>
-    :root {
-      --bg: #0d0d0d;
-      --ink: #eaeaea;
-      --muted: #9a9a9a;
-      --line: #1d1d1d;
-      --accent: #c2a869; /* subtle gold, adjust if needed */
-      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      --pad: 16px;
-      --gap: 18px;
-      --rhythm: 28px;
-      --max: 860px;
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background: #ffffff;
+      color: #222;
+      margin: 0;
+      padding: 0;
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); }
-    a { color: var(--ink); text-decoration: none; }
-    a:hover { color: var(--accent); }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: calc(var(--pad)*1.25) var(--pad) 120px; }
-    h2, h3, h4 { margin: 0 0 8px; font-weight: 600; letter-spacing: 0.2px; }
-    p { margin: 0 0 var(--rhythm); line-height: 1.5; color: var(--ink); }
-    ul { margin: 0 0 var(--rhythm); padding-left: 18px; }
-    li { margin: 6px 0; }
-    .block { padding: 20px 0; border-bottom: 1px solid var(--line); }
-    .about-heading { display: flex; justify-content: space-between; align-items: center; gap: var(--gap); padding: 8px 0 16px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
-    .about-heading h2 { font-size: 18px; }
-    .icons { display: inline-flex; gap: 14px; align-items: center; }
-    .icon { display: inline-flex; width: 22px; height: 22px; }
-    .icon svg { width: 100%; height: 100%; display: block; }
-    .mono { font-family: var(--mono); color: var(--muted); font-size: 13px; }
-    .grid-2 { display: grid; gap: 22px; }
-    @media (min-width: 880px) {
-      .grid-2 { grid-template-columns: 1fr 1fr; align-items: start; }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem;
     }
-    .panel { padding: 14px; border: 1px solid var(--line); border-radius: 8px; }
-    .panel h4 { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
-    .utility { display: grid; gap: 12px; }
-    .utility .tile { border: 1px solid var(--line); border-radius: 8px; padding: 12px; min-height: 84px; display: flex; align-items: center; justify-content: space-between; }
-    #ist-clock { font-family: var(--mono); font-size: 14px; }
-    #btc-chart { color: var(--muted); font-size: 13px; }
-    .visuals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .visuals img, .visuals svg { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
-    form { display: grid; gap: 10px; }
-    input, textarea, button {
-      background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font: inherit;
+
+    section {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    textarea { min-height: 110px; resize: vertical; }
-    button { cursor: pointer; border-color: var(--accent); }
-    .ledger { display: grid; gap: 18px; }
-    .ledger .panel ul { margin: 8px 0 0; }
-    footer {
-      position: fixed; left: 0; right: 0; bottom: 0; background: rgba(13,13,13,0.92); backdrop-filter: saturate(120%) blur(4px);
-      border-top: 1px solid var(--line);
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #111;
     }
-    .footer-inner { max-width: var(--max); margin: 0 auto; padding: 10px var(--pad); display: grid; gap: 6px; }
-    .foot-top, .foot-bottom { display: flex; align-items: center; }
-    .foot-top { justify-content: center; }
-    .foot-right { margin-left: auto; display: inline-flex; align-items: center; gap: 14px; }
-    .foot-right .mono { color: var(--ink); }
-    .copyright { color: var(--muted); font-size: 12px; }
-    .disclaimer { color: var(--muted); font-size: 12px; text-align: center; }
-    @media (max-width: 879px) {
-      .foot-top { flex-direction: column; gap: 8px; }
-      .foot-right { margin: 0 auto; }
-      .disclaimer { padding: 0 10px; }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: red;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+
+    #ist-time {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-right: 1rem;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #ffffff;
+      color: #222;
+    }
+
+    button {
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact-footer {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+
+    .contact-footer .icon {
+      width: 24px;
+      height: 24px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+
+    .icon.gmail {
+      background-image: url('gmail-icon.png');
+    }
+
+    .icon.x {
+      background-image: url('x-icon.png');
+    }
+
+    .icon.linkedin {
+      background-image: url('linkedin-icon.png');
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
+  <main class="container">
 
-    <!-- About -->
-    <div class="about-heading">
-      <h2>About</h2>
-      <div class="icons" aria-label="Verified profiles">
-        <a class="icon" href="https://x.com/sanjau7709?t=gD3Dsh4jmplGaIbmi8YvnA&s=09" target="_blank" rel="noopener" aria-label="X profile">
-          <!-- Inline X icon -->
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-            <path d="M18.244 2H21l-6.53 7.46L22 22h-6.717l-5.26-6.78L3.78 22H1l7.02-8.02L2 2h6.803l4.74 6.18L18.244 2Zm-2.362 18h2.28L8.21 4h-2.3l9.97 16Z"/>
-          </svg>
-        </a>
-        <a class="icon" href="https://www.linkedin.com/in/sanjay-singh-8581b7379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-          <!-- Inline LinkedIn icon -->
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-            <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5 2.5 2.5 0 0 1 4.98 3.5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6v6.1h-4V16c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2V21H10z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- Trading Psychology -->
-    <section class="block" aria-labelledby="psychology">
-      <h3 id="psychology">Trading Psychology</h3>
-      <p>I don’t chase price. I listen to it. If it’s in my zone, I act. If not, I wait.</p>
-      <p>Breakouts and breakdowns are noise. Zones are truth.</p>
-      <p>My setup speaks when the market is silent.</p>
-      <p>Time is rhythm, not urgency. 5:30 AM is a checkpoint, not a trigger.</p>
-      <p>I trade inside clarity, not outside emotion.</p>
-
-      <div class="grid-2">
-        <div class="panel">
-          <h4>Decision loop</h4>
-          <ul>
-            <li><strong>Observe:</strong> Price at 5:30 AM IST. Is it inside my zone?</li>
-            <li><strong>Align:</strong> If in‑zone, listen for setup. If outside, wait.</li>
-            <li><strong>Act:</strong> Execute only on confirmation. Fixed stop and target.</li>
-            <li><strong>Reflect:</strong> Log zone, setup, result, and one sentence of truth.</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h4>Zone logic</h4>
-          <ul>
-            <li>Zones from prior decision points—rejections, consolidations, fair‑value areas.</li>
-            <li>Setups: Wick rejection, Sweep‑return, Structure shift, Momentum candle.</li>
-            <li>Invalidation: Clean close beyond zone edge or time expiration without setup.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="grid-2" style="margin-top: 14px;">
-        <div class="panel">
-          <h4>Execution discipline</h4>
-          <ul>
-            <li>Entry only inside zone, only on setup.</li>
-            <li>Stop beyond invalidation—never widened.</li>
-            <li>Target: next zone, key level, or session boundary.</li>
-            <li>Fixed risk per trade. No mid‑trade edits.</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h4>Daily rhythm</h4>
-          <ul>
-            <li><strong>Pre‑market:</strong> Draw zones. Define primary and secondary setups.</li>
-            <li><strong>5:30 AM IST:</strong> Check price. In‑zone? Setup forming?</li>
-            <li><strong>Execution window:</strong> Act if setup confirms. Else, stand down.</li>
-            <li><strong>Post‑trade:</strong> Log one sentence of truth. Archive the decision.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Signals (no sheet embed, hook only) -->
-    <section class="block" aria-labelledby="signals">
-      <h3 id="signals">Live Signals</h3>
-      <div id="signal-block" class="panel mono">Waiting for signal...</div>
-      <!-- Hook: set SIG_ENDPOINT to your Apps Script JSON endpoint returning { signal, price, ts } -->
-      <script>
-        const SIG_ENDPOINT = ""; // add your verified endpoint when ready (leave empty to disable)
-        async function loadSignal() {
-          const el = document.getElementById('signal-block');
-          if (!SIG_ENDPOINT) { el.textContent = "Signals connected privately. No public sheet."; return; }
-          try {
-            const r = await fetch(SIG_ENDPOINT, { cache: "no-store" });
-            const j = await r.json();
-            el.innerHTML = Signal: ${j.signal} | Price: ${j.price} | ${new Date(j.ts).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })};
-          } catch(e) { el.textContent = "Signal unavailable."; }
-        }
-        loadSignal();
-      </script>
-    </section>
-
-    <!-- Utilities -->
-    <section class="block">
-      <div class="utility">
-        <div class="tile">
-          <div><strong>IST</strong></div>
-          <div id="ist-clock" aria-label="IST clock">--:--:--</div>
-        </div>
-        <div class="tile">
-          <div><strong>BTC</strong></div>
-          <div id="btc-chart" aria-label="BTC chart">Chart placeholder (kept minimal by design).</div>
-        </div>
-      </div>
-      <script>
-        function tickIST() {
-          const el = document.getElementById('ist-clock');
-          const now = new Date();
-          const fmt = now.toLocaleTimeString('en-IN', { hour12: false, timeZone: 'Asia/Kolkata' });
-          el.textContent = fmt;
-        }
-        tickIST(); setInterval(tickIST, 1000);
-      </script>
+    <!-- IST Clock -->
+    <section class="clock">
+      <h2>IST Clock <span class="dot"></span></h2>
+      <div id="ist-time"></div>
     </section>
 
     <!-- Visual Identity -->
-    <section class="block">
-      <div class="visuals" aria-label="Visual identity">
-        <!-- Replace these with your banked assets when ready -->
-        <svg viewBox="0 0 120 80" role="img" aria-label="Seal" focusable="false"><rect width="120" height="80" fill="none" stroke="currentColor"/></svg>
-        <svg viewBox="0 0 120 80" role="img" aria-label="Mug" focusable="false"><rect width="120" height="80" fill="none" stroke="currentColor"/></svg>
-        <svg viewBox="0 0 120 80" role="img" aria-label="Landscape" focusable="false"><rect width="120" height="80" fill="none" stroke="currentColor"/></svg>
-      </div>
-    </section>
-
-    <!-- Reach Out (kept functional, Gmail never exposed visually) -->
-    <section class="block">
-      <h3>Reach Out</h3>
-      <form method="POST" action="">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="email" name="email" placeholder="Your email" required />
-        <textarea name="message" placeholder="Your message..." required></textarea>
-        <input type="hidden" name="recipient" value="sanjayprocapital@gmail.com" />
-        <button type="submit" disabled>Send (backend locked until verified)</button>
-      </form>
-      <p class="mono">Backend connects privately via Apps Script once you provide the verified URL.</p>
-    </section>
-
-    <!-- Comment block -->
-    <section class="block">
-      <h3>Leave a Reflection</h3>
-      <form method="POST" action="">
-        <textarea name="comment" placeholder="Your thoughts, not reactions..." required></textarea>
-        <input type="hidden" name="recipient" value="sanjayprocapital@gmail.com" />
-        <button type="submit" disabled>Submit (backend locked until verified)</button>
-      </form>
+    <section class="visuals">
+      <h2>Visual Identity</h2>
+      <img src="seal.png" alt="Legacy Seal" />
+      <img src="landscape.png" alt="Philosophy Scene" />
     </section>
 
     <!-- Archive -->
-    <section class="block">
-      <h3>Archive</h3>
-      <div class="ledger">
-        <div class="panel">
-          <h4>Zones</h4>
-          <ul>
-            <li>Sep 2 — ₹97.2L–₹98.1L → Wick rejection → Short → +1.4%</li>
-            <li>Aug 28 — ₹95.5L–₹96.3L → Sweep‑return → Long → +2.1%</li>
-            <li>Aug 21 — ₹99.0L–₹99.8L → Structure shift → No trade → Outside zone</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h4>Setups</h4>
-          <ul>
-            <li>Wick rejection → Valid only inside zone with clean defense</li>
-            <li>Sweep‑return → Must re‑enter zone with momentum</li>
-            <li>Structure shift → Confirmed only if HH/HL or LH/LL flips inside zone</li>
-          </ul>
-        </div>
-        <div class="panel">
-          <h4>Reflections</h4>
-          <ul>
-            <li>“I waited. Price danced outside my zone. That was the win.”</li>
-            <li>“Setup spoke. I listened. No emotion, just execution.”</li>
-            <li>“I chased once. That cost me clarity. Never again.”</li>
-          </ul>
-        </div>
-      </div>
+    <section class="archive">
+      <h2>Archive</h2>
+      <p>Every decision, setup, and reflection logged here. This is not history—it's proof of discipline.</p>
     </section>
 
-  </div>
+    <!-- Setup -->
+    <section class="setup">
+      <h2>Setup</h2>
+      <p>Every trade begins with structure. I only act when the setup matches my predefined plan—no gut entries, no emotional triggers. Entry, stop loss, and target are locked before execution. If the setup isn’t clean, I don’t touch it.</p>
+    </section>
 
-  <!-- Footer: number + X + LinkedIn (right on desktop, centered on mobile) -->
-  <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="foot-top">
-        <div class="foot-right">
-          <span id="contact-phone" class="mono"><!-- phone will render here --></span>
-          <a class="icon" href="https://x.com/sanjau7709?t=gD3Dsh4jmplGaIbmi8YvnA&s=09" target="_blank" rel="noopener" aria-label="X profile">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-              <path d="M18.244 2H21l-6.53 7.46L22 22h-6.717l-5.26-6.78L3.78 22H1l7.02-8.02L2 2h6.803l4.74 6.18L18.244 2Zm-2.362 18h2.28L8.21 4h-2.3l9.97 16Z"/>
-            </svg>
-          </a>
-          <a class="icon" href="https://www.linkedin.com/in/sanjay-singh-8581b7379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn profile">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-              <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5 2.5 2.5 0 0 1 4.98 3.5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6v6.1h-4V16c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2V21H10z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="foot-bottom" style="justify-content:center;">
-        <p class="disclaimer">Market content is for reflection, not advice. Trades carry risk. Protect your capital with discipline.</p>
-      </div>
-      <div class="foot-bottom" style="justify-content:center;">
-        <p class="copyright">© Sanjay Singh Pro Capital. All rights reserved.</p>
-      </div>
-    </div>
-    <script>
-      // Render phone only when you confirm the exact number.
-      const PHONE = ""; // e.g., "+91 98xxxxxx" — leave empty to avoid exposing wrong info
-      const phoneEl = document.getElementById('contact-phone');
-      if (PHONE) {
-        phoneEl.innerHTML = <a href="tel:${PHONE.replace(/\s+/g,'')}" class="mono">${PHONE}</a>;
-      }
-    </script>
+    <!-- Reflection -->
+    <section class="reflection">
+      <h2>Reflection</h2>
+      <p>After every trade, I log the mindset, not just the result. Was I calm? Was I aligned? The archive holds these reflections as proof—not performance. This loop of review protects my clarity and sharpens my discipline.</p>
+    </section>
+
+    <!-- Trading Psychology -->
+    <section class="psychology">
+      <h2>Trading Psychology</h2>
+      <p>Markets test emotion more than strategy. I trade only when I’m emotionally neutral—no FOMO, no revenge, no distraction. Discipline is the filter. If I’m tired, reactive, or drifting, I step back. My edge is clarity, not urgency.</p>
+    </section>
+
+    <!-- Comment Box -->
+    <section class="comments">
+      <h2>Reflections</h2>
+      <form action="mailto:sanjayprocapital@gmail.com" method="POST" enctype="text/plain">
+        <textarea name="reflection" placeholder="Leave a reflection, not a reaction..." required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer Contact Block -->
+  <footer class="contact-footer">
+    <a href="mailto:sanjayprocapital@gmail.com" class="icon gmail" title="Email"></a>
+    <a href="https://x.com/sanjayprocapital" target="_blank" class="icon x" title="X"></a>
+    <a href="https://www.linkedin.com/in/sanjay-singh-pro" target="_blank" class="icon linkedin" title="LinkedIn"></a>
   </footer>
+
+  <script>
+    function updateISTClock() {
+      const now = new Date();
+      const istOffset = 5.5 * 60;
+      const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+      const istTime = new Date(utc + istOffset * 60000);
+      const timeString = istTime.toLocaleTimeString('en-IN', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      });
+      document.getElementById('ist-time').textContent = timeString;
+    }
+    setInterval(updateISTClock, 1000);
+    updateISTClock();
+  </script>
 </body>
 </html>
