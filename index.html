@@ -1,363 +1,292 @@
  <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sanjay Singh Pro Capital</title>
-  <meta name="description" content="Sanjay Singh Pro Capital — minimalist design, disciplined presence, professional clarity." />
   <style>
     :root {
-      --text: #000;
-      --muted: #666;
-      --bg: #fff;
-      --panel: #f5f5f5;
-      --accent: #004d40;
+      --bg: #0d0d0d;
+      --ink: #eaeaea;
+      --muted: #9a9a9a;
+      --line: #1d1d1d;
+      --accent: #c2a869; /* subtle gold, adjust if needed */
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      --pad: 16px;
+      --gap: 18px;
+      --rhythm: 28px;
+      --max: 860px;
     }
-
-    * {
-      box-sizing: border-box;
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); }
+    a { color: var(--ink); text-decoration: none; }
+    a:hover { color: var(--accent); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: calc(var(--pad)*1.25) var(--pad) 120px; }
+    h2, h3, h4 { margin: 0 0 8px; font-weight: 600; letter-spacing: 0.2px; }
+    p { margin: 0 0 var(--rhythm); line-height: 1.5; color: var(--ink); }
+    ul { margin: 0 0 var(--rhythm); padding-left: 18px; }
+    li { margin: 6px 0; }
+    .block { padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .about-heading { display: flex; justify-content: space-between; align-items: center; gap: var(--gap); padding: 8px 0 16px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+    .about-heading h2 { font-size: 18px; }
+    .icons { display: inline-flex; gap: 14px; align-items: center; }
+    .icon { display: inline-flex; width: 22px; height: 22px; }
+    .icon svg { width: 100%; height: 100%; display: block; }
+    .mono { font-family: var(--mono); color: var(--muted); font-size: 13px; }
+    .grid-2 { display: grid; gap: 22px; }
+    @media (min-width: 880px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; align-items: start; }
     }
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    .panel { padding: 14px; border: 1px solid var(--line); border-radius: 8px; }
+    .panel h4 { color: var(--muted); font-size: 13px; margin-bottom: 6px; }
+    .utility { display: grid; gap: 12px; }
+    .utility .tile { border: 1px solid var(--line); border-radius: 8px; padding: 12px; min-height: 84px; display: flex; align-items: center; justify-content: space-between; }
+    #ist-clock { font-family: var(--mono); font-size: 14px; }
+    #btc-chart { color: var(--muted); font-size: 13px; }
+    .visuals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .visuals img, .visuals svg { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; }
+    form { display: grid; gap: 10px; }
+    input, textarea, button {
+      background: transparent; color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font: inherit;
     }
-
-    .wrap {
-      padding: 20px;
-      max-width: 1100px;
-      margin: 0 auto;
+    textarea { min-height: 110px; resize: vertical; }
+    button { cursor: pointer; border-color: var(--accent); }
+    .ledger { display: grid; gap: 18px; }
+    .ledger .panel ul { margin: 8px 0 0; }
+    footer {
+      position: fixed; left: 0; right: 0; bottom: 0; background: rgba(13,13,13,0.92); backdrop-filter: saturate(120%) blur(4px);
+      border-top: 1px solid var(--line);
     }
-
-    /* Header */
-    .header {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .crypto-marks {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 36px;
-      margin-bottom: 10px;
-    }
-
-    .crypto-icon {
-      width: 30px;
-      height: 30px;
-      display: inline-block;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 28px;
-      letter-spacing: 0.5px;
-    }
-
-    h2 {
-      margin: 6px 0 0;
-      font-weight: 500;
-      font-size: 16px;
-      letter-spacing: 2px;
-    }
-
-    /* Grid */
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-    }
-
-    @media (max-width: 860px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .section h3 {
-      font-size: 14px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin: 0 0 10px;
-      color: var(--muted);
-    }
-
-    .section p {
-      line-height: 1.6;
-      margin: 0 0 14px;
-      max-width: 600px;
-    }
-
-    /* Contact icons (icon-only, verified Gmail) */
-    .contact-icons {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .contact-icons a {
-      display: inline-flex;
-      width: 24px;
-      height: 24px;
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .contact-icons a:hover {
-      opacity: 0.8;
-    }
-
-    /* Time block */
-    .time {
-      font-size: 30px;
-      font-weight: 700;
-    }
-
-    .time-label {
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 12px;
-      margin-bottom: 6px;
-    }
-
-    /* Chart block */
-    .chart-panel {
-      background: var(--panel);
-      border-radius: 6px;
-      padding: 10px;
-    }
-
-    .chart-meta {
-      font-size: 14px;
-      color: #111;
-      margin-bottom: 8px;
-    }
-
-    .chart-meta small {
-      color: var(--muted);
-    }
-
-    /* Buy/Sell block */
-    .buy-sell {
-      text-align: center;
-      margin: 24px 0 10px;
-    }
-
-    .buy-sell button {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 12px 22px;
-      font-size: 16px;
-      cursor: default;
-    }
-
-    /* Footer spacer (prevents any accidental overlap) */
-    .spacer {
-      height: 20px;
-    }
-  </style>
-
-  <style>
-    #pulse-dot {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      width: 10px;
-      height: 10px;
-      background-color: red;
-      border-radius: 50%;
-      box-shadow: 0 0 4px rgba(255, 0, 0, 0.6);
-      animation: pulse 1.5s infinite;
-      z-index: 999;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-
-      50% {
-        transform: scale(1.8);
-        opacity: 0.4;
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
+    .footer-inner { max-width: var(--max); margin: 0 auto; padding: 10px var(--pad); display: grid; gap: 6px; }
+    .foot-top, .foot-bottom { display: flex; align-items: center; }
+    .foot-top { justify-content: center; }
+    .foot-right { margin-left: auto; display: inline-flex; align-items: center; gap: 14px; }
+    .foot-right .mono { color: var(--ink); }
+    .copyright { color: var(--muted); font-size: 12px; }
+    .disclaimer { color: var(--muted); font-size: 12px; text-align: center; }
+    @media (max-width: 879px) {
+      .foot-top { flex-direction: column; gap: 8px; }
+      .foot-right { margin: 0 auto; }
+      .disclaimer { padding: 0 10px; }
     }
   </style>
 </head>
-
 <body>
-  <div id="pulse-dot"></div>
-
   <div class="wrap">
-    <!-- Banner -->
-    <div class="header">
-      <div class="crypto-marks" aria-hidden="true">
-        <!-- Bitcoin inline SVG -->
-        <svg class="crypto-icon" viewBox="0 0 24 24" role="img" aria-label="Bitcoin">
-          <circle cx="12" cy="12" r="11" fill="#F7931A"></circle>
-          <text x="12" y="16" text-anchor="middle" font-size="12" font-family="Arial" fill="#fff" font-weight="700">
-            B
-          </text>
-        </svg>
-        <!-- Ethereum inline SVG -->
-        <svg class="crypto-icon" viewBox="0 0 256 417" role="img" aria-label="Ethereum">
-          <polygon fill="#627EEA" points="127.9,0 124.3,12.4 124.3,279.1 127.9,282.7 255.8,208.5"></polygon>
-          <polygon fill="#627EEA" opacity="0.6" points="127.9,0 0,208.5 127.9,282.7 127.9,150.7"></polygon>
-          <polygon fill="#627EEA" opacity="0.6" points="127.9,305.5 125.8,307.9 125.8,414.4 127.9,416.5 255.9,231.5"></polygon>
-          <polygon fill="#627EEA" points="127.9,416.5 127.9,305.5 0,231.5"></polygon>
-        </svg>
-      </div>
-      <h1>SANJAY SINGH</h1>
-      <h2>PRO CAPITAL</h2>
-    </div>
 
-    <!-- Main grid -->
-    <div class="grid">
-      <!-- Left column -->
-      <div class="section">
-        <h3 style="display: flex; align-items: center; gap: 12px;">
-          About
-          <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" aria-label="LinkedIn"
-            style="display: inline-flex;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2">
-              <path
-                d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.6v2.2h.05c.5-1 1.75-2.2 3.6-2.2 3.85 0 4.55 2.5 4.55 5.8V24h-4v-8.2c0-2-.05-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.4V24h-4V8z"
-              />
-            </svg>
-          </a>
-          <a href="https://x.com/sanjau7709?t=6qoHpBsV_yuxF1OAWXOqyw&s=09" target="_blank" aria-label="X"
-            style="display: inline-flex;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#000000">
-              <path
-                d="M17.53 3H21L14.47 10.59L22.53 21H16.47L11.47 14.41L5.47 21H2L9.03 13.03L1.47 3H7.47L12.03 9.19L17.53 3Z"
-              />
-            </svg>
-          </a>
-        </h3>
-        <p>
-          I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined
-          presence, and professional clarity.
-        </p>
-        <p>
-          I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I
-          wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.
-        </p>
-
-        <div class="time-block" style="margin-top: 18px;">
-          <div class="time-label">India Standard Time</div>
-          <div id="istClock" class="time">--:--:--</div>
-        </div>
-      </div>
-
-      <!-- Right column -->
-      <div class="section">
-        <h3>Contact</h3>
-        <div class="contact-icons">
-          <!-- Verified Gmail only (no placeholders) -->
-          <a href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
-            <svg viewBox="0 0 24 24" width="24" height="24" role="img" aria-hidden="true">
-              <path fill="#D44638"
-                d="M12 12.713L0 4.5V19a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4.5l-12 8.213z"></path>
-              <path fill="#F1F1F1"
-                d="M24 4.5V5l-12 8-12-8v-.5A2 2 0 0 1 2 3h20a2 2 0 0 1 2 1.5z"></path>
-            </svg>
-          </a>
-          <!-- Add LinkedIn/X in Contact only if you want duplicates; About already shows verified profiles -->
-        </div>
-
-        <div class="chart-panel" style="margin-top: 22px;">
-          <h3 style="margin: 0 0 8px;">BTCUSD</h3>
-          <div class="chart-meta">
-            <div><small>Range:</small> 50,000 – 60,000</div>
-            <div><small>GAS:</small> 36.57</div>
-          </div>
-          <!-- TradingView Candlestick Chart -->
-          <div id="tv_chart_container" style="height: 320px;"></div>
-        </div>
+    <!-- About -->
+    <div class="about-heading">
+      <h2>About</h2>
+      <div class="icons" aria-label="Verified profiles">
+        <a class="icon" href="https://x.com/sanjau7709?t=gD3Dsh4jmplGaIbmi8YvnA&s=09" target="_blank" rel="noopener" aria-label="X profile">
+          <!-- Inline X icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M18.244 2H21l-6.53 7.46L22 22h-6.717l-5.26-6.78L3.78 22H1l7.02-8.02L2 2h6.803l4.74 6.18L18.244 2Zm-2.362 18h2.28L8.21 4h-2.3l9.97 16Z"/>
+          </svg>
+        </a>
+        <a class="icon" href="https://www.linkedin.com/in/sanjay-singh-8581b7379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+          <!-- Inline LinkedIn icon -->
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5 2.5 2.5 0 0 1 4.98 3.5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6v6.1h-4V16c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2V21H10z"/>
+          </svg>
+        </a>
       </div>
     </div>
 
-    <!-- Buy/Sell -->
-    <div class="buy-sell">
-      <button id="buySellButton">Buy Signal Active — BTC above 55,000</button>
-    </div>
+    <!-- Trading Psychology -->
+    <section class="block" aria-labelledby="psychology">
+      <h3 id="psychology">Trading Psychology</h3>
+      <p>I don’t chase price. I listen to it. If it’s in my zone, I act. If not, I wait.</p>
+      <p>Breakouts and breakdowns are noise. Zones are truth.</p>
+      <p>My setup speaks when the market is silent.</p>
+      <p>Time is rhythm, not urgency. 5:30 AM is a checkpoint, not a trigger.</p>
+      <p>I trade inside clarity, not outside emotion.</p>
 
-    <div class="spacer"></div>
+      <div class="grid-2">
+        <div class="panel">
+          <h4>Decision loop</h4>
+          <ul>
+            <li><strong>Observe:</strong> Price at 5:30 AM IST. Is it inside my zone?</li>
+            <li><strong>Align:</strong> If in‑zone, listen for setup. If outside, wait.</li>
+            <li><strong>Act:</strong> Execute only on confirmation. Fixed stop and target.</li>
+            <li><strong>Reflect:</strong> Log zone, setup, result, and one sentence of truth.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Zone logic</h4>
+          <ul>
+            <li>Zones from prior decision points—rejections, consolidations, fair‑value areas.</li>
+            <li>Setups: Wick rejection, Sweep‑return, Structure shift, Momentum candle.</li>
+            <li>Invalidation: Clean close beyond zone edge or time expiration without setup.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top: 14px;">
+        <div class="panel">
+          <h4>Execution discipline</h4>
+          <ul>
+            <li>Entry only inside zone, only on setup.</li>
+            <li>Stop beyond invalidation—never widened.</li>
+            <li>Target: next zone, key level, or session boundary.</li>
+            <li>Fixed risk per trade. No mid‑trade edits.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Daily rhythm</h4>
+          <ul>
+            <li><strong>Pre‑market:</strong> Draw zones. Define primary and secondary setups.</li>
+            <li><strong>5:30 AM IST:</strong> Check price. In‑zone? Setup forming?</li>
+            <li><strong>Execution window:</strong> Act if setup confirms. Else, stand down.</li>
+            <li><strong>Post‑trade:</strong> Log one sentence of truth. Archive the decision.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signals (no sheet embed, hook only) -->
+    <section class="block" aria-labelledby="signals">
+      <h3 id="signals">Live Signals</h3>
+      <div id="signal-block" class="panel mono">Waiting for signal...</div>
+      <!-- Hook: set SIG_ENDPOINT to your Apps Script JSON endpoint returning { signal, price, ts } -->
+      <script>
+        const SIG_ENDPOINT = ""; // add your verified endpoint when ready (leave empty to disable)
+        async function loadSignal() {
+          const el = document.getElementById('signal-block');
+          if (!SIG_ENDPOINT) { el.textContent = "Signals connected privately. No public sheet."; return; }
+          try {
+            const r = await fetch(SIG_ENDPOINT, { cache: "no-store" });
+            const j = await r.json();
+            el.innerHTML = Signal: ${j.signal} | Price: ${j.price} | ${new Date(j.ts).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })};
+          } catch(e) { el.textContent = "Signal unavailable."; }
+        }
+        loadSignal();
+      </script>
+    </section>
+
+    <!-- Utilities -->
+    <section class="block">
+      <div class="utility">
+        <div class="tile">
+          <div><strong>IST</strong></div>
+          <div id="ist-clock" aria-label="IST clock">--:--:--</div>
+        </div>
+        <div class="tile">
+          <div><strong>BTC</strong></div>
+          <div id="btc-chart" aria-label="BTC chart">Chart placeholder (kept minimal by design).</div>
+        </div>
+      </div>
+      <script>
+        function tickIST() {
+          const el = document.getElementById('ist-clock');
+          const now = new Date();
+          const fmt = now.toLocaleTimeString('en-IN', { hour12: false, timeZone: 'Asia/Kolkata' });
+          el.textContent = fmt;
+        }
+        tickIST(); setInterval(tickIST, 1000);
+      </script>
+    </section>
+
+    <!-- Visual Identity -->
+    <section class="block">
+      <div class="visuals" aria-label="Visual identity">
+        <!-- Replace these with your banked assets when ready -->
+        <svg viewBox="0 0 120 80" role="img" aria-label="Seal" focusable="false"><rect width="120" height="80" fill="none" stroke="currentColor"/></svg>
+        <svg viewBox="0 0 120 80" role="img" aria-label="Mug" focusable="false"><rect width="120" height="80" fill="none" stroke="currentColor"/></svg>
+        <svg viewBox="0 0 120 80" role="img" aria-label="Landscape" focusable="false"><rect width="120" height="80" fill="none" stroke="currentColor"/></svg>
+      </div>
+    </section>
+
+    <!-- Reach Out (kept functional, Gmail never exposed visually) -->
+    <section class="block">
+      <h3>Reach Out</h3>
+      <form method="POST" action="">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message..." required></textarea>
+        <input type="hidden" name="recipient" value="sanjayprocapital@gmail.com" />
+        <button type="submit" disabled>Send (backend locked until verified)</button>
+      </form>
+      <p class="mono">Backend connects privately via Apps Script once you provide the verified URL.</p>
+    </section>
+
+    <!-- Comment block -->
+    <section class="block">
+      <h3>Leave a Reflection</h3>
+      <form method="POST" action="">
+        <textarea name="comment" placeholder="Your thoughts, not reactions..." required></textarea>
+        <input type="hidden" name="recipient" value="sanjayprocapital@gmail.com" />
+        <button type="submit" disabled>Submit (backend locked until verified)</button>
+      </form>
+    </section>
+
+    <!-- Archive -->
+    <section class="block">
+      <h3>Archive</h3>
+      <div class="ledger">
+        <div class="panel">
+          <h4>Zones</h4>
+          <ul>
+            <li>Sep 2 — ₹97.2L–₹98.1L → Wick rejection → Short → +1.4%</li>
+            <li>Aug 28 — ₹95.5L–₹96.3L → Sweep‑return → Long → +2.1%</li>
+            <li>Aug 21 — ₹99.0L–₹99.8L → Structure shift → No trade → Outside zone</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Setups</h4>
+          <ul>
+            <li>Wick rejection → Valid only inside zone with clean defense</li>
+            <li>Sweep‑return → Must re‑enter zone with momentum</li>
+            <li>Structure shift → Confirmed only if HH/HL or LH/LL flips inside zone</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Reflections</h4>
+          <ul>
+            <li>“I waited. Price danced outside my zone. That was the win.”</li>
+            <li>“Setup spoke. I listened. No emotion, just execution.”</li>
+            <li>“I chased once. That cost me clarity. Never again.”</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
   </div>
 
-  <!-- TradingView script -->
-  <script src="https://s3.tradingview.com/tv.js"></script>
-  <script>
-    // IST clock (true timezone, no manual math)
-    function updateClock() {
-      const t = new Date().toLocaleTimeString('en-GB', {
-        hour12: false,
-        timeZone: 'Asia/Kolkata'
-      });
-      document.getElementById('istClock').textContent = t;
-    }
-    updateClock();
-    setInterval(updateClock, 1000);
-
-    // TradingView candlestick chart (no UI clutter)
-    if (window.TradingView) {
-      new TradingView.widget({
-        container_id: "tv_chart_container",
-        autosize: true,
-        symbol: "BTCUSD",
-        interval: "60",
-        timezone: "Asia/Kolkata",
-        theme: "light",
-        style: "1",
-        locale: "en",
-        hide_top_toolbar: true,
-        hide_legend: true,
-        allow_symbol_change: false,
-        save_image: false,
-        studies: []
-      });
-    }
-
-    // Google Sheet-controlled Buy/Sell signal (owned by sanjau7709@gmail.com)
-    // IMPORTANT: paste your published CSV link below (File → Share → Publish to web → CSV)
-    const SHEET_CSV = ""; // e.g., "https://docs.google.com/spreadsheets/d/e/XXXX/pub?output=csv"
-
-    async function updateBuySellSignal() {
-      const btn = document.getElementById('buySellButton');
-      if (!SHEET_CSV) {
-        return;
-      } // keep static text until you add your link
-      try {
-        const res = await fetch(SHEET_CSV + "&_=" + Date.now()); // cache-bust
-        const text = await res.text();
-        const firstCell = text.split(/\r?\n/)[0] || "";
-        if (firstCell.trim()) btn.textContent = firstCell.trim();
-      } catch (e) {
-        // stay quiet; keep last known/initial text
+  <!-- Footer: number + X + LinkedIn (right on desktop, centered on mobile) -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="foot-top">
+        <div class="foot-right">
+          <span id="contact-phone" class="mono"><!-- phone will render here --></span>
+          <a class="icon" href="https://x.com/sanjau7709?t=gD3Dsh4jmplGaIbmi8YvnA&s=09" target="_blank" rel="noopener" aria-label="X profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M18.244 2H21l-6.53 7.46L22 22h-6.717l-5.26-6.78L3.78 22H1l7.02-8.02L2 2h6.803l4.74 6.18L18.244 2Zm-2.362 18h2.28L8.21 4h-2.3l9.97 16Z"/>
+            </svg>
+          </a>
+          <a class="icon" href="https://www.linkedin.com/in/sanjay-singh-8581b7379?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5 2.5 2.5 0 0 1 4.98 3.5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-.9 1.8-1.8 3.7-1.8 4 0 4.7 2.6 4.7 6v6.1h-4V16c0-1.4 0-3.3-2-3.3-2 0-2.3 1.5-2.3 3.2V21H10z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-bottom" style="justify-content:center;">
+        <p class="disclaimer">Market content is for reflection, not advice. Trades carry risk. Protect your capital with discipline.</p>
+      </div>
+      <div class="foot-bottom" style="justify-content:center;">
+        <p class="copyright">© Sanjay Singh Pro Capital. All rights reserved.</p>
+      </div>
+    </div>
+    <script>
+      // Render phone only when you confirm the exact number.
+      const PHONE = ""; // e.g., "+91 98xxxxxx" — leave empty to avoid exposing wrong info
+      const phoneEl = document.getElementById('contact-phone');
+      if (PHONE) {
+        phoneEl.innerHTML = <a href="tel:${PHONE.replace(/\s+/g,'')}" class="mono">${PHONE}</a>;
       }
-    }
-    updateBuySellSignal();
-    // optional: refresh every 2 minutes
-    setInterval(updateBuySellSignal, 120000);
-  </script>
-
-  <!-- No extra HTML after this line. If you previously saw a green code panel,
-       it came from pasting code fences or duplicate <!DOCTYPE> inside content.
-       Replace the entire file with this one. -->
+    </script>
+  </footer>
 </body>
-
 </html>
