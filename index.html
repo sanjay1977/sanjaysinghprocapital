@@ -1,272 +1,363 @@
-<!doctype html>
+ <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sanjay Singh Pro Capital — Archive</title>
-  <meta name="description" content="A disciplined archive. Presence over performance. No Buy/Sell. No noise." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay Singh Pro Capital</title>
+  <meta name="description" content="Sanjay Singh Pro Capital — minimalist design, disciplined presence, professional clarity." />
   <style>
     :root {
-      --bg: #FFFFFF;
-      --text: #1A1A1A;
-      --muted: #666666;
-      --line: #E0E0E0;
-      --accent: #0047AB;
-      --radius: 8px;
-      --s1: 8px;
-      --s2: 16px;
-      --s3: 24px;
-      --s4: 40px;
-      --maxw: 880px;
+      --text: #000;
+      --muted: #666;
+      --bg: #fff;
+      --panel: #f5f5f5;
+      --accent: #004d40;
     }
 
-    html, body {
-      background: var(--bg);
-      color: var(--text);
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
       margin: 0;
       padding: 0;
-      font: 400 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
 
     .wrap {
-      max-width: var(--maxw);
+      padding: 20px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: var(--s4) var(--s3);
     }
 
-    .brand {
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .crypto-marks {
       display: flex;
-      align-items: center;
-      gap: var(--s2);
-      margin-bottom: var(--s3);
-    }
-
-    .seal {
-      width: 28px;
-      height: 28px;
-      border: 1px solid var(--line);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
       justify-content: center;
-      font-size: 11px;
-      letter-spacing: .08em;
-      color: var(--text);
-      user-select: none;
+      align-items: center;
+      gap: 36px;
+      margin-bottom: 10px;
     }
 
-    .wordmark {
-      font-weight: 600;
-      letter-spacing: .02em;
+    .crypto-icon {
+      width: 30px;
+      height: 30px;
+      display: inline-block;
     }
 
-    .lead {
-      margin: 0 0 var(--s4);
-      color: var(--muted);
-    }
-
-    .archive {
-      border-top: 1px solid var(--line);
-    }
-
-    .entry {
-      padding: var(--s3) 0;
-      border-bottom: 1px solid var(--line);
-      display: grid;
-      gap: var(--s1);
-    }
-
-    .entry h2 {
+    h1 {
       margin: 0;
-      font-size: 18px;
-      line-height: 1.4;
-      font-weight: 600;
-      letter-spacing: .01em;
+      font-size: 28px;
+      letter-spacing: 0.5px;
     }
 
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--s1) var(--s2);
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .tag {
-      padding: 2px 8px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-    }
-
-    .body {
-      margin-top: var(--s1);
-    }
-
-    .comments {
-      margin-top: var(--s4);
-      padding-top: var(--s3);
-      border-top: 1px solid var(--line);
-    }
-
-    .comments h3 {
-      margin: 0 0 var(--s2);
+    h2 {
+      margin: 6px 0 0;
+      font-weight: 500;
       font-size: 16px;
-      font-weight: 600;
+      letter-spacing: 2px;
     }
 
-    .comment-form {
-      display: grid;
-      gap: var(--s2);
-      max-width: 680px;
-    }
-
-    .comment-form textarea,
-    .comment-form input {
-      width: 100%;
-      padding: var(--s2);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #FFFFFF;
-      color: var(--text);
-      outline: none;
-    }
-
-    .comment-form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .comment-form textarea:focus,
-    .comment-form input:focus {
-      border-color: var(--accent);
-    }
-
-    .row {
+    /* Grid */
+    .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--s2);
+      gap: 36px;
     }
 
-    .btn {
-      justify-self: start;
-      background: var(--text);
-      color: #FFFFFF;
-      border: none;
-      padding: 10px 16px;
+    @media (max-width: 860px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section h3 {
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .section p {
+      line-height: 1.6;
+      margin: 0 0 14px;
+      max-width: 600px;
+    }
+
+    /* Contact icons (icon-only, verified Gmail) */
+    .contact-icons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-icons a {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-icons a:hover {
+      opacity: 0.8;
+    }
+
+    /* Time block */
+    .time {
+      font-size: 30px;
+      font-weight: 700;
+    }
+
+    .time-label {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+
+    /* Chart block */
+    .chart-panel {
+      background: var(--panel);
       border-radius: 6px;
-      cursor: pointer;
+      padding: 10px;
     }
 
-    .btn[disabled] {
-      opacity: .5;
+    .chart-meta {
+      font-size: 14px;
+      color: #111;
+      margin-bottom: 8px;
+    }
+
+    .chart-meta small {
+      color: var(--muted);
+    }
+
+    /* Buy/Sell block */
+    .buy-sell {
+      text-align: center;
+      margin: 24px 0 10px;
+    }
+
+    .buy-sell button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 22px;
+      font-size: 16px;
       cursor: default;
     }
 
-    .msg {
-      font-size: 14px;
-      color: var(--muted);
+    /* Footer spacer (prevents any accidental overlap) */
+    .spacer {
+      height: 20px;
+    }
+  </style>
+
+  <style>
+    #pulse-dot {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      box-shadow: 0 0 4px rgba(255, 0, 0, 0.6);
+      animation: pulse 1.5s infinite;
+      z-index: 999;
     }
 
-    footer {
-      margin-top: var(--s4);
-      padding-top: var(--s3);
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-grid {
-      display: grid;
-      gap: var(--s2);
-    }
-
-    .disclaimer,
-    .copyright {
-      margin: 0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .footbar {
-      display: flex;
-      align-items: flex-end;
-      gap: var(--s2);
-    }
-
-    .icons {
-      margin-left: auto;
-      display: flex;
-      gap: 14px;
-      justify-content: flex-end;
-      align-items: center;
-    }
-
-    .icon {
-      width: 22px;
-      height: 22px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text);
-    }
-
-    @media (min-width: 1024px) {
-      .wrap {
-        padding-left: 48px;
-        padding-right: 48px;
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
       }
 
-      .entry h2 {
-        font-size: 20px;
+      50% {
+        transform: scale(1.8);
+        opacity: 0.4;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
       }
     }
   </style>
 </head>
+
 <body>
-  <main class="wrap" aria-label="Archive">
-    <header class="brand">
-      <div class="seal">SS</div>
-      <div class="wordmark">Sanjay Singh Pro Capital</div>
-    </header>
+  <div id="pulse-dot"></div>
 
-    <p class="lead">Archive: a living ledger of zones, setups, reflections, decisions.</p>
+  <div class="wrap">
+    <!-- Banner -->
+    <div class="header">
+      <div class="crypto-marks" aria-hidden="true">
+        <!-- Bitcoin inline SVG -->
+        <svg class="crypto-icon" viewBox="0 0 24 24" role="img" aria-label="Bitcoin">
+          <circle cx="12" cy="12" r="11" fill="#F7931A"></circle>
+          <text x="12" y="16" text-anchor="middle" font-size="12" font-family="Arial" fill="#fff" font-weight="700">
+            B
+          </text>
+        </svg>
+        <!-- Ethereum inline SVG -->
+        <svg class="crypto-icon" viewBox="0 0 256 417" role="img" aria-label="Ethereum">
+          <polygon fill="#627EEA" points="127.9,0 124.3,12.4 124.3,279.1 127.9,282.7 255.8,208.5"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,0 0,208.5 127.9,282.7 127.9,150.7"></polygon>
+          <polygon fill="#627EEA" opacity="0.6" points="127.9,305.5 125.8,307.9 125.8,414.4 127.9,416.5 255.9,231.5"></polygon>
+          <polygon fill="#627EEA" points="127.9,416.5 127.9,305.5 0,231.5"></polygon>
+        </svg>
+      </div>
+      <h1>SANJAY SINGH</h1>
+      <h2>PRO CAPITAL</h2>
+    </div>
 
-    <section class="archive" id="archive">
-      <article class="entry">
-        <h2>Resisting impulse reactions</h2>
-        <div class="meta">
-          <span class="tag">Zone: Discipline</span>
-          <span class="tag">Setup: Observation</span>
-          <span class="tag">Decision: Deferred</span>
-        </div>
-        <div class="body">
-          <p>Deferred a trade in a volatile market to avoid acting on impulse, reaffirming the importance of patience.</p>
-        </div>
-      </article>
-    </section>
-
-    <section class="comments">
-      <h3>Comment or suggestion</h3>
-      <form id="commentForm" class="comment-form" novalidate>
-        <textarea id="cBody" name="body" placeholder="Reflection only. No reaction."></textarea>
-        <div class="row">
-          <input id="cName" name="name" type="text" placeholder="Name (optional)" />
-          <input id="cKey" name="key" type="text" placeholder="Ledger key (optional)" />
-        </div>
-        <button class="btn" id="cSubmit" type="submit">Add to ledger</button>
-        <div class="msg" id="cMsg" role="status" aria-live="polite"></div>
-      </form>
-    </section>
-
-    <footer>
-      <div class="footer-grid">
-        <p class="disclaimer">
-          This archive reflects disciplined presence. No Buy/Sell signals. No homepage logic. No IST clock.
-          All reflections are personal decisions, not financial advice.
+    <!-- Main grid -->
+    <div class="grid">
+      <!-- Left column -->
+      <div class="section">
+        <h3 style="display: flex; align-items: center; gap: 12px;">
+          About
+          <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" aria-label="LinkedIn"
+            style="display: inline-flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2">
+              <path
+                d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.6v2.2h.05c.5-1 1.75-2.2 3.6-2.2 3.85 0 4.55 2.5 4.55 5.8V24h-4v-8.2c0-2-.05-4.6-2.8-4.6-2.8 0-3.2 2.2-3.2 4.4V24h-4V8z"
+              />
+            </svg>
+          </a>
+          <a href="https://x.com/sanjau7709?t=6qoHpBsV_yuxF1OAWXOqyw&s=09" target="_blank" aria-label="X"
+            style="display: inline-flex;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#000000">
+              <path
+                d="M17.53 3H21L14.47 10.59L22.53 21H16.47L11.47 14.41L5.47 21H2L9.03 13.03L1.47 3H7.47L12.03 9.19L17.53 3Z"
+              />
+            </svg>
+          </a>
+        </h3>
+        <p>
+          I'm Sanjay Singh, founder of Sanjay Singh Pro Capital — a legacy brand built on minimalist design, disciplined
+          presence, and professional clarity.
         </p>
-        <div class="footbar">
-          <p class="copyright">
-            &copy; 2025 Sanjay Singh Pro Capital. All rights reserved.
-            For reflections, comments, or suggestions: <a href="mailto:sanjayprocapital@gmail.com" style="color:#0047AB;">sanjayprocapital@gmail.com</a>
-          </p>
-          <div class="icons">
-            <a class="icon" href="https://x.com/sanjau7709" aria-label="X profile">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18.3 2H21l-6.5 7.4L22 22h-6.9l-4.8-6.3L4.8 22H 
+        <p>
+          I trade crypto with patience and conviction, guided by timing, structure, and restraint. I don't chase momentum; I
+          wait for clarity. Every trade I take reflects intent, and every pause reflects discipline.
+        </p>
+
+        <div class="time-block" style="margin-top: 18px;">
+          <div class="time-label">India Standard Time</div>
+          <div id="istClock" class="time">--:--:--</div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="section">
+        <h3>Contact</h3>
+        <div class="contact-icons">
+          <!-- Verified Gmail only (no placeholders) -->
+          <a href="mailto:sanjayprocapital@gmail.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="24" height="24" role="img" aria-hidden="true">
+              <path fill="#D44638"
+                d="M12 12.713L0 4.5V19a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V4.5l-12 8.213z"></path>
+              <path fill="#F1F1F1"
+                d="M24 4.5V5l-12 8-12-8v-.5A2 2 0 0 1 2 3h20a2 2 0 0 1 2 1.5z"></path>
+            </svg>
+          </a>
+          <!-- Add LinkedIn/X in Contact only if you want duplicates; About already shows verified profiles -->
+        </div>
+
+        <div class="chart-panel" style="margin-top: 22px;">
+          <h3 style="margin: 0 0 8px;">BTCUSD</h3>
+          <div class="chart-meta">
+            <div><small>Range:</small> 50,000 – 60,000</div>
+            <div><small>GAS:</small> 36.57</div>
+          </div>
+          <!-- TradingView Candlestick Chart -->
+          <div id="tv_chart_container" style="height: 320px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buy/Sell -->
+    <div class="buy-sell">
+      <button id="buySellButton">Buy Signal Active — BTC above 55,000</button>
+    </div>
+
+    <div class="spacer"></div>
+  </div>
+
+  <!-- TradingView script -->
+  <script src="https://s3.tradingview.com/tv.js"></script>
+  <script>
+    // IST clock (true timezone, no manual math)
+    function updateClock() {
+      const t = new Date().toLocaleTimeString('en-GB', {
+        hour12: false,
+        timeZone: 'Asia/Kolkata'
+      });
+      document.getElementById('istClock').textContent = t;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // TradingView candlestick chart (no UI clutter)
+    if (window.TradingView) {
+      new TradingView.widget({
+        container_id: "tv_chart_container",
+        autosize: true,
+        symbol: "BTCUSD",
+        interval: "60",
+        timezone: "Asia/Kolkata",
+        theme: "light",
+        style: "1",
+        locale: "en",
+        hide_top_toolbar: true,
+        hide_legend: true,
+        allow_symbol_change: false,
+        save_image: false,
+        studies: []
+      });
+    }
+
+    // Google Sheet-controlled Buy/Sell signal (owned by sanjau7709@gmail.com)
+    // IMPORTANT: paste your published CSV link below (File → Share → Publish to web → CSV)
+    const SHEET_CSV = ""; // e.g., "https://docs.google.com/spreadsheets/d/e/XXXX/pub?output=csv"
+
+    async function updateBuySellSignal() {
+      const btn = document.getElementById('buySellButton');
+      if (!SHEET_CSV) {
+        return;
+      } // keep static text until you add your link
+      try {
+        const res = await fetch(SHEET_CSV + "&_=" + Date.now()); // cache-bust
+        const text = await res.text();
+        const firstCell = text.split(/\r?\n/)[0] || "";
+        if (firstCell.trim()) btn.textContent = firstCell.trim();
+      } catch (e) {
+        // stay quiet; keep last known/initial text
+      }
+    }
+    updateBuySellSignal();
+    // optional: refresh every 2 minutes
+    setInterval(updateBuySellSignal, 120000);
+  </script>
+
+  <!-- No extra HTML after this line. If you previously saw a green code panel,
+       it came from pasting code fences or duplicate <!DOCTYPE> inside content.
+       Replace the entire file with this one. -->
+</body>
+
+</html>
