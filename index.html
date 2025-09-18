@@ -2,141 +2,227 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sanjay Singh Pro Capital</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sanjay Singh – Pro Capital</title>
+  <meta name="description" content="A disciplined archive of structure, zones, and reflections. Presence over performance. Discipline over display." />
   <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #111;
+    :root{
+      --bg:#fafafa; --ink:#141414; --muted:#6a6a6a; --line:#e6e6e6; --card:#ffffff;
+      --space-1:8px; --space-2:14px; --space-3:22px; --space-4:34px; --radius:10px;
     }
-    header {
-      background: #001f3f;
-      color: #fff;
-      padding: 1rem;
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font:400 16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .wrap{max-width:860px;margin:0 auto;padding:24px}
+    header{padding:var(--space-3) 0 var(--space-2);border-bottom:1px solid var(--line)}
+    header h1{margin:0 0 6px;font-size:26px;letter-spacing:.2px}
+    header p{margin:0;color:var(--muted)}
+    .updated{margin-top:6px;color:var(--muted);font-size:.92rem}
+
+    section{margin:var(--space-4) 0}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--space-3)}
+    h2{margin:0 0 var(--space-2);font-size:18px;font-weight:600;letter-spacing:.2px}
+    .stack > * + *{margin-top:10px}
+    .list > * + *{margin-top:10px}
+    .views li{margin:6px 0}
+
+    .para{padding:12px;border:1px solid var(--line);border-radius:8px;background:#fff}
+
+    .ledger{display:grid;grid-template-columns:1fr;gap:14px}
+    .entry{border:1px solid var(--line);border-radius:10px;padding:14px;background:#fff}
+    .entry small{color:var(--muted)}
+    .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;margin-right:8px;font-size:.82rem;color:#444}
+
+    textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:8px;padding:12px;background:#fff;color:var(--ink)}
+    button.primary{margin-top:10px;background:#111;color:#fff;border:none;border-radius:8px;padding:10px 14px;cursor:pointer}
+    button.primary:disabled{opacity:.5;cursor:not-allowed}
+
+    footer{margin-top:var(--space-4);padding-top:var(--space-3);border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+    .icons{display:flex;gap:16px;margin-top:10px}
+    .icon{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid var(--line);border-radius:999px;color:#111;text-decoration:none}
+
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    @media (prefers-reduced-motion: reduce){
+      .reveal,.reveal.in{opacity:1;transform:none;transition:none}
     }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 1rem;
-    }
-    .block {
-      background: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
-      margin: 0.5rem;
-      width: 300px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .locker {
-      width: 100px;
-      height: 100px;
-      border: 2px dotted #ccc;
-      margin: 1rem auto;
-      position: relative;
-    }
-    .btc {
-      position: absolute;
-      width: 30px;
-      animation: dropIn 3s infinite;
-    }
-    @keyframes dropIn {
-      0% { top: -30px; opacity: 0; }
-      50% { top: 40px; opacity: 1; }
-      100% { top: 70px; opacity: 0; }
-    }
-    form textarea {
-      width: 100%;
-      height: 80px;
-      margin-top: 0.5rem;
-    }
-    form input[type="submit"] {
-      margin-top: 0.5rem;
-      padding: 0.5rem 1rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.8rem;
-      color: #666;
-      padding: 1rem;
-    }
-    .icons a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: #001f3f;
-    }
+
+    @media (max-width:640px){ .wrap{padding:18px} }
   </style>
 </head>
 <body>
+  <div class="wrap">
+    <header class="reveal in">
+      <h1>Sanjay Singh – Pro Capital</h1>
+      <p>Presence over performance. Discipline over display.</p>
+      <div class="updated">Updated: 18 Sept 2025</div>
+    </header>
 
-<header>
-  <h1>SANJAY SINGH</h1>
-  <p>PRO CAPITAL</p>
-</header>
+    <!-- All paragraphs first -->
+    <section aria-labelledby="all-paragraphs-title" class="reveal">
+      <div class="card">
+        <h2 id="all-paragraphs-title">All paragraphs</h2>
+        <div id="paragraphs" class="list"></div>
+      </div>
+    </section>
 
-<div class="container">
+    <!-- Views -->
+    <section aria-labelledby="views-title" class="reveal">
+      <div class="card">
+        <h2 id="views-title">Views</h2>
+        <ul class="views">
+          <li><strong>I no longer track setups.</strong> I observe structure.</li>
+          <li><strong>Zones are psychological.</strong> Not technical.</li>
+          <li><strong>Silence is part of my signal.</strong> Presence over reaction.</li>
+        </ul>
+      </div>
+    </section>
 
-  <div class="block">
-    <h3>ZONE REFLECTION BLOCK</h3>
-    <p><strong>I don't observe price—I observe structure.</strong></p>
-    <p>Zones are not levels—I observe structure. Not because the market moves. Logged: lift.</p>
+    <!-- Zone reflection -->
+    <section aria-labelledby="zone-title" class="reveal">
+      <div class="card stack">
+        <h2 id="zone-title">Zone reflection</h2>
+        <p>I do not observe price—I observe structure.</p>
+        <p class="logline">Zones are reflections. They do not react—they reveal. Logged: lift.</p>
+      </div>
+    </section>
+
+    <!-- Setup signal -->
+    <section aria-labelledby="signal-title" class="reveal">
+      <div class="card stack">
+        <h2 id="signal-title">Setup signal</h2>
+        <p>Signals are not triggers. They confirm clarity, not urgency.</p>
+        <p class="logline">I act only when structure aligns with intention. Logged: execution.</p>
+      </div>
+    </section>
+
+    <!-- Reflection ledger -->
+    <section aria-labelledby="ledger-title" class="reveal">
+      <div class="card">
+        <h2 id="ledger-title">Reflection ledger</h2>
+        <div class="ledger" id="ledger">
+          <article class="entry">
+            <div>
+              <span class="tag">Structure</span>
+              <span class="tag">Zone</span>
+            </div>
+            <p>Range compressed; intention steady. Reaction withheld.</p>
+            <small>Logged: lift • Session: morning</small>
+          </article>
+          <article class="entry">
+            <div>
+              <span class="tag">Signal</span>
+              <span class="tag">Execution</span>
+            </div>
+            <p>Confirmation appeared; action delayed until structure aligned.</p>
+            <small>Logged: execution • Context: post-breakout clarity</small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reflection input: local only -->
+    <section aria-labelledby="comment-title" class="reveal">
+      <div class="card">
+        <h2 id="comment-title">Reflection</h2>
+        <div class="stack">
+          <label for="reflection" class="sr-only">Enter your reflection</label>
+          <textarea id="reflection" placeholder="Enter your reflection..."></textarea>
+          <button class="primary" id="addReflection" type="button">Submit</button>
+          <div class="note" style="color:var(--muted);font-size:.9rem">Local only. Not uploaded. Cleared on refresh.</div>
+          <div id="reflections" aria-live="polite" class="stack"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal">
+      <p>This archive reflects disciplined observation. No financial advice.</p>
+      <p>&copy; 2025 Sanjay Singh Pro Capital. All rights reserved.</p>
+      <div class="icons">
+        <a class="icon" href="https://x.com/sanjau7709" target="_blank" rel="noopener">
+          <span class="sr-only">X (Twitter)</span>
+          <svg width="16" height="16" viewBox="0 0 1200 1227" aria-hidden="true">
+            <path d="M714 0h278L486 522l536 705H744L349 792 97 1227H-181L370 675-153 0H325L673 439 714 0z" fill="currentColor"/>
+          </svg>
+        </a>
+        <a class="icon" href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank" rel="noopener">
+          <span class="sr-only">LinkedIn</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zm7.5 0h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 4 0 4.7 2.6 4.7 6V24h-4v-6.6c0-1.6 0-3.7-2.3-3.7s-2.7 1.8-2.7 3.6V24h-4V8.5z"/>
+          </svg>
+        </a>
+      </div>
+    </footer>
   </div>
 
-  <div class="block">
-    <h3>SETUP SIGNAL BLOCK</h3>
-    <p><strong>Signals are not triggers. They're confirmations of clarity.</strong></p>
-    <p>I act only when structure aligns with intention. Not when the market moves. Logged: execution.</p>
-  </div>
+  <script>
+    // Source of truth: your paragraphs (shown first). Edit this array only.
+    var PARAGRAPHS = [
+      "Presence over performance. Discipline over display.",
+      "I do not observe price—I observe structure.",
+      "Zones are psychological reflections. They do not react—they reveal.",
+      "Signals are not triggers. They confirm clarity, not urgency.",
+      "I act only when structure aligns with intention.",
+      "Silence is part of my signal.",
+      "This archive reflects disciplined observation. No financial advice."
+    ];
 
-  <div class="block">
-    <h3>REFLECTION LEDGER BLOCK</h3>
-    <p><strong>Reflection is restoration.</strong></p>
-    <p>Logged outcomes. Not review. No compromise.</p>
-  </div>
+    // Render all paragraphs first
+    (function(){
+      var box=document.getElementById('paragraphs');
+      PARAGRAPHS.forEach(function(text){
+        var p=document.createElement('div');
+        p.className='para';
+        p.textContent=text;
+        box.appendChild(p);
+      });
+    })();
 
-  <div class="block">
-    <h3>PSYCHOLOGY INTERNAL PHILOSOPHY</h3>
-    <p><strong>I don't chase markets. I don't chase attention.</strong></p>
-    <p>My archive is a mirror. It reflects my clarity. Presence over performance.</p>
-  </div>
+    // Silent reveal
+    (function(){
+      var els=[].slice.call(document.querySelectorAll('.reveal'));
+      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        els.forEach(function(el){el.classList.add('in');});
+        return;
+      }
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      },{threshold:0.06});
+      els.forEach(function(el){ io.observe(el); });
+    })();
 
-  <div class="block">
-    <h3>VIEWS</h3>
-    <p>🗓️ Updated: 18 Sept 2025</p>
-    <ul>
-      <li>I no longer track setups. I observe structure.</li>
-      <li>Zones are psychological, not technical.</li>
-      <li>Silence is part of my signal.</li>
-    </ul>
-    <small>Privately linked to: sanjau7709@gmail.com</small>
-  </div>
+    // Local-only reflections (no network)
+    (function(){
+      var input=document.getElementById('reflection');
+      var btn=document.getElementById('addReflection');
+      var list=document.getElementById('reflections');
 
-  <div class="block">
-    <h3>COMMENT BOX</h3>
-    <form action="mailto:sanjayprocapital@gmail.com" method="POST" enctype="text/plain">
-      <textarea name="comment" placeholder="Enter your reflection..."></textarea>
-      <input type="submit" value="Submit">
-    </form>
-  </div>
+      function add(text){
+        var a=document.createElement('article');
+        a.className='entry';
+        var p=document.createElement('p'); p.textContent=text;
+        var s=document.createElement('small'); s.textContent='Local log • not stored';
+        a.appendChild(p); a.appendChild(s);
+        list.prepend(a);
+      }
 
-  <div class="locker">
-    <img src="bitcoin-icon.png" alt="Bitcoin" class="btc" />
-  </div>
+      btn.addEventListener('click', function(){
+        var v=(input.value||'').trim();
+        if(!v) return;
+        add(v);
+        input.value='';
+        input.focus();
+      });
 
-</div>
+      input.addEventListener('keydown', function(e){
+        if((e.metaKey||e.ctrlKey) && e.key==='Enter'){ btn.click(); }
+      });
+    })();
 
-<footer>
-  <p>This archive reflects disciplined observation. No financial advice.</p>
-  <div class="icons">
-    <a href="https://x.com/sanjau7709" target="_blank">X</a>
-    <a href="https://www.linkedin.com/in/sanjay-singh-8581b7379" target="_blank">LinkedIn</a>
-  </div>
-</footer>
-
+    // Contact email kept internal only (not displayed)
+    const contactEmail = "sanjayprocapital@gmail.com";
+  </script>
 </body>
 </html>
